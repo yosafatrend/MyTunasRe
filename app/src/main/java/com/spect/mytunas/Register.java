@@ -7,37 +7,29 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class Register extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Button btn = (Button) findViewById(R.id.button);
-        Button btn1 = (Button) findViewById(R.id.button1);
+        setContentView(R.layout.activity_register);
+        Button btn = (Button) findViewById(R.id.login);
+        Button btn1 = (Button) findViewById(R.id.login1);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,
-                       Login.class);
+                Intent intent = new Intent(Register.this,
+                        Login.class);
                 startActivity(intent);
             }
         });
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,
-                        Register.class);
+                Intent intent = new Intent(Register.this,
+                       Login.class);
                 startActivity(intent);
             }
         });
     }
 }
-
-        //tes saya
-
-        //tes te piaaa
-        //tesdua
-        //tes apin
-        //tessssenggar
-
