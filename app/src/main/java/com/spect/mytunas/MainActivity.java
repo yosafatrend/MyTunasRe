@@ -12,5 +12,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //tes saya
+
+        //tes te piaaa
+        //tesdua
+        //tes apin
+        //tessssenggar
     }
 }
