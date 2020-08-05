@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context=".RegisterFragment">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:padding="16sp"
         android:layout_width="match_parent"
@@ -19,6 +23,8 @@
             android:fontFamily="@font/opensansergular"
             android:text="Already registered?"
             android:textSize="15dp"
+            app:layout_constraintEnd_toEndOf="@+id/register4"
+            app:layout_constraintHorizontal_bias="0.359"
             app:layout_constraintStart_toStartOf="@+id/register4"
             app:layout_constraintTop_toBottomOf="@+id/register4" />
 
@@ -26,10 +32,10 @@
             android:id="@+id/textViewLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="7dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/opensansergular"
-            android:text="LOGIN"
+            android:text="Login"
             android:textColor="@color/colorPrimary"
             android:textSize="15dp"
             android:textStyle="bold"
@@ -67,7 +73,7 @@
             android:id="@+id/editText5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:drawableLeft="@drawable/ic_person_black_24dp"
             android:drawablePadding="10dp"
             android:fontFamily="@font/opensansergular"
@@ -80,7 +86,7 @@
             android:id="@+id/editText6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
             android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
             android:drawablePadding="10dp"
             android:fontFamily="@font/opensansergular"
@@ -91,4 +97,5 @@
             app:layout_constraintTop_toBottomOf="@+id/editText5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </FrameLayout>
