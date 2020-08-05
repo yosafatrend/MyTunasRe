@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Button btn = (Button) findViewById(R.id.button);
-        Button btn1 = (Button) findViewById(R.id.button1);
 
        FirebaseDatabase database = FirebaseDatabase.getInstance();
        final DatabaseReference reference = database.getReference();
@@ -50,25 +49,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,
-                       Login.class);
-                startActivity(intent);
-            }
-        });
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,
-                        Register.class);
+                       Main2Activity.class);
                 startActivity(intent);
             }
         });
     }
 }
-
-        //tes saya
-
-        //tes te piaaa
-        //tesdua
-        //tes apin
-        //tessssenggar
 
