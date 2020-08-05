@@ -5,9 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -20,13 +22,12 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
    private DatabaseReference Siswa;
+   private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button btn = (Button) findViewById(R.id.button);
-        Button btn1 = (Button) findViewById(R.id.button1);
 
        FirebaseDatabase database = FirebaseDatabase.getInstance();
        final DatabaseReference reference = database.getReference();
@@ -44,24 +45,21 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 });
-
-
-        btn.setOnClickListener(new View.OnClickListener() {
+        init();
+        progressBar.setVisibility(View.VISIBLE);
+        new Handler().postDelayed(new Runnable() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,
-                       Login.class);
+            public void run() {
+                progressBar.setVisibility(View.GONE);
+                Intent intent = new Intent(getApplicationContext(),Login.class);
                 startActivity(intent);
             }
-        });
-        btn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,
-                        Register.class);
-                startActivity(intent);
-            }
-        });
+        }, 2000);
+    }
+
+    private void init(){
+        this.progressBar = findViewById(R.id.progressBar);
+
     }
 }
 
