@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "965029411325-s3jc86bu374gsf82r4crd9fs2ndtchbl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.spect.mytunas",
+            "certificate_hash": "e8ca6bb508f43ddc0ad3733a4417ee5360ca2bd3"
+          }
+        },
+        {
           "client_id": "965029411325-h2jfrgu58uhkpe1fv03tv4r4uqt1lsrv.apps.googleusercontent.com",
           "client_type": 3
         }

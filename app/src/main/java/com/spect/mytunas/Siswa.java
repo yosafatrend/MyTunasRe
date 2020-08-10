@@ -4,14 +4,24 @@ class Siswa {
     private String nis;
     private String nama_lengkap;
     private String password;
+    private String email;
 
     public Siswa() {
     }
 
-    public Siswa(String nis, String nama_lengkap, String password) {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Siswa(String nis, String nama_lengkap, String password, String email) {
         this.nis = nis;
         this.nama_lengkap = nama_lengkap;
         this.password = password;
+        this.email = email;
     }
 
     public String getNis() {

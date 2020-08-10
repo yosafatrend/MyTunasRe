@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".RegisterFragment">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminateDrawable="@drawable/stylepb"
+        android:indeterminateDuration="@android:integer/config_mediumAnimTime"
+        android:visibility="visible" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -23,10 +31,10 @@
             android:fontFamily="@font/opensansergular"
             android:text="Already registered?"
             android:textSize="15dp"
-            app:layout_constraintEnd_toEndOf="@+id/register4"
+            app:layout_constraintEnd_toEndOf="@+id/btnRegist"
             app:layout_constraintHorizontal_bias="0.359"
-            app:layout_constraintStart_toStartOf="@+id/register4"
-            app:layout_constraintTop_toBottomOf="@+id/register4" />
+            app:layout_constraintStart_toStartOf="@+id/btnRegist"
+            app:layout_constraintTop_toBottomOf="@+id/btnRegist" />
 
         <TextView
             android:id="@+id/textViewLogin"
@@ -40,10 +48,10 @@
             android:textSize="15dp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/register4" />
+            app:layout_constraintTop_toBottomOf="@+id/btnRegist" />
 
         <Button
-            android:id="@+id/register4"
+            android:id="@+id/btnRegist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -51,12 +59,12 @@
             android:fontFamily="@font/opensansbold"
             android:text="REGISTER"
             android:textColor="#fff"
-            app:layout_constraintEnd_toEndOf="@+id/editText6"
-            app:layout_constraintStart_toStartOf="@+id/editText6"
-            app:layout_constraintTop_toBottomOf="@+id/editText6" />
+            app:layout_constraintEnd_toEndOf="@+id/edtPass"
+            app:layout_constraintStart_toStartOf="@+id/edtPass"
+            app:layout_constraintTop_toBottomOf="@+id/edtPass" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/edtNis"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -70,7 +78,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/editText5"
+            android:id="@+id/edtNama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -78,12 +86,26 @@
             android:drawablePadding="10dp"
             android:fontFamily="@font/opensansergular"
             android:hint="Nama Lengkap"
-            app:layout_constraintEnd_toEndOf="@+id/editText"
-            app:layout_constraintStart_toStartOf="@+id/editText"
-            app:layout_constraintTop_toBottomOf="@+id/editText" />
+            app:layout_constraintEnd_toEndOf="@+id/edtNis"
+            app:layout_constraintStart_toStartOf="@+id/edtNis"
+            app:layout_constraintTop_toBottomOf="@+id/edtNis" />
 
         <EditText
-            android:id="@+id/editText6"
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:drawableLeft="@drawable/ic_email_black_24dp"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/opensansergular"
+            android:hint="Email"
+            app:layout_constraintEnd_toEndOf="@+id/edtNama"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/edtNama"
+            app:layout_constraintTop_toBottomOf="@+id/edtNama" />
+
+        <EditText
+            android:id="@+id/edtPass"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
@@ -92,9 +114,10 @@
             android:fontFamily="@font/opensansergular"
             android:hint="Buat Password"
             android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="@+id/editText5"
-            app:layout_constraintStart_toStartOf="@+id/editText5"
-            app:layout_constraintTop_toBottomOf="@+id/editText5" />
+            app:layout_constraintEnd_toEndOf="@+id/edtEmail"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/edtEmail"
+            app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
