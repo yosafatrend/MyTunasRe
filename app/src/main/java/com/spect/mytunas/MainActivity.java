@@ -51,9 +51,9 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                progressBar.setVisibility(View.GONE);
                 Intent intent = new Intent(getApplicationContext(),Main2Activity.class);
                 startActivity(intent);
+                finish();
             }
         }, 2000);
     }

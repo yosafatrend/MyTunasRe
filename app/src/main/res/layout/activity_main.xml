@@ -28,7 +28,6 @@
     <ProgressBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:indeterminateDrawable="@drawable/stylepb"
         android:indeterminateDuration="@android:integer/config_mediumAnimTime"
         android:id="@+id/progressBar"
