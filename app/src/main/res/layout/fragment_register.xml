@@ -18,107 +18,143 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:padding="16sp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/opensansergular"
-            android:text="Already registered?"
-            android:textSize="15dp"
-            app:layout_constraintEnd_toEndOf="@+id/btnRegist"
-            app:layout_constraintHorizontal_bias="0.359"
-            app:layout_constraintStart_toStartOf="@+id/btnRegist"
-            app:layout_constraintTop_toBottomOf="@+id/btnRegist" />
-
-        <TextView
-            android:id="@+id/textViewLogin"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/opensansergular"
-            android:text="Login"
-            android:textColor="@color/colorPrimary"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/textView3"
-            app:layout_constraintTop_toBottomOf="@+id/btnRegist" />
-
-        <Button
-            android:id="@+id/btnRegist"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/custombutton"
-            android:fontFamily="@font/opensansbold"
-            android:text="REGISTER"
-            android:textColor="#fff"
-            app:layout_constraintEnd_toEndOf="@+id/edtPass"
-            app:layout_constraintStart_toStartOf="@+id/edtPass"
-            app:layout_constraintTop_toBottomOf="@+id/edtPass" />
+            android:layout_height="match_parent"
+            android:padding="14dp">
 
-        <EditText
-            android:id="@+id/edtNis"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:drawableLeft="@drawable/ic_person_pin_black_24dp"
-            android:drawablePadding="10dp"
-            android:fontFamily="@font/opensansergular"
-            android:hint="Nomor Induk Siswa"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/opensansergular"
+                android:text="Already registered?"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="@+id/btnRegist"
+                app:layout_constraintHorizontal_bias="0.359"
+                app:layout_constraintStart_toStartOf="@+id/btnRegist"
+                app:layout_constraintTop_toBottomOf="@+id/btnRegist" />
 
-        <EditText
-            android:id="@+id/edtNama"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:drawableLeft="@drawable/ic_person_black_24dp"
-            android:drawablePadding="10dp"
-            android:fontFamily="@font/opensansergular"
-            android:hint="Nama Lengkap"
-            app:layout_constraintEnd_toEndOf="@+id/edtNis"
-            app:layout_constraintStart_toStartOf="@+id/edtNis"
-            app:layout_constraintTop_toBottomOf="@+id/edtNis" />
+            <TextView
+                android:id="@+id/textViewLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/opensansergular"
+                android:text="Login"
+                android:textColor="@color/colorPrimary"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/textView3"
+                app:layout_constraintTop_toBottomOf="@+id/btnRegist" />
 
-        <EditText
-            android:id="@+id/edtEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:drawableLeft="@drawable/ic_email_black_24dp"
-            android:drawablePadding="10dp"
-            android:fontFamily="@font/opensansergular"
-            android:hint="Email"
-            app:layout_constraintEnd_toEndOf="@+id/edtNama"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/edtNama"
-            app:layout_constraintTop_toBottomOf="@+id/edtNama" />
+            <Button
+                android:id="@+id/btnRegist"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/custombutton"
+                android:fontFamily="@font/opensansbold"
+                android:text="REGISTER"
+                android:textColor="#fff"
+                app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/linearLayout"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
-        <EditText
-            android:id="@+id/edtPass"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:drawableLeft="@drawable/ic_vpn_key_black_24dp"
-            android:drawablePadding="10dp"
-            android:fontFamily="@font/opensansergular"
-            android:hint="Buat Password"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="@+id/edtEmail"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/edtEmail"
-            app:layout_constraintTop_toBottomOf="@+id/edtEmail" />
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edtNisLog"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtNis"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/opensansergular"
+                        android:hint="NIS"
+                        android:inputType="number" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edtNamaLog"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="@+id/edtNisLog"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edtNisLog">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtNama"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/opensansergular"
+                        android:hint="Nama Lengkap"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edtEmailLog"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="@+id/edtNisLog"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edtNamaLog">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/opensansergular"
+                        android:hint="Email"
+                        android:inputType="textEmailAddress" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/edtPassLog"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    app:errorEnabled="true"
+                    app:layout_constraintEnd_toEndOf="@+id/edtNisLog"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/edtEmailLog"
+                    app:passwordToggleEnabled="true">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edtPass"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:fontFamily="@font/opensansergular"
+                        android:hint="Buat Password"
+                        android:inputType="textPassword" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </FrameLayout>

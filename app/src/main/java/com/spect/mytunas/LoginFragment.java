@@ -18,11 +18,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginFragment extends Fragment {
-    private EditText edtEmail, edtPass;
+    private TextInputEditText edtEmail, edtPass;
     private Button btnLogin;
     ProgressBar progressBar;
     FirebaseAuth mAuth;
@@ -38,8 +39,8 @@ public class LoginFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_login, container, false);
 
-        edtEmail = v.findViewById(R.id.edtEmailLog);
-        edtPass = v.findViewById(R.id.edtPassLog);
+        edtEmail = v.findViewById(R.id.edtEmail);
+        edtPass = v.findViewById(R.id.edtPass);
         btnLogin = v.findViewById(R.id.btnLogin);
         mAuth = FirebaseAuth.getInstance();
         progressBar = v.findViewById(R.id.progressBar);
