@@ -22,6 +22,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -124,9 +125,16 @@ public class RegisterFragment extends Fragment {
                             .setValue(siswa).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
+                            FirebaseUser user = mAuth.getCurrentUser();
                             progressBar.setVisibility(View.GONE);
                             if (task.isSuccessful()) {
                                 Toast.makeText(getActivity(), "Registration success", Toast.LENGTH_SHORT).show();
+                                user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+
+                                    }
+                                });
                             } else {
                                 if (task.getException() instanceof FirebaseAuthUserCollisionException){
                                     Toast.makeText(getActivity(), "Anda telah terdaftar", Toast.LENGTH_SHORT).show();

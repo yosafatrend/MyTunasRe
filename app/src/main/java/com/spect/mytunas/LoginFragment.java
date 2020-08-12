@@ -1,7 +1,10 @@
 package com.spect.mytunas;
 
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,6 +25,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class LoginFragment extends Fragment {
     private TextInputEditText edtEmail, edtPass;
@@ -81,15 +86,35 @@ public class LoginFragment extends Fragment {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressBar.setVisibility(View.GONE);
+                FirebaseUser user = mAuth.getCurrentUser();
+
                 if (task.isSuccessful()){
-                    Toast.makeText(getActivity(), "Login Berhasil", Toast.LENGTH_SHORT);
-                    Intent intent = new Intent(getActivity(), HomeActivity.class);
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
+                    if (user.isEmailVerified()){
+                        getActivity().finish();
+                        Toast.makeText(getActivity(), "Login Berhasil", Toast.LENGTH_SHORT);
+                        Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }else{
+
+                        Toast.makeText(getActivity(), "email is not verified", Toast.LENGTH_SHORT).show();
+                    }
+
                 }else{
                     Toast.makeText(getActivity(), "Akun belum terdaftar", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+
+
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (mAuth.getCurrentUser()!= null){
+            getActivity().finish();
+            startActivity(new Intent(getActivity(),ProfileActivity.class));
+        }
     }
 }
