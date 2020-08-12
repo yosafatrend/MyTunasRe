@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/mytunas"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivity"></activity>
+        <activity android:name=".HomeActivity"
+            android:noHistory="true"></activity>
         <activity
             android:name=".Main2Activity"
             android:screenOrientation="portrait"
