@@ -22,7 +22,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-public class Main2Activity extends AppCompatActivity {
+public class AuthActivity extends AppCompatActivity {
     TextInputEditText edtNis, edtPass, edtNama;
     Button btnRegist;
     private DatabaseReference Siswa;

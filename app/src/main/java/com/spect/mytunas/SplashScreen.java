@@ -6,9 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -18,9 +16,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity {
+public class SplashScreen extends AppCompatActivity {
     private DatabaseReference Siswa;
     private ProgressBar progressBar;
 
@@ -37,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         String nis = snapshot.child("nis").getValue().toString();
-                        Toast.makeText(MainActivity.this, "Berhasil " + nis, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SplashScreen.this, "Berhasil " + nis, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -51,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(getApplicationContext(),Main2Activity.class);
+                Intent intent = new Intent(getApplicationContext(), AuthActivity.class);
                 startActivity(intent);
                 finish();
             }

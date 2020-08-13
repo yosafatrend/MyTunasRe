@@ -2,8 +2,10 @@ package com.spect.mytunas;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -19,6 +21,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.storage.FirebaseStorage;
@@ -41,6 +44,8 @@ public class ProfileActivity extends AppCompatActivity {
     String profileImageUrl;
     FirebaseAuth mAuth;
 
+    FirebaseUser user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,8 +56,40 @@ public class ProfileActivity extends AppCompatActivity {
         imageVew = findViewById(R.id.imageView);
         editText = findViewById(R.id.editText);
 
+        user = mAuth.getCurrentUser();
+        if (user.isEmailVerified()) {
+            Toast.makeText(this, "email is verified", Toast.LENGTH_SHORT).show();
+        } else {
+            AlertDialog dialog = new AlertDialog.Builder(ProfileActivity.this)
+                    .setTitle("Email Verification")
+                    .setMessage("Email belum diverifikasi, silahkan verifikasi terlebih dahulu. Belum menerima email?")
+                    .setNegativeButton("Udah kok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+                    })
+                    .setPositiveButton("Kirim Ulang", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int whichButton) {
+                            user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(getApplicationContext(), "Email berhasil dikirim", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                        }
+                    }).create();
+            dialog.show();
+        }
+
+
         progressBar = findViewById(R.id.progressBar);
         loadUserInformation();
+
         imageVew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -61,7 +98,6 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
-
 
 
         findViewById(R.id.buttonsave).setOnClickListener(new View.OnClickListener() {
@@ -75,19 +111,19 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        if (mAuth.getCurrentUser()== null){
-            finish();
-            startActivity(new Intent(this,ProfileActivity.class));
-        }
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        if (mAuth.getCurrentUser() == null) {
+//            finish();
+//            startActivity(new Intent(this, ProfileActivity.class));
+//        }
+//    }
 
     private void loadUserInformation() {
 
         FirebaseUser user = mAuth.getCurrentUser();
-        if (user!= null) {
+        if (user != null) {
             if (user.getPhotoUrl() != null) {
                 Toast.makeText(this, user.getPhotoUrl().toString(), Toast.LENGTH_SHORT).show();
                 Glide.with(this)
@@ -103,7 +139,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void saveUserInformation() {
         String displayame = editText.getText().toString();
-        if (displayame.isEmpty()){
+        if (displayame.isEmpty()) {
             editText.setError("nama tidak boleh kosong");
             editText.requestFocus();
             return;
@@ -111,7 +147,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         FirebaseUser user = mAuth.getCurrentUser();
 
-        if (user!= null){
+        if (user != null) {
             progressBar.setVisibility(View.VISIBLE);
             UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
                     .setDisplayName(displayame)
@@ -122,7 +158,7 @@ public class ProfileActivity extends AppCompatActivity {
                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()){
+                            if (task.isSuccessful()) {
                                 progressBar.setVisibility(View.GONE);
                                 Toast.makeText(ProfileActivity.this, "update sukses", Toast.LENGTH_SHORT).show();
                             }
@@ -149,8 +185,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     private void uploadImageToFirebaseStorage() {
         StorageReference profileImageRef =
-                FirebaseStorage.getInstance().getReference("PhotoProfile/"+System.currentTimeMillis()+".jpg");
-        if (uriProfileImage!=null){
+                FirebaseStorage.getInstance().getReference("PhotoProfile/" + System.currentTimeMillis() + ".jpg");
+        if (uriProfileImage != null) {
             progressBar.setVisibility(View.VISIBLE);
             profileImageRef.putFile(uriProfileImage)
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -174,7 +210,6 @@ public class ProfileActivity extends AppCompatActivity {
         android.content.Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(android.content.Intent.createChooser(intent,"Pilih foto profile"), CHOOSE_IMAGE);
+        startActivityForResult(android.content.Intent.createChooser(intent, "Pilih foto profile"), CHOOSE_IMAGE);
     }
-
 }

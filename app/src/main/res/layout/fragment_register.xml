@@ -88,9 +88,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/opensansergular"
+                        android:fontFamily="@font/opensanslight"
                         android:hint="NIS"
-                        android:inputType="number" />
+                        android:inputType="number"
+                        android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -108,9 +109,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/opensansergular"
+                        android:fontFamily="@font/opensanslight"
                         android:hint="Nama Lengkap"
-                        android:inputType="text" />
+                        android:inputType="text"
+                        android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -128,9 +130,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/opensansergular"
+                        android:fontFamily="@font/opensanslight"
                         android:hint="Email"
-                        android:inputType="textEmailAddress" />
+                        android:inputType="textEmailAddress"
+                        android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -149,9 +152,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/opensansergular"
+                        android:fontFamily="@font/opensanslight"
                         android:hint="Buat Password"
-                        android:inputType="textPassword" />
+                        android:inputType="textPassword"
+                        android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
             </LinearLayout>
 

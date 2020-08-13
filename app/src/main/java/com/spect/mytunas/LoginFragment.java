@@ -89,21 +89,17 @@ public class LoginFragment extends Fragment {
                 FirebaseUser user = mAuth.getCurrentUser();
 
                 if (task.isSuccessful()){
-                    if (user.isEmailVerified()){
-                        getActivity().finish();
-                        Toast.makeText(getActivity(), "Login Berhasil", Toast.LENGTH_SHORT);
-                        Intent intent = new Intent(getActivity(), ProfileActivity.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
-                    }else{
-
-                        Toast.makeText(getActivity(), "email is not verified", Toast.LENGTH_SHORT).show();
-                    }
+                    Toast.makeText(getActivity(), "Login Berhasil", Toast.LENGTH_SHORT);
+                    Intent intent = new Intent(getActivity(), ProfileActivity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    startActivity(intent);
+                    getActivity().finish();
 
                 }else{
                     Toast.makeText(getActivity(), "Akun belum terdaftar", Toast.LENGTH_SHORT).show();
                 }
             }
+
         });
 
 
@@ -117,4 +113,5 @@ public class LoginFragment extends Fragment {
             startActivity(new Intent(getActivity(),ProfileActivity.class));
         }
     }
+
 }

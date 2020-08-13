@@ -10,16 +10,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Main2Activity"
+            android:name=".AuthActivity"
             android:label="home"></activity>
         <activity android:name=".VerifDialog" />
         <activity android:name=".ProfileActivity" />
         <activity
-            android:name=".Main3Activity"
+            android:name=".DashboardActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

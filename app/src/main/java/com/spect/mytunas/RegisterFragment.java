@@ -9,7 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -70,7 +69,7 @@ public class RegisterFragment extends Fragment {
     public void onStart() {
         super.onStart();
         if (mAuth.getCurrentUser() != null){
-            Intent intent = new Intent(getActivity(), Main3Activity.class);
+            Intent intent = new Intent(getActivity(), DashboardActivity.class);
             Toast.makeText(getActivity(), "Anda sudah login", Toast.LENGTH_SHORT).show();
             startActivity(intent);
             getActivity().finish();
