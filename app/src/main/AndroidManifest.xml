@@ -9,13 +9,13 @@
         android:roundIcon="@drawable/mytunas"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VerifDialog"></activity>
-        <activity android:name=".ProfileActivity" />
-        <activity
-            android:name=".HomeActivity"
-            android:noHistory="true" />
         <activity
             android:name=".Main2Activity"
+            android:label="home"></activity>
+        <activity android:name=".VerifDialog" />
+        <activity android:name=".ProfileActivity" />
+        <activity
+            android:name=".Main3Activity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity

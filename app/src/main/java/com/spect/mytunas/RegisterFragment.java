@@ -70,7 +70,7 @@ public class RegisterFragment extends Fragment {
     public void onStart() {
         super.onStart();
         if (mAuth.getCurrentUser() != null){
-            Intent intent = new Intent(getActivity(), HomeActivity.class);
+            Intent intent = new Intent(getActivity(), Main3Activity.class);
             Toast.makeText(getActivity(), "Anda sudah login", Toast.LENGTH_SHORT).show();
             startActivity(intent);
             getActivity().finish();
