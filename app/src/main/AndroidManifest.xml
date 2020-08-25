@@ -11,8 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".AuthActivity"
-            android:label="home"></activity>
-        <activity android:name=".VerifDialog" />
+            android:label="home" />
         <activity android:name=".ProfileActivity" />
         <activity
             android:name=".DashboardActivity"
