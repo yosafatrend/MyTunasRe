@@ -5,21 +5,20 @@
         android:id="@+id/navigation_news"
         android:icon="@drawable/ic_view_news_black_24dp"
         android:title="Berita" />
-
     <item
-        android:id="@+id/navigation_sekolah"
-        android:icon="@drawable/info"
-        android:title="Info Sekolah" />
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="Cari" />
     <item
         android:id="@+id/navigation_home"
         android:icon="@drawable/ic_home_black_24dp"
         android:title="Home" />
     <item
-        android:id="@+id/navigation_job"
-        android:icon="@drawable/job"
-        android:title="Loker" />
+        android:id="@+id/navigation_sekolah"
+        android:icon="@drawable/ic_info_sekolah_black_24dp"
+        android:title="Info Sekolah" />
     <item
-        android:id="@+id/navigation_search"
-        android:icon="@drawable/ic_search_black_24dp"
-        android:title="Cari" />
+        android:id="@+id/navigation_job"
+        android:icon="@drawable/ic_loker_black_24dp"
+        android:title="Loker" />
 </menu>

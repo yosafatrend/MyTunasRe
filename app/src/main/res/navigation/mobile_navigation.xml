@@ -29,7 +29,7 @@
         tools:layout="@layout/fragment_job" />
     <fragment
         android:id="@+id/navigation_search"
-        android:name="com.spect.mytunas.search"
+        android:name="com.spect.mytunas.SearchFragment"
         android:label="Info Sekolah"
         tools:layout="@layout/fragment_search" />
 </navigation>
