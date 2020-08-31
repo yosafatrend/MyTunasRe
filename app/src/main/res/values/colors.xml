@@ -3,6 +3,12 @@
     <color name="colorPrimary">#5B87FF</color>
     <color name="colorPrimaryDark">#5B87FF</color>
     <color name="colorAccent">#5B87FF</color>
+    <color name="colorNav">#D77A4F</color>
+    <color name="colorNavItem">#393A3C</color>
+    <color name="colorBackground">#f9f9fa</color>
+    <color name="colorTextSubtitle">#4e4e4e</color>
+    <color name="colorTextTitle">#535353</color>
+    <color name="colorbg">#f6f6f6</color>
 
     <color name="ntrl_textinput_default_box_stroke_color" tools:override="true">#5B87FF</color>
 </resources>
