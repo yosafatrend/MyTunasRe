@@ -59,6 +59,12 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
             }
         });
+        meo.setOnReselectListener(new MeowBottomNavigation.ReselectListener() {
+            @Override
+            public void onReselectItem(MeowBottomNavigation.Model item) {
+
+            }
+        });
         meo.setOnShowListener(new MeowBottomNavigation.ShowListener() {
             @Override
             public void onShowItem(MeowBottomNavigation.Model item) {
@@ -113,6 +119,9 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         closeDrawer();
 
         switch (Item.getItemId()){
+            case R.id.nav_profile:
+                startActivity(new Intent(DashboardActivity.this, ProfileActivity.class));
+                break;
             case R.id.nav_setting:
                 break;
             case R.id.nav_Logout:

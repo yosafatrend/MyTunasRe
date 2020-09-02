@@ -32,8 +32,8 @@ public class SplashScreen extends AppCompatActivity {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        String nis = snapshot.child("nis").getValue().toString();
-                        Toast.makeText(SplashScreen.this, "Berhasil " + nis, Toast.LENGTH_SHORT).show();
+//                        String nis = snapshot.child("nis").getValue().toString();
+//                        Toast.makeText(SplashScreen.this, "Berhasil " + nis, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

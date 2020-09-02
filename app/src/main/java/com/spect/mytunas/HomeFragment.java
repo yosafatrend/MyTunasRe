@@ -31,7 +31,7 @@ public class HomeFragment extends Fragment {
         slideModels.add(new SlideModel("https://smkthpati.sch.id/images/berita/gb183.jpg"));
         slideModels.add(new SlideModel("https://smkthpati.sch.id/images/galeri/gb184.jpg"));
         slideModels.add(new SlideModel("https://smkthpati.sch.id/images/berita/gb178.jpg"));
-        slideModels.add(new SlideModel("https://lh3.googleusercontent.com/proxy/pDCifrkN6kbuoMQaW8rSIquKtLvRImOy3kLw_rz8VnAVIuQoKIBgsJDfEe1gNuXIrok_9CHl01lGpPPt_zhxydcwPXQM8XkpDcxjLgny3dzYcavIvSwDVt7b"));
+        slideModels.add(new SlideModel("https://smkthpati.sch.id/images/galeri/gb184.jpg"));
         imageSlider.setImageList(slideModels,true);
         return v;
     }

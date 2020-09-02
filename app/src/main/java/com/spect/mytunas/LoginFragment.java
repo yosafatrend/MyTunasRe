@@ -110,7 +110,7 @@ public class LoginFragment extends Fragment {
         super.onStart();
         if (mAuth.getCurrentUser()!= null){
             getActivity().finish();
-            startActivity(new Intent(getActivity(),ProfileActivity.class));
+            startActivity(new Intent(getActivity(),DashboardActivity.class));
         }
     }
 

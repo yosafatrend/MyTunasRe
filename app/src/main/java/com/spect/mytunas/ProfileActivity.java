@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.*;
 
@@ -126,6 +127,7 @@ public class ProfileActivity extends AppCompatActivity {
         if (user != null) {
             if (user.getPhotoUrl() != null) {
                 Toast.makeText(this, user.getPhotoUrl().toString(), Toast.LENGTH_SHORT).show();
+                Log.d("tag", "PhotoLink" +  user.getPhotoUrl().toString());
                 Glide.with(this)
                         .load(user.getPhotoUrl().toString()).into(imageVew);
 
@@ -194,6 +196,7 @@ public class ProfileActivity extends AppCompatActivity {
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressBar.setVisibility(View.GONE);
                             profileImageUrl = taskSnapshot.getStorage().getDownloadUrl().toString();
+                            Toast.makeText(getApplicationContext(), uriProfileImage.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                 @Override
