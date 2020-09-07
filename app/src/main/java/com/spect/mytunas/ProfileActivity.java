@@ -163,6 +163,7 @@ public class ProfileActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 progressBar.setVisibility(View.GONE);
                                 Toast.makeText(ProfileActivity.this, "update sukses", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(ProfileActivity.this,DashboardActivity.class));
                             }
                         }
                     });

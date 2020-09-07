@@ -1,2 +1,3 @@
+include ':adminmyt'
 include ':app'
 rootProject.name='MyTunas'

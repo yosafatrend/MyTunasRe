@@ -7,6 +7,7 @@ import android.widget.Toast;
 
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -115,6 +116,8 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             case R.id.nav_setting:
                 break;
             case R.id.nav_Logout:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(DashboardActivity.this,AuthActivity.class));
                 break;
         }
         return false;

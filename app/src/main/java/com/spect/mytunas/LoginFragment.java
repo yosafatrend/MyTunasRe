@@ -1,7 +1,9 @@
 package com.spect.mytunas;
 
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -21,6 +23,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
@@ -30,6 +34,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginFragment extends Fragment {
     private TextInputEditText edtEmail, edtPass;
     private Button btnLogin;
+    private TextView tvForgotPass;
     ProgressBar progressBar;
     FirebaseAuth mAuth;
 
@@ -50,6 +55,14 @@ public class LoginFragment extends Fragment {
         mAuth = FirebaseAuth.getInstance();
         progressBar = v.findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
+        tvForgotPass = v.findViewById(R.id.textView);
+
+        tvForgotPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialogForgotPassword();
+            }
+        });
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,6 +72,41 @@ public class LoginFragment extends Fragment {
         });
 
         return v;
+    }
+
+    private void dialogForgotPassword() {
+        final EditText sendEmail = new EditText(getContext());
+        final AlertDialog.Builder passResetDialog = new AlertDialog.Builder(getContext());
+        passResetDialog.setTitle("Ganti Password ?");
+        passResetDialog.setMessage("Silahkan masukkan email untuk menerima reset link");
+        passResetDialog.setView(sendEmail);
+
+        passResetDialog.setPositiveButton("yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                String emial =sendEmail.getText().toString();
+                mAuth.sendPasswordResetEmail(emial).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(getActivity(), "Reset link di kirim ke email anda", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getActivity(), "gagal mengirim reset link", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
+        passResetDialog.setNegativeButton("no", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+
+        passResetDialog.create().show();
     }
 
     private void loginUser(){
