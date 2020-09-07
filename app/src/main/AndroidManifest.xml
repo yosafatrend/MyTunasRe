@@ -11,6 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ClassroomActivity"
             android:theme="@style/AppTheme"/>
+        <activity android:name=".announcement"></activity>
         <activity
             android:name=".AuthActivity"
             android:label="home" />
@@ -22,7 +23,8 @@
         <activity
             android:name=".NewsDetailActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            />
         <activity
             android:name=".SplashScreen"
             android:screenOrientation="portrait">

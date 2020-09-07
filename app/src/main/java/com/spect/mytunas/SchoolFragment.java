@@ -22,7 +22,7 @@ public class SchoolFragment extends Fragment {
         cardView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),"Pengumuman",Toast.LENGTH_SHORT).show();
+                v.getContext().startActivity(new Intent(v.getContext(), announcement.class));
             }
         });
         cardView4 = (CardView)v.findViewById(R.id.cV_class);
