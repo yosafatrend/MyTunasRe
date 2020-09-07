@@ -14,6 +14,7 @@
         <activity android:name=".announcement"></activity>
         <activity
             android:name=".AuthActivity"
+            android:windowSoftInputMode="adjustPan"
             android:label="home" />
         <activity android:name=".ProfileActivity" />
         <activity
