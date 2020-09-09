@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "965029411325",
+    "firebase_url": "https://mytunas-a90f2.firebaseio.com",
+    "project_id": "mytunas-a90f2",
+    "storage_bucket": "mytunas-a90f2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965029411325:android:f557616f25e1ea47bd8194",
+        "android_client_info": {
+          "package_name": "com.example.adminmyt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965029411325-h2jfrgu58uhkpe1fv03tv4r4uqt1lsrv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-6aZnSkLTKEcY5OVbwM2EJiIxhAr8jfo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965029411325-h2jfrgu58uhkpe1fv03tv4r4uqt1lsrv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:965029411325:android:b7ce23678c2dae9dbd8194",
+        "android_client_info": {
+          "package_name": "com.spect.mytunas"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "965029411325-s3jc86bu374gsf82r4crd9fs2ndtchbl.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.spect.mytunas",
+            "certificate_hash": "e8ca6bb508f43ddc0ad3733a4417ee5360ca2bd3"
+          }
+        },
+        {
+          "client_id": "965029411325-h2jfrgu58uhkpe1fv03tv4r4uqt1lsrv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-6aZnSkLTKEcY5OVbwM2EJiIxhAr8jfo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "965029411325-h2jfrgu58uhkpe1fv03tv4r4uqt1lsrv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

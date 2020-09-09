@@ -3,12 +3,22 @@ package com.spect.mytunas;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -37,6 +47,38 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             drawerLayout = findViewById(R.id.drawerLayout);
             NavigationView navigationView = (NavigationView) findViewById(R.id.drawer);
             navigationView.setNavigationItemSelectedListener(this);
+            View headerView = navigationView.getHeaderView(0);
+            TextView navUsername = (TextView) headerView.findViewById(R.id.tvTitle);
+            TextView navNis = (TextView) headerView.findViewById(R.id.tvSubtitle);
+
+            DatabaseReference siswa = FirebaseDatabase.getInstance().getReference("siswa");
+            DatabaseReference childSiswa = siswa.child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            childSiswa.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                    Toast.makeText(getApplicationContext(), snapshot.child("email").getValue().toString(), Toast.LENGTH_SHORT).show();
+                    try {
+                        NavigationView navigationView = (NavigationView) findViewById(R.id.drawer);
+                        View headerView = navigationView.getHeaderView(0);
+                        TextView navUsername = headerView.findViewById(R.id.tvTitle);
+                        TextView navNis = headerView.findViewById(R.id.tvSubtitle);
+                        ImageView imgUser = headerView.findViewById(R.id.imgUser);
+                        navUsername.setText(snapshot.child("nama_lengkap").getValue().toString());
+                        navNis.setText(snapshot.child("nis").getValue().toString());
+                        Glide.with(getApplicationContext())
+                                .load(snapshot.child("imgUri").getValue().toString()).into(imgUser);
+                    }catch (Exception e){
+                        Toast.makeText(getApplicationContext(),  ""+ e, Toast.LENGTH_SHORT);
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
             ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
             drawerLayout.addDrawerListener(drawerToggle);
             drawerToggle.syncState();

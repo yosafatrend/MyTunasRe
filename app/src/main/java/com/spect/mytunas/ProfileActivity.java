@@ -21,15 +21,25 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.spect.mytunas.models.User;
 
 import java.io.IOException;
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.HashMap;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -37,7 +47,7 @@ public class ProfileActivity extends AppCompatActivity {
     TextView textView;
 
     ImageView imageVew;
-    EditText editText;
+    EditText edtNama, edtNis, edtEmail;
 
     Uri uriProfileImage;
     ProgressBar progressBar;
@@ -55,7 +65,9 @@ public class ProfileActivity extends AppCompatActivity {
 
         textView = findViewById(R.id.textView6);
         imageVew = findViewById(R.id.imageView);
-        editText = findViewById(R.id.editText);
+        edtNama = findViewById(R.id.edtNamaP);
+        edtNis = findViewById(R.id.edtNisP);
+        edtEmail = findViewById(R.id.edtEmailP);
 
         user = mAuth.getCurrentUser();
         if (user.isEmailVerified()) {
@@ -64,7 +76,7 @@ public class ProfileActivity extends AppCompatActivity {
             AlertDialog dialog = new AlertDialog.Builder(ProfileActivity.this)
                     .setTitle("Email Verification")
                     .setMessage("Email belum diverifikasi, silahkan verifikasi terlebih dahulu. Belum menerima email?")
-                    .setNegativeButton("Udah kok", new DialogInterface.OnClickListener() {
+                    .setNegativeButton("Oke", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
 
@@ -96,7 +108,6 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 showImageChooser();
 
-
             }
         });
 
@@ -104,7 +115,9 @@ public class ProfileActivity extends AppCompatActivity {
         findViewById(R.id.buttonsave).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveUserInformation();
+                saveUserInformation(new User(
+                   edtEmail.getText().toString(), edtNama.getText().toString(), Integer.parseInt(edtNis.getText().toString()), profileImageUrl
+                ));
 
 
             }
@@ -112,14 +125,6 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        if (mAuth.getCurrentUser() == null) {
-//            finish();
-//            startActivity(new Intent(this, ProfileActivity.class));
-//        }
-//    }
 
     private void loadUserInformation() {
 
@@ -128,22 +133,42 @@ public class ProfileActivity extends AppCompatActivity {
             if (user.getPhotoUrl() != null) {
                 Toast.makeText(this, user.getPhotoUrl().toString(), Toast.LENGTH_SHORT).show();
                 Log.d("tag", "PhotoLink" +  user.getPhotoUrl().toString());
-                Glide.with(this)
-                        .load(user.getPhotoUrl().toString()).into(imageVew);
+//                Glide.with(this)
+//                        .load(user.getPhotoUrl().toString()).into(imageVew);
 
 
             }
-            if (user.getDisplayName() != null) {
-                editText.setText(user.getDisplayName());
-            }
+            DatabaseReference siswa = FirebaseDatabase.getInstance().getReference("siswa");
+            DatabaseReference childSiswa = siswa.child(mAuth.getCurrentUser().getUid());
+            childSiswa.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                    Toast.makeText(getApplicationContext(), snapshot.child("email").getValue().toString(), Toast.LENGTH_SHORT).show();
+                    try {
+                        edtEmail.setText(snapshot.child("email").getValue().toString());
+                        edtNama.setText(snapshot.child("nama_lengkap").getValue().toString());
+                        edtNis.setText(snapshot.child("nis").getValue().toString());
+                        Glide.with(getApplicationContext())
+                                .load(snapshot.child("imgUri").getValue().toString()).into(imageVew);
+                    }catch (Exception e){
+                        Toast.makeText(getApplicationContext(),  ""+ e, Toast.LENGTH_SHORT);
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
         }
     }
 
-    private void saveUserInformation() {
-        String displayame = editText.getText().toString();
+    private void saveUserInformation(User users) {
+        String displayame = edtNama.getText().toString();
         if (displayame.isEmpty()) {
-            editText.setError("nama tidak boleh kosong");
-            editText.requestFocus();
+            edtNama.setError("nama tidak boleh kosong");
+            edtNama.requestFocus();
             return;
         }
 
@@ -151,22 +176,19 @@ public class ProfileActivity extends AppCompatActivity {
 
         if (user != null) {
             progressBar.setVisibility(View.VISIBLE);
-            UserProfileChangeRequest profile = new UserProfileChangeRequest.Builder()
-                    .setDisplayName(displayame)
-                    .setPhotoUri(Uri.parse(profileImageUrl))
-                    .build();
-
-            user.updateProfile(profile)
-                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                        @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            if (task.isSuccessful()) {
-                                progressBar.setVisibility(View.GONE);
-                                Toast.makeText(ProfileActivity.this, "update sukses", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(ProfileActivity.this,DashboardActivity.class));
-                            }
-                        }
-                    });
+            HashMap<String, Object> values = new HashMap<>();
+            values.put("email", edtEmail.getText().toString());
+            values.put("nama_lengkap", edtNama.getText().toString());
+            values.put("nis", edtNis.getText().toString());
+            values.put("imgUri", profileImageUrl);
+            DatabaseReference siswa = FirebaseDatabase.getInstance().getReference("siswa");
+            DatabaseReference childSiswa = siswa.child(mAuth.getCurrentUser().getUid());
+            childSiswa.updateChildren(values).addOnSuccessListener(new OnSuccessListener<Void>() {
+                @Override
+                public void onSuccess(Void aVoid) {
+                    progressBar.setVisibility(View.GONE);
+                }
+            });
         }
     }
 
@@ -196,8 +218,14 @@ public class ProfileActivity extends AppCompatActivity {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             progressBar.setVisibility(View.GONE);
-                            profileImageUrl = taskSnapshot.getStorage().getDownloadUrl().toString();
-                            Toast.makeText(getApplicationContext(), uriProfileImage.toString(), Toast.LENGTH_SHORT).show();
+                            taskSnapshot.getStorage().getDownloadUrl().addOnCompleteListener(new OnCompleteListener<Uri>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Uri> task) {
+                                    profileImageUrl = task.getResult().toString();
+                                    Toast.makeText(ProfileActivity.this, "uplad sukses " + profileImageUrl, Toast.LENGTH_SHORT).show();
+
+                                }
+                            });
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                 @Override

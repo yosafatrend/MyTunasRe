@@ -246,7 +246,6 @@ public class MainActivity extends AppCompatActivity {
                     public void onSuccess(Void aVoid) {
 
                         progressBar.dismiss();
-
                         edtPengirim.setText("");
                         edtInformasi.setText("");
 

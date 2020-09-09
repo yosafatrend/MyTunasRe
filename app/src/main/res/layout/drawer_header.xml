@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="190dp"
@@ -15,27 +15,30 @@
         android:paddingLeft="16dp">
 
         <ImageView
+            android:id="@+id/imgUser"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:src="@drawable/mytunas"
             android:layout_marginBottom="16dp"/>
 
         <TextView
+            android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/opensansergular"
             android:text="Username"
-            android:textSize="28sp"
-            android:textStyle="bold"
             android:textColor="#fff"
-            android:fontFamily="@font/opensansergular"/>
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tvSubtitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/opensansergular"
             android:text="12345"
-            android:textSize="18sp"
             android:textColor="#fff"
-            android:fontFamily="@font/opensansergular"/>
+            android:textSize="18sp" />
     </LinearLayout>
 
 </RelativeLayout>
