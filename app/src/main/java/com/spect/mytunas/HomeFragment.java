@@ -28,10 +28,11 @@ public class HomeFragment extends Fragment {
         ImageSlider imageSlider=v.findViewById(R.id.slider);
 
         List<SlideModel> slideModels=new ArrayList<>();
+        slideModels.add(new SlideModel(R.drawable.foto_depan));
         slideModels.add(new SlideModel("https://smkthpati.sch.id/images/berita/gb183.jpg"));
         slideModels.add(new SlideModel("https://smkthpati.sch.id/images/galeri/gb184.jpg"));
         slideModels.add(new SlideModel("https://smkthpati.sch.id/images/berita/gb178.jpg"));
-        slideModels.add(new SlideModel("https://smkthpati.sch.id/images/galeri/gb184.jpg"));
+        slideModels.add(new SlideModel("https://smkthpati.sch.id/images/galeri/gb185.jpg"));
         imageSlider.setImageList(slideModels,true);
         return v;
     }

@@ -63,4 +63,10 @@ public class ClassroomActivity extends AppCompatActivity implements NavigationVi
         drawerLayout.openDrawer(GravityCompat.START);
 
     }
+
+    @Override
+    public boolean moveTaskToBack(boolean nonRoot) {
+
+        return super.moveTaskToBack(nonRoot);
+    }
 }

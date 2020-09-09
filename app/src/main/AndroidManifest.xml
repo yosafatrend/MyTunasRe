@@ -12,6 +12,9 @@
         <activity
             android:name=".ClassroomActivity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".profile_school"
+            android:theme="@style/AppTheme" />
         <activity android:name=".announcement" />
         <activity
             android:name=".AuthActivity"

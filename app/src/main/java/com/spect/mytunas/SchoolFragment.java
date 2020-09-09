@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -23,6 +22,13 @@ public class SchoolFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 v.getContext().startActivity(new Intent(v.getContext(), announcement.class));
+            }
+        });
+        cardView2 = (CardView)v.findViewById(R.id.cV_school);
+        cardView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.getContext().startActivity(new Intent(v.getContext(), profile_school.class));
             }
         });
         cardView4 = (CardView)v.findViewById(R.id.cV_class);

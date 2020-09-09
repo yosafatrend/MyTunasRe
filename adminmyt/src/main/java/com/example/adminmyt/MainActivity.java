@@ -69,9 +69,13 @@ public class MainActivity extends AppCompatActivity {
         childBerita.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                Toast.makeText(MainActivity.this, snapshot.child("imgUri").getValue().toString(), Toast.LENGTH_SHORT).show();
-                Glide.with(getApplicationContext())
-                        .load(snapshot.child("imgUri").getValue().toString()).into(profilePics);
+                try {
+                    Toast.makeText(MainActivity.this, snapshot.child("imgUri").getValue().toString(), Toast.LENGTH_SHORT).show();
+                    Glide.with(getApplicationContext())
+                            .load(snapshot.child("imgUri").getValue().toString()).into(profilePics);
+                }catch (Exception e){
+                    Toast.makeText(MainActivity.this, "Error : " + e, Toast.LENGTH_SHORT).show();
+                }
             }
 
             @Override

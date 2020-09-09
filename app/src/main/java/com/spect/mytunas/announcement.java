@@ -143,4 +143,5 @@ public class announcement extends AppCompatActivity implements NavigationView.On
         drawerLayout.openDrawer(GravityCompat.START);
 
     }
+
 }

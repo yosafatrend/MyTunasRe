@@ -23,4 +23,30 @@
     <string name="menu_send">Send</string>
     <string name="drawer_open">Open</string>
     <string name="drawer_close">Close</string>
+    <string name="sejarah">SMK Tunas Harapan Pati didirikan oleh Yayasan Tunas Harapan Pati pada tahun 1990. SMK Tunas Harapan Pati didirikan berdasarkan SK 845/103/90 tanggal 20 Juni 1990, dengan kepala Sekolah Drs. Mu’alim. Pada tahun 1993 kepala Sekolah di ganti oleh Ir. Eny Wahyuningsih dan menjabat sampai sekarang. Secara geografis letak SMK Tunas Harapan Pati sangat strategis karena berada di jalur utama Pati - Jepara. Meskipun keberadaanya di dekat jalan raya namun tidak bising karena berada di pinggir kota. Lingkungan sekolah sangat strategis untuk belajar dan tidak kesulitan masalah transportasi.
+
+Sejak berdiri SMK Tunas Harapan Pati hanya membuka tiga program keahlian, yaitu (1) Teknik Mesin, (2) Teknik Otomotif, (3)Teknik Listrik. Dari tiga program keahlian itu mampu menampung jumlah siswa sebanyak 185. Dalam perjalananya selama tiga tahun dari 185 siswa mengikuti ujian dengan menggabung di dua sekolah negeri. Program keahlian Teknik Otomotif dan Teknik Listik menggabung di STM Negeri Pati yang sekarang SMK N 2 Pati. Sedangkan program keahlian Teknik Mesin ujiannya menggabung di SMK Negeri Rembang. Dari tiga program keahlian tersebut mampu menghasilkan lulusan sebanyak 100%.
+
+Tahun 1993, setelah meluluskan anak pertama, SMK Tunas Harapan Pati mengajukan akriditasi yang pertama kali. Dari hasil akriditasi, status SMK Tunas Harapan menjadi diakui. Sejak itulah SMK Tunas Harapan Pati mulai ujian secara mandiri
+
+Berdasarkan hasil akriditasi tahun 1998, status sekolah meningkat menjadi disamakan. Setelah status disamakan diraih SMK Tunas Harapan Pati, masyarakat mulai meyakini keberadaan SMK Tunas Harapan Pati sebagai sekolah yang mempunyai potensi. Prestasi demi prestasi mulai diraih. Prestasi itu terlihat dari seringnya mendapat kejuaraan setiap mengikuti lomba baik di tingkat provinsi maupun lomba di tingkat nasional.
+
+Berdasarkan prestasi yang di raih oleh SMK Tunas Harapan Pati, baik di tingkat provinsi maupun di tingkat nasional, SMK Tunas Harapan Pati mendapat kepercayaan dari Direktorat untuk menyandang status Rintisan Sekolah Bertaraf Internasional, dengan SK nomor 0351/C 52Kep/MN/2006. Status sekolah RSBI diterima SMK Tunas Harapan Pati pada tahun 2006, pada waktu itu SMK Tunas Harapan Pati sedang gencar-gencarnya mengimplementasikan Sistem managemen Mutu ISO 9001:2000. Menurut Kepala Sekolah (Ir. Eny Wahyuningsih, M.Pd.) satu-satunya SMK Swasta yang di beri kewenangan menyandang status RSBI.
+
+Dengan gelar itulah SMK Tunas Harapan Pati merasa tertantang untuk meningkatkan kualitas sekolah baik dari sisi sarana prasarana, manajemen, pelayanan kepada masyarakat demi meraih prestasi sekolah yang lebih baik. </string>
+
+    <string name="jurusan"> \ Teknik Pemesinan \n Teknik Pengelasan \n Welding Teknik Otomotif \n Kendaraan Ringan \n Teknik Otomasi Industri \n Teknik Komputer dan Jaringan \n Teknik Broadcasting / Penyiaran \n Multimedia \n Kimia Analisis \n </string>
+
+    <string name="visi">Sekolah Unggul, Berdaya Saing Internasional  dan Berwawasan Lingkungan</string>
+    <string name="misi">
+    1. Membentuk Jiwa Nasionalisme yang Berbudaya dan Berkarakter Bangsa;
+    \n2. Membentuk Tamatan yang Berakhlak Mulia, Profesional dalam Ilmu Pengetahuan dan Teknologi;
+    \n3. Mengembangkan Sistem Pembelajaran yang Kreatif, Adaptif dan Inovatif;
+    \n4. Membentuk Pribadi yang Berdaya Saing dan Berjiwa Wirausaha;
+    \n5. Membangun Mitra Kerja dalam Upaya Pemberdayaan  Masyarakat;
+    \n6. Membudayakan Hidup Sehat  dan Peduli Lingkungan.
+</string>
+    <string name="deskripsi">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus facilisis risus viverra urna posuere,
+        nec blandit quam finibus. Vivamus a nunc id lectus mattis ornare eget nec dolor. In aliquam neque et imperdiet vulputate.
+        Ut condimentum quam ipsum, id tristique risus sagittis vitae.</string>
 </resources>
