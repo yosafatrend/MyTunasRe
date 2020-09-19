@@ -8,70 +8,61 @@
         android:id="@+id/cardView2"
         android:layout_width="match_parent"
         android:layout_height="140dp"
-        android:layout_marginLeft="11dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginRight="11dp"
-        android:layout_marginBottom="7dp"
         app:cardCornerRadius="12dp"
         app:cardElevation="6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_gravity="center_vertical"
-            android:padding="12dp"
-            android:src="#bababa"
-            app:civ_border_color="#fff"
-            app:civ_border_width="2dp"
-            app:layout_constraintBottom_toBottomOf="@+id/cardView2"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/cardView2" />
-
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="110dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/opensansbold"
-            android:padding="12dp"
-            android:text="Google Inc."
-            android:textColor="#000"
-            android:textSize="20dp" />
+            android:padding="12dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="110dp"
-            android:layout_marginTop="40dp"
-            android:fontFamily="@font/opensansbold"
-            android:padding="12dp"
-            android:text="Android Developer"
-            android:textSize="15dp" />
+            <TextView
+                android:id="@+id/textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansbold"
+                android:text="Android Developer"
+                android:textColor="#000"
+                android:textSize="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="110dp"
-            android:layout_marginTop="90dp"
-            android:fontFamily="@font/opensansergular"
-            android:padding="12dp"
-            android:text="1 menit yang lalu"
-            android:textSize="15dp" />
+            <TextView
+                android:id="@+id/textview2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansbold"
+                android:layout_marginTop="6dp"
+                android:text="Nusantara Berkah Digital PT"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/opensansergular"
-            android:padding="12dp"
-            android:text="Jakarta"
-            android:textSize="15dp" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/opensansergular"
+                android:text="1 menit yang lalu"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textview2" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:fontFamily="@font/opensansergular"
+                android:padding="12dp"
+                android:text="Jakarta"
+                android:textSize="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

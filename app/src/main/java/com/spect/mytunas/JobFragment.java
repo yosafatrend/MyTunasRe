@@ -19,19 +19,25 @@ public class JobFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_job, container, false);
-        final AutoCompleteTextView actv1 = (AutoCompleteTextView) v.findViewById(R.id.actv1);
-        ImageView image = (ImageView) v.findViewById(R.id.image);
-        actv1.setThreshold(2);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_dropdown_item_1line,items);
-        actv1.setAdapter(adapter);
+        // Get a reference to the AutoCompleteTextView in the layout
+        AutoCompleteTextView textView = (AutoCompleteTextView) v.findViewById(R.id.actv);
+        // Get the string array
+        String[] countries = getResources().getStringArray(R.array.jenis_loker);
+        // Create the adapter and set it to the AutoCompleteTextView
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, countries);
+        textView.setAdapter(adapter);
 
-        image.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                actv1.showDropDown();
-            }
-        });
+
+        // Get a reference to the AutoCompleteTextView in the layout
+        AutoCompleteTextView textView2 = (AutoCompleteTextView) v.findViewById(R.id.actv2);
+        // Get the string array
+        String[] countries2 = getResources().getStringArray(R.array.tempat_loker);
+        // Create the adapter and set it to the AutoCompleteTextView
+        ArrayAdapter<String> adapter2 =
+                new ArrayAdapter<String>(getActivity(),android.R.layout.simple_list_item_1, countries2);
+        textView2.setAdapter(adapter2);
+
         return v;
     }
-    private static final String[] items = new String[]{"Pati, Jateng","Rembang, Jateng", "Kudus, Jateng"};
 }

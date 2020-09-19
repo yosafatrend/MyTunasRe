@@ -25,7 +25,7 @@ import com.google.android.material.navigation.NavigationView;
 
 public class profile_school extends AppCompatActivity  {
 
-    ConstraintLayout expandableView2,expandableView3,expandableView4,Kotak,Kotak3,Kotak2;
+    ConstraintLayout expandableView2,expandableView3,expandableView4,Kotak,Kotak3,Kotak2, Cardview_sejarah, Cardview_jurusan, Cardview_visi;
     Button arrowBtn, arrowBtn2, arrowBtn3;
     CardView cardView,cardView2,cardView3;
 
@@ -34,11 +34,12 @@ public class profile_school extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_school);
         expandableView2 = findViewById(R.id.expandableView);
+        Cardview_sejarah = findViewById(R.id.cardview_sejarah);
         Kotak = findViewById(R.id.kotak);
         arrowBtn = findViewById(R.id.arrowBtn);
         cardView = findViewById(R.id.cradView);
 
-        arrowBtn.setOnClickListener(new View.OnClickListener() {
+        Cardview_sejarah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (expandableView2.getVisibility() == View.GONE) {
@@ -54,10 +55,11 @@ public class profile_school extends AppCompatActivity  {
         });
         expandableView3 = findViewById(R.id.expandableView3);
         Kotak2 = findViewById(R.id.kotak2);
+        Cardview_jurusan = findViewById(R.id.cardview_jurusan);
         arrowBtn2 = findViewById(R.id.arrowBtn2);
         cardView2 = findViewById(R.id.cradView2);
 
-        arrowBtn2.setOnClickListener(new View.OnClickListener() {
+        Cardview_jurusan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (expandableView3.getVisibility() == View.GONE) {
@@ -73,10 +75,11 @@ public class profile_school extends AppCompatActivity  {
         });
         expandableView4 = findViewById(R.id.expandableView4);
         Kotak3 = findViewById(R.id.kotak3);
+        Cardview_visi = findViewById(R.id.cardview_visi);
         arrowBtn3 = findViewById(R.id.arrowBtn3);
         cardView3 = findViewById(R.id.cradView3);
 
-        arrowBtn3.setOnClickListener(new View.OnClickListener() {
+        Cardview_visi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (expandableView4.getVisibility() == View.GONE) {
