@@ -9,6 +9,9 @@
         android:roundIcon="@drawable/mytunas"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".AboutProfileActivity"
+            android:theme="@style/AppTheme"
+            />
         <activity
             android:name=".ClassroomActivity"
             android:theme="@style/AppTheme" />
@@ -20,7 +23,7 @@
             android:name=".AuthActivity"
             android:label="home"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".EditProfileActivity" />
         <activity
             android:name=".DashboardActivity"
             android:screenOrientation="portrait"

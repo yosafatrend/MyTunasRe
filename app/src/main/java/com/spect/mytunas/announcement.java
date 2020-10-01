@@ -15,7 +15,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -126,7 +125,7 @@ public class announcement extends AppCompatActivity implements NavigationView.On
 
         switch (menuItem.getItemId()){
             case R.id.nav_profile:
-                startActivity(new Intent(announcement.this, ProfileActivity.class));
+                startActivity(new Intent(announcement.this, EditProfileActivity.class));
                 break;
             case R.id.nav_setting:
                 break;

@@ -21,11 +21,9 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,17 +35,15 @@ import com.google.firebase.storage.UploadTask;
 import com.spect.mytunas.models.User;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
-import java.util.Arrays;
 import java.util.HashMap;
 
-public class ProfileActivity extends AppCompatActivity {
+public class EditProfileActivity extends AppCompatActivity {
 
     private static final int CHOOSE_IMAGE = 101;
     TextView textView;
 
     ImageView imageVew;
-    EditText edtNama, edtNis, edtEmail;
+    TextInputEditText edtNama, edtNis, edtEmail;
 
     Uri uriProfileImage;
     ProgressBar progressBar;
@@ -60,7 +56,7 @@ public class ProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile);
+        setContentView(R.layout.activity_editprofile);
         mAuth = FirebaseAuth.getInstance();
 
         textView = findViewById(R.id.textView6);
@@ -73,7 +69,7 @@ public class ProfileActivity extends AppCompatActivity {
         if (user.isEmailVerified()) {
             Toast.makeText(this, "email is verified", Toast.LENGTH_SHORT).show();
         } else {
-            AlertDialog dialog = new AlertDialog.Builder(ProfileActivity.this)
+            AlertDialog dialog = new AlertDialog.Builder(EditProfileActivity.this)
                     .setTitle("Email Verification")
                     .setMessage("Email belum diverifikasi, silahkan verifikasi terlebih dahulu. Belum menerima email?")
                     .setNegativeButton("Oke", new DialogInterface.OnClickListener() {
@@ -222,7 +218,7 @@ public class ProfileActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Uri> task) {
                                     profileImageUrl = task.getResult().toString();
-                                    Toast.makeText(ProfileActivity.this, "uplad sukses " + profileImageUrl, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(EditProfileActivity.this, "uplad sukses " + profileImageUrl, Toast.LENGTH_SHORT).show();
 
                                 }
                             });
@@ -231,7 +227,7 @@ public class ProfileActivity extends AppCompatActivity {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     progressBar.setVisibility(View.GONE);
-                    Toast.makeText(ProfileActivity.this, "gagal upload", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditProfileActivity.this, "gagal upload", Toast.LENGTH_SHORT).show();
                 }
             });
         }

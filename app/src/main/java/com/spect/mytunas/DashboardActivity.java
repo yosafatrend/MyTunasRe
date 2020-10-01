@@ -153,7 +153,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
         switch (Item.getItemId()) {
             case R.id.nav_profile:
-                startActivity(new Intent(DashboardActivity.this, ProfileActivity.class));
+                startActivity(new Intent(DashboardActivity.this, AboutProfileActivity.class));
                 break;
             case R.id.nav_setting:
                 break;

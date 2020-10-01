@@ -46,7 +46,7 @@ public class ClassroomActivity extends AppCompatActivity implements NavigationVi
 
         switch (menuItem.getItemId()){
             case R.id.nav_profile:
-                startActivity(new Intent(ClassroomActivity.this, ProfileActivity.class));
+                startActivity(new Intent(ClassroomActivity.this, EditProfileActivity.class));
                 break;
             case R.id.nav_setting:
                 break;
