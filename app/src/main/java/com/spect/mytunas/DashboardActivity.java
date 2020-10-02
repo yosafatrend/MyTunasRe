@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -25,16 +26,15 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    MeowBottomNavigation meo;
     DrawerLayout drawerLayout;
-    private final static int ID_NEWS = 1;
-    private final static int ID_SEARCH = 2;
-    private final static int ID_HOME = 3;
-    private final static int ID_SCHOOLNEWS = 4;
-    private final static int ID_JOB = 5;
-
+    private static final String TAG = DashboardActivity.class.getSimpleName();
+    private BottomNavigationView bottomNavigation;
+    private Fragment fragment;
+    private FragmentManager fragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,54 +83,38 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             drawerLayout.addDrawerListener(drawerToggle);
             drawerToggle.syncState();
         }
-        meo = (MeowBottomNavigation) findViewById(R.id.bottom_nav);
-        meo.add(new MeowBottomNavigation.Model(1, R.drawable.ic_view_news_black_24dp));
-        meo.add(new MeowBottomNavigation.Model(2, R.drawable.ic_search_black_24dp));
-        meo.add(new MeowBottomNavigation.Model(3, R.drawable.ic_home_black_24dp));
-        meo.add(new MeowBottomNavigation.Model(4, R.drawable.ic_info_sekolah_black_24dp));
-        meo.add(new MeowBottomNavigation.Model(5, R.drawable.ic_loker_black_24dp));
+        bottomNavigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
+        bottomNavigation.inflateMenu(R.menu.bottom_nav_menu);
+        fragmentManager = getSupportFragmentManager();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
-        meo.setOnClickMenuListener(new MeowBottomNavigation.ClickListener() {
+        //Untuk inisialisasi fragment pertama kali
+        fragmentManager.beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+
+        //Memberikan listener saat menu item di bottom navigation diklik
+        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
-            public void onClickItem(MeowBottomNavigation.Model item) {
-
-            }
-        });
-        meo.setOnReselectListener(new MeowBottomNavigation.ReselectListener() {
-            @Override
-            public void onReselectItem(MeowBottomNavigation.Model item) {
-
-            }
-        });
-        meo.setOnShowListener(new MeowBottomNavigation.ShowListener() {
-            @Override
-            public void onShowItem(MeowBottomNavigation.Model item) {
-                Fragment select_fragment = null;
-                switch (item.getId()) {
-                    case ID_NEWS:
-                        Toast.makeText(getApplicationContext(), "Berita", Toast.LENGTH_SHORT).show();
-                        select_fragment = new NewsFragment();
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                int id = item.getItemId();
+                switch (id){
+                    case R.id.navigation_home:
+                        fragment = new HomeFragment();
                         break;
-                    case ID_SEARCH:
-                        Toast.makeText(getApplicationContext(), "Pencarian", Toast.LENGTH_SHORT).show();
-                        select_fragment = new SearchFragment();
+                    case R.id.navigation_news:
+                        fragment = new NewsFragment();
                         break;
-                    case ID_HOME:
-                        Toast.makeText(getApplicationContext(), "Halaman Utama", Toast.LENGTH_SHORT).show();
-                        select_fragment = new HomeFragment();
+                    case R.id.navigation_search:
+                        fragment = new SearchFragment();
                         break;
-                    case ID_SCHOOLNEWS:
-                        Toast.makeText(getApplicationContext(), "Info Sekolah", Toast.LENGTH_SHORT).show();
-                        select_fragment = new SchoolFragment();
+                    case R.id.navigation_sekolah:
+                        fragment = new SchoolFragment();
                         break;
-                    case ID_JOB:
-                        Toast.makeText(getApplicationContext(), "Lowongan Pekerjaan", Toast.LENGTH_SHORT).show();
-                        select_fragment = new JobFragment();
+                    case R.id.navigation_job:
+                        fragment = new JobFragment();
                         break;
-
                 }
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, select_fragment).commit();
+                final FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.fragment_container, fragment).commit();
+                return true;
             }
         });
 

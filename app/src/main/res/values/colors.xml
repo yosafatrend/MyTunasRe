@@ -9,6 +9,8 @@
     <color name="colorTextSubtitle">#4e4e4e</color>
     <color name="colorTextTitle">#535353</color>
     <color name="colorbg">#f6f6f6</color>
+    <color name="colorCheck">#ffffff</color>
+    <color name="colorUncheck">#2D4483</color>
 
     <color name="ntrl_textinput_default_box_stroke_color" tools:override="true">#5B87FF</color>
 </resources>
