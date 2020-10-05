@@ -29,6 +29,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class DashboardActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
     private static final String TAG = DashboardActivity.class.getSimpleName();
@@ -62,7 +64,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                         View headerView = navigationView.getHeaderView(0);
                         TextView navUsername = headerView.findViewById(R.id.tvTitle);
                         TextView navNis = headerView.findViewById(R.id.tvSubtitle);
-                        ImageView imgUser = headerView.findViewById(R.id.imgUser);
+                        CircleImageView imgUser = headerView.findViewById(R.id.imgUser);
                         navUsername.setText(snapshot.child("nama_lengkap").getValue().toString());
                         navNis.setText(snapshot.child("nis").getValue().toString());
                         Glide.with(getApplicationContext())

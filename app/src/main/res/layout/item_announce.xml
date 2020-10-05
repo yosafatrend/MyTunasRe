@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/lr_layout"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="241dp"
-        app:cardCornerRadius="10dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="11dp"
+        android:layout_marginTop="7dp"
         android:layout_marginRight="11dp"
         android:layout_marginBottom="7dp"
-        android:layout_marginTop="7dp"
+        app:cardCornerRadius="10dp"
         app:cardElevation="@dimen/cardview_default_elevation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +26,8 @@
             android:padding="12dp"
             android:src="#bababa"
             app:civ_border_color="#fff"
-            app:civ_border_width="2dp"/>
+            app:civ_border_width="2dp" />
+
         <TextView
             android:id="@+id/tvAuthor"
             android:layout_width="wrap_content"
@@ -42,11 +43,11 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginStart="12dp"
+            android:layout_marginTop="65dp"
             android:layout_marginEnd="12dp"
             android:alpha=".5"
-            android:layout_marginTop="65dp"
             android:background="#bababa"
-            android:padding="8dp"/>
+            android:padding="8dp" />
 
         <TextView
             android:id="@+id/tvBerita"
@@ -54,18 +55,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="70dp"
             android:padding="12dp"
-            android:textColor="@color/colorTextSubtitle"
-            android:text="Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet" />
+            android:text="Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet"
+            android:textColor="@color/colorTextSubtitle" />
 
 
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_marginStart="12dp"
+            android:layout_marginTop="190dp"
             android:layout_marginEnd="12dp"
             android:alpha=".5"
-            android:layout_marginTop="190dp"
             android:background="#bababa"
-            android:padding="8dp"/>
+            android:padding="8dp" />
     </androidx.cardview.widget.CardView>
 </LinearLayout>

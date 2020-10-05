@@ -9,6 +9,7 @@
         android:roundIcon="@drawable/mytunas"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".JobDetail"></activity>
         <activity android:name=".AboutProfileActivity"
             android:theme="@style/AppTheme"
             />

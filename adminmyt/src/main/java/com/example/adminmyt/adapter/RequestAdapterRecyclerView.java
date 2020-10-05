@@ -45,8 +45,6 @@ public class RequestAdapterRecyclerView extends RecyclerView.Adapter<RequestAdap
 
                 .inflate(R.layout.item_request, parent, false);
 
-
-
         return new MyViewHolder(itemView);
     }
 

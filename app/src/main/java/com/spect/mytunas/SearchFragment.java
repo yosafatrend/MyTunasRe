@@ -53,7 +53,7 @@ public class SearchFragment extends Fragment {
         MenuItem searchMenuItem = menu.findItem(R.id.search_user);
         searchMenuItem.expandActionView();
         getActivity().getSupportFragmentManager().popBackStack();
-        searchView.onActionViewExpanded();
+        //searchView.onActionViewExpanded();
         searchView.clearFocus();
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
