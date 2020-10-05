@@ -50,34 +50,41 @@
         app:layout_constraintStart_toStartOf="@+id/profile_name"
         app:layout_constraintTop_toBottomOf="@+id/profile_name" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_image"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="20dp"
-        android:src="#bababa"
-        app:civ_border_color="#fff"
-        app:civ_border_width="5dp"
+    <RelativeLayout
+        android:id="@+id/relativeLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="20dp"
+            android:src="#bababa"
+            app:civ_border_color="#fff"
+            app:civ_border_width="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </RelativeLayout>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="326dp"
+        android:layout_height="458dp"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="30dp"
         android:layout_marginEnd="12dp"
         app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/profile_image">
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout3">
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingBottom="22dp">
+            android:layout_height="match_parent">
 
 
             <LinearLayout
@@ -296,6 +303,66 @@
                         android:paddingLeft="36dp"
                         android:text="Pati"
                         android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_baseline_insert_link_24"
+                        android:drawablePadding="5dp"
+                        android:fontFamily="@font/opensansergular"
+                        android:paddingLeft="5dp"
+                        android:text="Sosial Media"
+                        android:textColor="#000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:padding="8dp"
+                            android:src="@drawable/whatsapp"
+                            android:onClick="gotoWa"
+                            android:layout_margin="5dp"/>
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/facebook"
+                        android:onClick="gotoFb"
+                        android:layout_margin="5dp"/>
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:padding="5dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/instagram"
+                        android:onClick="gotoIg"
+                        android:layout_margin="5dp"
+                        android:autoLink="web"
+                        />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_margin="5dp"
+                        android:padding="7dp"
+                        android:src="@drawable/twitter"
+                        android:onClick="gotoTw"/>
+                    </LinearLayout>
 
                 </LinearLayout>
 

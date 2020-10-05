@@ -3,7 +3,10 @@ package com.spect.mytunas;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -53,8 +56,8 @@ public class AboutProfileActivity extends AppCompatActivity {
                     profileEmail.setText(snapshot.child("email").getValue().toString());
                     Glide.with(getApplicationContext())
                             .load(snapshot.child("imgUri").getValue().toString()).into(imgUser);
-                }catch (Exception e){
-                    Toast.makeText(getApplicationContext(),  ""+ e, Toast.LENGTH_SHORT);
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "" + e, Toast.LENGTH_SHORT);
                 }
 
             }
@@ -64,5 +67,31 @@ public class AboutProfileActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void gotoIg(View view) {
+        Uri uri = Uri.parse("http://instagram.com/_u/");
+
+
+        Intent i = new Intent(Intent.ACTION_VIEW, uri);
+
+        i.setPackage("com.instagram.android");
+
+        try {
+            startActivity(i);
+        } catch (ActivityNotFoundException e) {
+
+            startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("http://instagram.com/")));
+        }
+    }
+
+    public void gotoFb(View view) {
+    }
+
+    public void gotoTw(View view) {
+    }
+
+    public void gotoWa(View view) {
     }
 }

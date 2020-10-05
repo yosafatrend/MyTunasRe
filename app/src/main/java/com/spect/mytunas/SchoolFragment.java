@@ -38,6 +38,13 @@ public class SchoolFragment extends Fragment {
                 v.getContext().startActivity(new Intent(v.getContext(), ClassroomActivity.class));
             }
         });
+        cardView3 = (CardView)v.findViewById(R.id.cV_maps);
+        cardView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                v.getContext().startActivity(new Intent(v.getContext(), MapsActivity.class));
+            }
+        });
         return v;
     }
 }
