@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -22,6 +25,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.net.URLEncoder;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -39,6 +44,16 @@ public class AboutProfileActivity extends AppCompatActivity {
                 startActivity(new Intent(AboutProfileActivity.this, EditProfileActivity.class));
             }
         });
+
+        ImageView buttonwhatsapp = findViewById(R.id.buttonwhatsapp);
+        buttonwhatsapp.setOnClickListener(new View.OnClickListener()
+
+        {
+            @Override
+            public void onClick (View view){
+                startSupportChat();
+            }
+        } );
 
         DatabaseReference siswa = FirebaseDatabase.getInstance().getReference("siswa");
         DatabaseReference childSiswa = siswa.child(FirebaseAuth.getInstance().getCurrentUser().getUid());
@@ -70,7 +85,7 @@ public class AboutProfileActivity extends AppCompatActivity {
     }
 
     public void gotoIg(View view) {
-        Uri uri = Uri.parse("http://instagram.com/_u/");
+        Uri uri = Uri.parse("http://instagram.com/_u/elvisardinno");
 
 
         Intent i = new Intent(Intent.ACTION_VIEW, uri);
@@ -82,16 +97,45 @@ public class AboutProfileActivity extends AppCompatActivity {
         } catch (ActivityNotFoundException e) {
 
             startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("http://instagram.com/")));
+                    Uri.parse("http://instagram.com/elvisardinno")));
         }
     }
 
     public void gotoFb(View view) {
+        startActivity(getOpenFacebookIntent());
+    }
+
+    public Intent getOpenFacebookIntent() {
+        try {
+            getPackageManager().getPackageInfo("com.facebook.katana", 0);
+            getPackageManager().getPackageInfo("com.facebook.lite", 0);
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/100009462566593"));
+        } catch (Exception e) {
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/elvis.ardinno06"));
+        }
     }
 
     public void gotoTw(View view) {
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=")));
+        } catch (Exception e) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/#!")));
+        }
     }
 
-    public void gotoWa(View view) {
+    private void startSupportChat() {
+
+        try {
+            String headerReceiver = "";
+            String bodyMessageFormal = "";
+            String whatsappContain = headerReceiver + bodyMessageFormal;
+            String trimToNumner = "+6281392833720";
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("https://wa.me/" + trimToNumner + "/?text=" + ""));
+            startActivity(intent);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

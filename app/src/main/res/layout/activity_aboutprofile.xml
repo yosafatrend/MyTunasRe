@@ -331,11 +331,11 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
+                            android:id="@+id/buttonwhatsapp"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:padding="8dp"
                             android:src="@drawable/whatsapp"
-                            android:onClick="gotoWa"
                             android:layout_margin="5dp"/>
 
                     <ImageView

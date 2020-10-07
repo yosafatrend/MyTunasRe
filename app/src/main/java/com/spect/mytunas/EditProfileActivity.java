@@ -43,7 +43,7 @@ public class EditProfileActivity extends AppCompatActivity {
     TextView textView;
 
     ImageView imageVew;
-    TextInputEditText edtNama, edtNis, edtEmail;
+    TextInputEditText edtNama, edtNis, edtEmail, edtJenkel, edtStatus, edtJurusan, edtTelepon, edtAlamat;
 
     Uri uriProfileImage;
     ProgressBar progressBar;
