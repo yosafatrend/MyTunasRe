@@ -6,62 +6,73 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/tvJobNameD"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Android Developer"
-        android:textColor="#000"
-        android:textSize="25sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/tvJobCompanyD"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nusantara Berkah Digital PT - Yogyakarta"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/tvJobNameD"
-        tools:layout_editor_absoluteX="12dp" />
+        <TextView
+            android:id="@+id/tvJobNameD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Android Developer"
+            android:textColor="#000"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvJobCompanyD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nusantara Berkah Digital PT - Yogyakarta"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/tvJobNameD"
+            tools:layout_editor_absoluteX="12dp" />
 
 
-    <TextView
-        android:id="@+id/tvJobSalary"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Rp 2.000.000- 3.000.000"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/tvJobCompanyD"
-        tools:layout_editor_absoluteX="12dp" />
+        <TextView
+            android:id="@+id/tvJobSalary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rp 2.000.000- 3.000.000"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@id/tvJobCompanyD"
+            tools:layout_editor_absoluteX="12dp" />
 
-    <TextView
-        android:id="@+id/tvJobDateD"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="30 days ago"
-        app:layout_constraintTop_toBottomOf="@id/tvJobSalary" />
+        <TextView
+            android:id="@+id/tvJobDateD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="30 days ago"
+            app:layout_constraintTop_toBottomOf="@id/tvJobSalary" />
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:layout_marginTop="90dp"
-        android:alpha=".5"
-        android:background="#C5C5C5"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="12dp" />
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginTop="5dp"
+            android:alpha=".5"
+            android:background="#C5C5C5"
+            app:layout_constraintTop_toBottomOf="@id/tvJobDateD"
+            tools:layout_editor_absoluteX="12dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ScrollView
+        android:id="@+id/scrool"
         android:layout_width="match_parent"
-        android:layout_height="550dp"
-        app:layout_constraintBottom_toTopOf="@+id/cardView3"
-        app:layout_constraintTop_toBottomOf="@+id/view2"
-        tools:layout_editor_absoluteX="12dp">
+        android:layout_height="500dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constrain2"
@@ -72,6 +83,7 @@
                 android:id="@+id/tvJobDescD"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:justificationMode="inter_word"
                 android:text="@string/isi1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
