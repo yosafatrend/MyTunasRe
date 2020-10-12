@@ -9,11 +9,17 @@
         android:roundIcon="@drawable/mytunas"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MapsActivity"></activity>
-        <activity android:name=".JobDetail" />
-        <activity
-            android:name=".AboutProfileActivity"
-            android:theme="@style/AppTheme" />
+        <activity android:name=".JobDetail"></activity>
+        <service
+            android:name=".service.MyFirebaseMessagingService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+        <activity android:name=".AboutProfileActivity"
+            android:theme="@style/AppTheme"
+            />
         <activity
             android:name=".ClassroomActivity"
             android:theme="@style/AppTheme" />
@@ -32,6 +38,10 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".NewsDetailActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".MapsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity

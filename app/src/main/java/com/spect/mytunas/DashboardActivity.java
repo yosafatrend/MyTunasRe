@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -45,6 +46,8 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle("My Tunas");
+
+            FirebaseMessaging.getInstance().subscribeToTopic("news");
 
             drawerLayout = findViewById(R.id.drawerLayout);
             NavigationView navigationView = (NavigationView) findViewById(R.id.drawer);
