@@ -7,7 +7,6 @@
     android:background="#00ffffff"
     tools:context=".activity.AnnounceActivity">
 
-
     <androidx.drawerlayout.widget.DrawerLayout
         android:id="@+id/drawerLayout"
         android:layout_width="match_parent"
@@ -18,8 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#00ffffff"
-            android:paddingTop="70dp"
-            android:paddingBottom="70dp">
+            android:paddingTop="70dp">
 
             <TextView
                 android:id="@+id/profile_name"
