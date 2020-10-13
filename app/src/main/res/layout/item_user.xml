@@ -39,10 +39,10 @@
         android:id="@+id/item_nis"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/opensansergular"
-        android:layout_marginTop="2dp"
-        android:text="12345"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/opensansergular"
+        android:text="12345"
         android:textSize="14sp"
         app:layout_constraintStart_toEndOf="@+id/item_avatar"
         app:layout_constraintTop_toBottomOf="@+id/item_name" />

@@ -113,7 +113,7 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 saveUserInformation(new User(
-                   edtEmail.getText().toString(), edtNama.getText().toString(), Integer.parseInt(edtNis.getText().toString()), profileImageUrl
+                   edtEmail.getText().toString(), edtNama.getText().toString(), edtNis.getText().toString(), profileImageUrl
                 ));
 
 

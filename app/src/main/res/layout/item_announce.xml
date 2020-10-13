@@ -32,7 +32,7 @@
             android:id="@+id/tvAuthor"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="55dp"
+            android:layout_marginStart="55dp"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/opensansbold"
             android:padding="12dp"
@@ -59,7 +59,7 @@
             android:justificationMode="inter_word"
             android:layout_marginTop="70dp"
             android:padding="12dp"
-            android:text="Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet"
+            android:text="@string/tv_berita"
             android:textColor="@color/colorTextSubtitle" />
 
 

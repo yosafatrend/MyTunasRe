@@ -5,10 +5,14 @@ import java.io.Serializable;
 public class User implements Serializable {
     private String email;
     private String nama;
-    private int nis;
+    private String nis;
     private String imgUri;
 
-    public User(String email, String nama, int nis, String imgUri) {
+    public String getImgUri() {
+        return imgUri;
+    }
+
+    public User(String email, String nama, String nis, String imgUri) {
         this.email = email;
         this.nama = nama;
         this.nis = nis;
@@ -26,11 +30,11 @@ public class User implements Serializable {
         this.nama = nama;
     }
 
-    public int getNis() {
+    public String getNis() {
         return nis;
     }
 
-    public void setNis(int nis) {
+    public void setNis(String nis) {
         this.nis = nis;
     }
 

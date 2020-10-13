@@ -66,6 +66,7 @@ Dengan gelar itulah SMK Tunas Harapan Pati merasa tertantang untuk meningkatkan 
         \n-Mampu berkomunikasi dengan baik dan bekerjasama dengan tim dev lainnya
         \n-Bersedia ditempatkan di Jogja
     </string>
+    <string name="tv_berita">Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet</string>
     <string-array name="tempat_loker">
         <item>Pati, Jawa Tengah</item>
         <item>Kudus, Jawa Tengah</item>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00E8E8E8"
+    android:background="#f5f5f5"
     android:paddingTop="70dp"
     tools:context=".fragment.SchoolFragment">
 
@@ -17,15 +17,17 @@
         android:layout_gravity="center"
         android:layout_marginTop="16dp"
         android:src="@drawable/search"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:id="@+id/rvUserSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
