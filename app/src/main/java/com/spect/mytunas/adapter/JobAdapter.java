@@ -10,15 +10,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.spect.mytunas.Adapter;
-import com.spect.mytunas.JobDetail;
+import com.spect.mytunas.activity.JobDetailActivity;
 import com.spect.mytunas.R;
-import com.spect.mytunas.models.Article;
 import com.spect.mytunas.models.Job;
-import com.spect.mytunas.models.Requests;
 
 import java.util.List;
 
@@ -53,7 +49,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyViewHolder> {
         holder.cvJob.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(mActivity, JobDetail.class);
+                Intent i = new Intent(mActivity, JobDetailActivity.class);
                 i.putExtra("jobName", model.getJobName());
                 i.putExtra("jobDate", model.getJobDate());
                 i.putExtra("jobCompany", model.getJobCompany());

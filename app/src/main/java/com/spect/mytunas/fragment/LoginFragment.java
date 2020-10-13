@@ -1,12 +1,9 @@
-package com.spect.mytunas;
+package com.spect.mytunas.fragment;
 
 
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -30,6 +27,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.spect.mytunas.R;
+import com.spect.mytunas.activity.DashboardActivity;
 
 public class LoginFragment extends Fragment {
     private TextInputEditText edtEmail, edtPass;

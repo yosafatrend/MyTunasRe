@@ -1,15 +1,13 @@
-package com.spect.mytunas;
+package com.spect.mytunas.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.etebarian.meowbottomnavigation.MeowBottomNavigation;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -19,6 +17,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
+import com.spect.mytunas.fragment.HomeFragment;
+import com.spect.mytunas.fragment.JobFragment;
+import com.spect.mytunas.fragment.NewsFragment;
+import com.spect.mytunas.R;
+import com.spect.mytunas.fragment.SchoolFragment;
+import com.spect.mytunas.fragment.SearchFragment;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -41,7 +45,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.activity_dashboard);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
@@ -95,7 +99,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         //Untuk inisialisasi fragment pertama kali
         fragmentManager.beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
-        //Memberikan listener saat menu item di bottom navigation diklik
+        //Memberikan listener saat menu item_user di bottom navigation diklik
         bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -142,7 +146,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
 
         switch (Item.getItemId()) {
             case R.id.nav_profile:
-                startActivity(new Intent(DashboardActivity.this, AboutProfileActivity.class));
+                startActivity(new Intent(DashboardActivity.this, ProfileUserActivity.class));
                 break;
             case R.id.nav_setting:
                 break;

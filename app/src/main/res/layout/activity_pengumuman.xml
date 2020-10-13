@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00ffffff"
-    tools:context=".announcement">
+    tools:context=".activity.AnnounceActivity">
 
 
     <androidx.drawerlayout.widget.DrawerLayout
@@ -18,14 +18,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#00ffffff"
-            android:paddingTop="70dp">
+            android:paddingTop="70dp"
+            android:paddingBottom="70dp">
 
             <TextView
                 android:id="@+id/profile_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="pengumuman"
+                android:text="Pengumuman"
+                android:fontFamily="@font/montserratmedium"
                 android:textColor="#000"
                 android:textSize="16dp"
                 android:textStyle="bold"
@@ -36,12 +38,12 @@
                 android:id="@+id/recyclerView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="45dp"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="60dp"
                 android:layout_marginRight="@dimen/activity_horizontal_margin"
                 android:layout_marginBottom="@dimen/activity_horizontal_margin"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/profile_name"
                 tools:listitem="@layout/item_announce" />

@@ -6,7 +6,7 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface ApiInterface {
+public interface ApiNewsInterface {
     @GET("everything")
     Call<News> getNews(
 //        @Query("country") String country,

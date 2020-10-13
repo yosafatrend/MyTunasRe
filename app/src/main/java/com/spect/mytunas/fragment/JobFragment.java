@@ -1,4 +1,4 @@
-package com.spect.mytunas;
+package com.spect.mytunas.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.common.api.Api;
+import com.spect.mytunas.R;
 import com.spect.mytunas.adapter.JobAdapter;
 import com.spect.mytunas.api.ApiJobInterface;
 import com.spect.mytunas.models.Article;

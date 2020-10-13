@@ -9,7 +9,7 @@
         android:roundIcon="@drawable/mytunas"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".JobDetail"></activity>
+        <activity android:name=".activity.JobDetailActivity"></activity>
         <service
             android:name=".service.MyFirebaseMessagingService"
             android:exported="false">
@@ -17,31 +17,31 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <activity android:name=".AboutProfileActivity"
+        <activity android:name=".activity.ProfileUserActivity"
             android:theme="@style/AppTheme"
             />
         <activity
-            android:name=".ClassroomActivity"
+            android:name=".activity.ClassroomActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".profile_school"
+            android:name=".activity.ProfileSchoolActivity"
             android:theme="@style/AppTheme" />
-        <activity android:name=".announcement" />
+        <activity android:name=".activity.AnnounceActivity" />
         <activity
-            android:name=".AuthActivity"
+            android:name=".activity.AuthActivity"
             android:label="home"
             android:windowSoftInputMode="adjustPan" />
-        <activity android:name=".EditProfileActivity" />
+        <activity android:name=".activity.EditProfileActivity" />
         <activity
-            android:name=".DashboardActivity"
+            android:name=".activity.DashboardActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".NewsDetailActivity"
+            android:name=".activity.NewsDetailActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".MapsActivity"
+            android:name=".activity.MapsActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
         <activity

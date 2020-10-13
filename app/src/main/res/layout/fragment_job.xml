@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:padding="12dp"
     android:background="#00ffffff"
-    tools:context=".JobFragment">
+    tools:context=".fragment.JobFragment">
 
 
 

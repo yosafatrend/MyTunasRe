@@ -12,7 +12,7 @@ import androidx.core.app.NotificationCompat;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.spect.mytunas.R;
-import com.spect.mytunas.announcement;
+import com.spect.mytunas.activity.AnnounceActivity;
 
 import java.util.Map;
 
@@ -36,7 +36,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         .setContentText(body)
                         .setSmallIcon(R.drawable.ic_launcher_background);
 
-        Intent intent = new Intent(this, announcement.class);
+        Intent intent = new Intent(this, AnnounceActivity.class);
        // intent.putExtra("brandId", brandId);
        // intent.putExtra("category", category);
 

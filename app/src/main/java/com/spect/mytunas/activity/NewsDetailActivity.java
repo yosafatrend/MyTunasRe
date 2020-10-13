@@ -1,4 +1,4 @@
-package com.spect.mytunas;
+package com.spect.mytunas.activity;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -23,6 +23,8 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
+import com.spect.mytunas.R;
+import com.spect.mytunas.Utils;
 
 public class NewsDetailActivity extends AppCompatActivity implements AppBarLayout.OnOffsetChangedListener{
     private ImageView imageView;

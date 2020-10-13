@@ -1,4 +1,4 @@
-package com.spect.mytunas;
+package com.spect.mytunas.fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.spect.mytunas.R;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.spect.mytunas;
+package com.spect.mytunas.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class JobDetail extends AppCompatActivity {
+import com.spect.mytunas.R;
+
+public class JobDetailActivity extends AppCompatActivity {
     private TextView tvJobName, tvJobCompany, tvJobLocation, tvJobSalary, tvJobDate, tvJobDesc;
     private Button btnOpenLink;
 

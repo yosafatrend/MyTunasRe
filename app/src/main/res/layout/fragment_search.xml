@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#00E8E8E8"
     android:paddingTop="70dp"
-    tools:context=".SchoolFragment">
+    tools:context=".fragment.SchoolFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -29,7 +29,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:listitem="@layout/item" >
+        tools:listitem="@layout/item_user" >
 
     </androidx.recyclerview.widget.RecyclerView>
 

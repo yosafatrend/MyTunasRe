@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/layout3"
-    tools:context=".profile_school">
+    tools:context=".activity.ProfileSchoolActivity">
 
     <ScrollView
         android:layout_width="match_parent"

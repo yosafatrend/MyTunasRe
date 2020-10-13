@@ -1,4 +1,4 @@
-package com.spect.mytunas;
+package com.spect.mytunas.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -21,12 +21,13 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.spect.mytunas.R;
 import com.spect.mytunas.adapter.RequestAdapterRecyclerView;
 import com.spect.mytunas.models.Requests;
 
 import java.util.ArrayList;
 
-public class announcement extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class AnnounceActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
 
     private DatabaseReference database;
@@ -65,7 +66,7 @@ public class announcement extends AppCompatActivity implements NavigationView.On
         rc_list_request.setLayoutManager(mLayoutManager);
         rc_list_request.setItemAnimator(new DefaultItemAnimator());
 
-        loading = ProgressDialog.show(announcement.this,
+        loading = ProgressDialog.show(AnnounceActivity.this,
                 null,
                 "Please wait...",
                 true,
@@ -100,7 +101,7 @@ public class announcement extends AppCompatActivity implements NavigationView.On
                  * Inisialisasi adapter dan data hotel dalam bentuk ArrayList
                  * dan mengeset Adapter ke dalam RecyclerView
                  */
-                requestAdapterRecyclerView = new RequestAdapterRecyclerView(daftarReq, announcement.this);
+                requestAdapterRecyclerView = new RequestAdapterRecyclerView(daftarReq, AnnounceActivity.this);
                 rc_list_request.setAdapter(requestAdapterRecyclerView);
                 loading.dismiss();
             }
@@ -125,7 +126,7 @@ public class announcement extends AppCompatActivity implements NavigationView.On
 
         switch (menuItem.getItemId()){
             case R.id.nav_profile:
-                startActivity(new Intent(announcement.this, EditProfileActivity.class));
+                startActivity(new Intent(AnnounceActivity.this, EditProfileActivity.class));
                 break;
             case R.id.nav_setting:
                 break;

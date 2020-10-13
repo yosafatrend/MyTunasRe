@@ -1,16 +1,9 @@
-package com.spect.mytunas;
+package com.spect.mytunas.fragment;
 
-import android.app.ActionBar;
-import android.app.Activity;
-import android.app.ActivityOptions;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,26 +15,22 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.SearchView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityOptionsCompat;
-import androidx.core.util.Pair;
-import androidx.core.view.ViewCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.spect.mytunas.Adapter;
-import com.spect.mytunas.NewsDetailActivity;
 import com.spect.mytunas.R;
 import com.spect.mytunas.Utils;
-import com.spect.mytunas.api.ApiClient;
-import com.spect.mytunas.api.ApiInterface;
+import com.spect.mytunas.activity.NewsDetailActivity;
+import com.spect.mytunas.adapter.NewsAdapter;
+import com.spect.mytunas.api.ApiNewsClient;
+import com.spect.mytunas.api.ApiNewsInterface;
 import com.spect.mytunas.models.Article;
 import com.spect.mytunas.models.News;
 
@@ -52,15 +41,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static android.content.ContentValues.TAG;
-
 public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
 
     public static final String API_KEY = "393b7023beab47d5b82c274aadfdb43d";
     private RecyclerView recyclerView;
     private RecyclerView.LayoutManager layoutManager;
     private List<Article> articles = new ArrayList<>();
-    private Adapter adapter;
+    private NewsAdapter adapter;
     private Context mContext;
     private RelativeLayout errorLayout;
     private ImageView errorImage;
@@ -100,7 +87,7 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     }
 
     public void initListener() {
-        adapter.setOnItemClickListener(new Adapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new NewsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 ImageView imageView = view.findViewById(R.id.img);
@@ -170,7 +157,7 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     public void LoadJson(final String keyword) {
         errorLayout.setVisibility(View.GONE);
         swipeRefreshLayout.setRefreshing(true);
-        ApiInterface apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
+        ApiNewsInterface apiInterface = ApiNewsClient.getApiClient().create(ApiNewsInterface.class);
 
         String country = Utils.getCountry();
 
@@ -192,7 +179,7 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                         articles.clear();
                     }
                     articles = response.body().getArticle();
-                    adapter = new Adapter(articles, getActivity());
+                    adapter = new NewsAdapter(articles, getActivity());
                     recyclerView.setAdapter(adapter);
                     swipeRefreshLayout.setRefreshing(false);
                     initListener();

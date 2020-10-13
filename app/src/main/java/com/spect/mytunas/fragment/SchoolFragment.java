@@ -1,4 +1,4 @@
-package com.spect.mytunas;
+package com.spect.mytunas.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,12 @@ import android.view.ViewGroup;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+
+import com.spect.mytunas.R;
+import com.spect.mytunas.activity.AnnounceActivity;
+import com.spect.mytunas.activity.ClassroomActivity;
+import com.spect.mytunas.activity.MapsActivity;
+import com.spect.mytunas.activity.ProfileSchoolActivity;
 
 
 public class SchoolFragment extends Fragment {
@@ -21,14 +27,14 @@ public class SchoolFragment extends Fragment {
         cardView1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                v.getContext().startActivity(new Intent(v.getContext(), announcement.class));
+                v.getContext().startActivity(new Intent(v.getContext(), AnnounceActivity.class));
             }
         });
         cardView2 = (CardView)v.findViewById(R.id.cV_school);
         cardView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                v.getContext().startActivity(new Intent(v.getContext(), profile_school.class));
+                v.getContext().startActivity(new Intent(v.getContext(), ProfileSchoolActivity.class));
             }
         });
         cardView4 = (CardView)v.findViewById(R.id.cV_class);

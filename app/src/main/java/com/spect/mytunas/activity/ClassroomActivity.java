@@ -1,4 +1,4 @@
-package com.spect.mytunas;
+package com.spect.mytunas.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+import com.spect.mytunas.R;
 
 public class ClassroomActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawerLayout;
@@ -33,7 +34,7 @@ public class ClassroomActivity extends AppCompatActivity implements NavigationVi
             drawerToggle.syncState();
         }
 
-        setContentView(R.layout.activity_kelas);
+        setContentView(R.layout.activity_classroom);
     }
 
 

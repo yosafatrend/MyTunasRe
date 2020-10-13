@@ -1,4 +1,4 @@
-package com.spect.mytunas;
+package com.spect.mytunas.fragment;
 
 
 import android.app.SearchManager;
@@ -16,6 +16,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
+
+import com.spect.mytunas.R;
 
 
 /**

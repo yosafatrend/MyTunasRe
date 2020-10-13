@@ -1,4 +1,4 @@
-package com.spect.mytunas;
+package com.spect.mytunas.activity;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,6 +32,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.spect.mytunas.R;
 import com.spect.mytunas.models.User;
 
 import java.io.IOException;
@@ -56,7 +57,7 @@ public class EditProfileActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_editprofile);
+        setContentView(R.layout.activity_edit_profile);
         mAuth = FirebaseAuth.getInstance();
 
         textView = findViewById(R.id.textView6);

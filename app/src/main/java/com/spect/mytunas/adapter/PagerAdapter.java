@@ -1,9 +1,12 @@
-package com.spect.mytunas;
+package com.spect.mytunas.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.spect.mytunas.fragment.LoginFragment;
+import com.spect.mytunas.fragment.RegisterFragment;
 
 public class PagerAdapter extends FragmentPagerAdapter {
 

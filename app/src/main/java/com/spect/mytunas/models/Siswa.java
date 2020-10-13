@@ -1,6 +1,6 @@
-package com.spect.mytunas;
+package com.spect.mytunas.models;
 
-class Siswa {
+public class Siswa {
     private String nis;
     private String nama_lengkap;
     private String password;
