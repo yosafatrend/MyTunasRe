@@ -111,21 +111,18 @@ public class ProfileUserActivity extends AppCompatActivity {
 
     public void gotoTw(View view) {
         try {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=EArdinno")));
         } catch (Exception e) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/#!")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/#!EArdinno")));
         }
     }
 
     private void startSupportChat() {
 
         try {
-            String headerReceiver = "";
-            String bodyMessageFormal = "";
-            String whatsappContain = headerReceiver + bodyMessageFormal;
             String trimToNumner = "+6281392833720";
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("https://wa.me/" + trimToNumner + "/?text=" + ""));
+            intent.setData(Uri.parse("https://wa.me/" + trimToNumner + "/?text=" + "Hello...."));
             startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();

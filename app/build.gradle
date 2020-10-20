@@ -6,12 +6,13 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.spect.mytunas"
-        minSdkVersion 21
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -54,4 +55,5 @@ dependencies {
     implementation 'com.android.volley:volley:1.1.0'
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
+    implementation 'com.android.support:multidex:1.0.3'
 }

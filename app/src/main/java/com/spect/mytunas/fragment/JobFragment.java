@@ -20,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.gms.common.api.Api;
+import com.google.android.material.textfield.TextInputEditText;
 import com.spect.mytunas.R;
 import com.spect.mytunas.adapter.JobAdapter;
 import com.spect.mytunas.api.ApiJobInterface;
@@ -42,7 +43,7 @@ public class JobFragment extends Fragment {
     private JobAdapter adapter;
     private ProgressBar progressBar;
     private Button btnJobSearch;
-    private EditText edtJobName, edtJobLoc;
+    private TextInputEditText edtJobName, edtJobLoc;
 
     public JobFragment() {
         // Required empty public constructor
