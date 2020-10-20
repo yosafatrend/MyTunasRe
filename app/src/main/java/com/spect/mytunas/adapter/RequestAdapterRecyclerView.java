@@ -11,12 +11,13 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.spect.mytunas.R;
+import com.spect.mytunas.activity.DetailAnnouncementActivity;
 import com.spect.mytunas.models.Requests;
 
 import java.util.List;
 
 public class RequestAdapterRecyclerView extends RecyclerView.Adapter<RequestAdapterRecyclerView.MyViewHolder> {
-    private List<Requests> moviesList;
+    private List<Requests> anounceList;
     private Activity mActivity;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -31,8 +32,8 @@ public class RequestAdapterRecyclerView extends RecyclerView.Adapter<RequestAdap
         }
     }
 
-    public RequestAdapterRecyclerView(List<Requests> moviesList, Activity activity) {
-        this.moviesList = moviesList;
+    public RequestAdapterRecyclerView(List<Requests> anounceList, Activity activity) {
+        this.anounceList = anounceList;
         this.mActivity = activity;
     }
 
@@ -49,16 +50,30 @@ public class RequestAdapterRecyclerView extends RecyclerView.Adapter<RequestAdap
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, final int position) {
-        final Requests movie = moviesList.get(position);
+        final Requests announce = anounceList.get(position);
 
-        holder.tvBerita.setText(movie.getInformasi());
-        holder.tvAuthor.setText(movie.getPengirim());
+        holder.tvBerita.setText(announce.getInformasi());
+        holder.tvAuthor.setText(announce.getPengirim());
+        holder.rl_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String pengirim = announce.getPengirim();
+                String informasi = announce.getInformasi();
+                String imageuri = announce.getImgUri();
+                Intent intent = new Intent(mActivity, DetailAnnouncementActivity.class);
+                intent.putExtra("pengirim", pengirim);
+                intent.putExtra("informasi", informasi);
+                intent.putExtra("imageUri", imageuri);
+                mActivity.startActivity(intent);
+            }
+        });
+
 
     }
 
     @Override
     public int getItemCount() {
-        return moviesList.size();
+        return anounceList.size();
     }
 
 

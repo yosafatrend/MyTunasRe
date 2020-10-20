@@ -188,6 +188,17 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                 } else {
                     // delete
+                    database.child("Berita")
+                            .child(sPid)
+                            .removeValue()
+                            .addOnSuccessListener(new OnSuccessListener<Void>() {
+                                @Override
+                                public void onSuccess(Void aVoid) {
+                                    Toast.makeText(MainActivity.this, "data berhasil di hapus", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+                                    startActivity(intent);
+                                }
+                            });
                 }
 
             }
