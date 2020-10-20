@@ -7,12 +7,14 @@
     android:paddingTop="12dp"
     android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:id="@+id/cvJob"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvJobb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/bg_round2"
+        app:cardCornerRadius="10dp"
+        android:elevation="0dp"
+        app:cardElevation="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -23,18 +25,18 @@
             android:padding="15dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
                     android:id="@+id/jobName"
-                    android:layout_width="300dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/opensansbold"
                     android:text="Android Developer"
-                    android:textColor="#000"
+                    android:textColor="@color/colorAccent"
                     android:textSize="18sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -53,7 +55,7 @@
                     android:id="@+id/jobDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40dp"
+                    android:layout_marginTop="35dp"
                     android:fontFamily="@font/opensansergular"
                     android:text="1 menit yang lalu"
                     android:textSize="11sp"
@@ -73,5 +75,5 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

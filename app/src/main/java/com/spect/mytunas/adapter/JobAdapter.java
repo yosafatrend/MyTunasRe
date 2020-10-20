@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.spect.mytunas.activity.JobDetailActivity;
@@ -71,7 +72,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyViewHolder> {
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView jobName, jobCompany, jobDate, jobLocation;
-        LinearLayout cvJob;
+        CardView cvJob;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -79,7 +80,7 @@ public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyViewHolder> {
             jobCompany = itemView.findViewById(R.id.jobCompany);
             jobDate = itemView.findViewById(R.id.jobDate);
             jobLocation = itemView.findViewById(R.id.jobLocation);
-            cvJob = itemView.findViewById(R.id.cvJob);
+            cvJob = itemView.findViewById(R.id.cvJobb);
         }
 
     }

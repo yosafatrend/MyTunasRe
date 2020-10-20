@@ -1,7 +1,9 @@
 package com.spect.mytunas.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -49,7 +51,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         if (getSupportActionBar() != null) {
-            getSupportActionBar().setTitle("My Tunas");
+            getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#FFFFFF\">MyTunas</font>"));
 
             FirebaseMessaging.getInstance().subscribeToTopic("news");
 

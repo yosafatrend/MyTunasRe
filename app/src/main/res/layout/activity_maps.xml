@@ -5,8 +5,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00ffffff"
     tools:context=".activity.MapsActivity">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_maps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary"
+        android:minHeight="?actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvActionBar"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:drawableLeft="@drawable/ic_baseline_arrow_back_ios_24"
+            android:drawablePadding="10dp"
+            android:fontFamily="@font/opensansergular"
+            android:onClick="onBack"
+            android:text="Denah"
+            android:textColor="#fff"
+            android:textSize="17sp" />
+    </androidx.appcompat.widget.Toolbar>
     <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/imageView6"
         android:layout_width="match_parent"

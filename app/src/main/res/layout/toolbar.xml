@@ -7,4 +7,9 @@
     android:elevation="4dp"
     android:theme="@style/AppTheme">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="ActionBar"
+        android:textSize="20sp"/>
 </androidx.appcompat.widget.Toolbar>

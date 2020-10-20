@@ -84,4 +84,7 @@ public class ProfileSchoolActivity extends AppCompatActivity  {
             }
         });
     }
+    public void onBack(View view) {
+        super.onBackPressed();
+    }
 }

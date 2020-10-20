@@ -31,7 +31,7 @@ public class JobDetailActivity extends AppCompatActivity {
         tvJobCompany.setText(getIntent().getStringExtra("jobCompany") +" - "+ getIntent().getStringExtra("jobLocation"));
         tvJobDate.setText(getIntent().getStringExtra("jobDate"));
         tvJobSalary.setText(getIntent().getStringExtra("jobSalary"));
-        tvJobDesc.setText(getIntent().getStringExtra("jobDesc"));
+        tvJobDesc.setText(getIntent().getStringExtra("jobDesc") + "\n \n \n");
         btnOpenLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,5 +41,8 @@ public class JobDetailActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+    public void onBack(View view) {
+        super.onBackPressed();
     }
 }

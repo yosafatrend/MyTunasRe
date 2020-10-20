@@ -14,6 +14,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -27,7 +28,7 @@ import com.spect.mytunas.models.Requests;
 
 import java.util.ArrayList;
 
-public class AnnounceActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class AnnounceActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
 
     private DatabaseReference database;
@@ -37,24 +38,17 @@ public class AnnounceActivity extends AppCompatActivity implements NavigationVie
 
     private RecyclerView rc_list_request;
     private ProgressDialog loading;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pengumuman);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        if (getSupportActionBar() != null){
-            getSupportActionBar().setTitle("My Tunas");
+        toolbar = findViewById(R.id.toolbar_announce);
+        this.setSupportActionBar(toolbar);
+        this.getSupportActionBar().setTitle("Ann");
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-            DrawerLayout drawerLayout;
-            drawerLayout = findViewById(R.id.drawerLayout);
-            NavigationView navigationView = (NavigationView) findViewById(R.id.drawer);
-            navigationView.setNavigationItemSelectedListener(this);
-            ActionBarDrawerToggle drawerToggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.drawer_open, R.string.drawer_close);
-            drawerLayout.addDrawerListener(drawerToggle);
-            drawerToggle.syncState();
-        }
         setContentView(R.layout.activity_pengumuman);
 
         database = FirebaseDatabase.getInstance().getReference();
@@ -119,29 +113,7 @@ public class AnnounceActivity extends AppCompatActivity implements NavigationVie
         });
     }
 
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        String itemName = (String) menuItem.getTitle();
-
-        closeDrawer();
-
-        switch (menuItem.getItemId()){
-            case R.id.nav_profile:
-                startActivity(new Intent(AnnounceActivity.this, EditProfileActivity.class));
-                break;
-            case R.id.nav_setting:
-                break;
-            case R.id.nav_Logout:
-                break;
-        }
-        return false;
+    public void onBack(View view) {
+        super.onBackPressed();
     }
-    private void closeDrawer() {
-        drawerLayout.closeDrawer(GravityCompat.START);
-    }
-
-    private void openDrawer(){
-        drawerLayout.openDrawer(GravityCompat.START);
-
-    }
-
 }

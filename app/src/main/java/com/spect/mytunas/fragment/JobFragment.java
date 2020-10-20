@@ -158,6 +158,7 @@ public class JobFragment extends Fragment {
                 progressBar.setVisibility(View.GONE);
                 if (!response.isSuccessful()) {
                     Log.d("tagjob", "Code " + response.code());
+                    Toast.makeText(getActivity(), "Jaringan anda jelek, mohon dicoba kembali " + response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 jobs = response.body();
@@ -168,6 +169,7 @@ public class JobFragment extends Fragment {
             @Override
             public void onFailure(Call<List<Job>> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
+                Toast.makeText(getContext(), "Error " + t.getMessage(), Toast.LENGTH_SHORT).show();
                 Log.d("tagjob", "Code " + t.getMessage());
             }
         });
