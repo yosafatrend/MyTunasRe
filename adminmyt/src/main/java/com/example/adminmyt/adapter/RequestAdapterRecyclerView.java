@@ -63,6 +63,7 @@ public class RequestAdapterRecyclerView extends RecyclerView.Adapter<RequestAdap
                 goDetail.putExtra("id", movie.getKey());
                 goDetail.putExtra("pengirim", movie.getPengirim());
                 goDetail.putExtra("infromasi", movie.getInformasi());
+                goDetail.putExtra("topik", movie.getTopik());
 
 
                 mActivity.startActivity(goDetail);

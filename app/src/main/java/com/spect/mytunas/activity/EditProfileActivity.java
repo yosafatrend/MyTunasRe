@@ -61,7 +61,7 @@ public class EditProfileActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         textView = findViewById(R.id.textView6);
-        imageVew = findViewById(R.id.imageView);
+        imageVew = findViewById(R.id.imgNewsHome);
         edtNama = findViewById(R.id.edtNamaP);
         edtNis = findViewById(R.id.edtNisP);
         edtEmail = findViewById(R.id.edtEmailP);

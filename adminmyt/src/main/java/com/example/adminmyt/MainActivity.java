@@ -44,17 +44,21 @@ import org.json.JSONObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
 public class MainActivity extends AppCompatActivity {
 
     private DatabaseReference database;
-    private EditText edtInformasi,edtPengirim;
+    private EditText edtInformasi,edtPengirim,edtTopik;
     private ProgressDialog progressBar;
     private ImageView profilePics;
-    private String sInfromasi,sPengirim,sPid, profileImageUrl;
+    private String sInfromasi,sPengirim,sPid,sTopik, profileImageUrl,sTanggal;
     private Button btnUpload, btnCancel;
     private  StorageReference storageReference;
     private FirebaseStorage firebaseStorage;
@@ -71,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance().getReference();
 
         mRequestQue = Volley.newRequestQueue(this);
-
+        edtTopik = findViewById(R.id.edtTopik);
         edtInformasi = findViewById(R.id.edtInformasi);
         edtPengirim = findViewById(R.id.edtPengirim);
         profilePics = findViewById(R.id.profilePic);
@@ -80,9 +84,14 @@ public class MainActivity extends AppCompatActivity {
         sPid = getIntent().getStringExtra("id");
         sInfromasi = getIntent().getStringExtra("infromasi");
         sPengirim = getIntent().getStringExtra("pengirim");
-
+        sTopik = getIntent().getStringExtra("topik");
         DatabaseReference berita = FirebaseDatabase.getInstance().getReference("Berita");
         DatabaseReference childBerita = berita.child(sPid);
+
+        Date date = Calendar.getInstance().getTime();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
+        sTanggal = dateFormat.format(date);
+
         childBerita.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -132,6 +141,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String Sinformasi = edtInformasi.getText().toString();
                 String Spengirim = edtPengirim.getText().toString();
+                String Stopik = edtTopik.getText().toString();
 
 
                 if (btnUpload.getText().equals("Save")){
@@ -153,7 +163,9 @@ public class MainActivity extends AppCompatActivity {
                         submitUser(new Requests(
                                 Sinformasi.toLowerCase(),
                                 Spengirim.toLowerCase(),
-                                profileImageUrl));
+                                profileImageUrl,
+                                Stopik.toLowerCase(),
+                                sTanggal));
 
                     }
                 } else {
@@ -171,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
                                 true,
                                 false);
 
-                        editUser(new Requests( Sinformasi.toLowerCase(),Spengirim.toLowerCase(), profileImageUrl),sPid);
+                        editUser(new Requests( Sinformasi.toLowerCase(),Spengirim.toLowerCase(), profileImageUrl, Stopik.toLowerCase(),sTanggal),sPid);
 
                     }
                 }

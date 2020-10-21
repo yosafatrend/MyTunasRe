@@ -19,7 +19,7 @@ import com.spect.mytunas.models.Job;
 
 import java.util.List;
 
-public class JobAdapter extends RecyclerView.Adapter<JobAdapter.MyViewHolder> {
+public class    JobAdapter extends RecyclerView.Adapter<JobAdapter.MyViewHolder> {
     private List<Job> jobs;
     private Context context;
     private Activity mActivity;
