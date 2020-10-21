@@ -19,8 +19,6 @@ public class User implements Serializable {
         this.imgUri = imgUri;
     }
 
-    public User() {
-    }
 
     public String getNama() {
         return nama;

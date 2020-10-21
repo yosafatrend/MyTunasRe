@@ -38,7 +38,7 @@ import com.spect.mytunas.models.User;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class EditProfileActivity extends AppCompatActivity {
+public class EditProfileActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     private static final int CHOOSE_IMAGE = 101;
     TextView textView;
@@ -65,6 +65,11 @@ public class EditProfileActivity extends AppCompatActivity {
         edtNama = findViewById(R.id.edtNamaP);
         edtNis = findViewById(R.id.edtNisP);
         edtEmail = findViewById(R.id.edtEmailP);
+        Spinner spinner = findViewById(R.id.edtJenkelP);
+        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this, R.array.gender, android.R.layout.simple_spinner_item);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(arrayAdapter);
+        spinner.setOnItemSelectedListener(this);
 
         user = mAuth.getCurrentUser();
         if (user.isEmailVerified()) {
@@ -115,8 +120,6 @@ public class EditProfileActivity extends AppCompatActivity {
                 saveUserInformation(new User(
                    edtEmail.getText().toString(), edtNama.getText().toString(), edtNis.getText().toString(), profileImageUrl
                 ));
-
-
             }
         });
 
@@ -219,7 +222,7 @@ public class EditProfileActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<Uri> task) {
                                     profileImageUrl = task.getResult().toString();
-                                    Toast.makeText(EditProfileActivity.this, "uplad sukses " + profileImageUrl, Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(EditProfileActivity.this, "upload sukses " + profileImageUrl, Toast.LENGTH_SHORT).show();
 
                                 }
                             });
@@ -240,5 +243,15 @@ public class EditProfileActivity extends AppCompatActivity {
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(android.content.Intent.createChooser(intent, "Pilih foto profile"), CHOOSE_IMAGE);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
     }
 }

@@ -16,7 +16,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:backgroundTint="@color/colorAccent"
-        android:src="@drawable/ic_baseline_edit_24white"
+        app:srcCompat="@drawable/ic_baseline_edit_24white"
         app:borderWidth="0dp"
         android:foregroundGravity="center"
         app:maxImageSize="30dp"
@@ -87,8 +87,7 @@
             android:layout_height="match_parent">
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <LinearLayout                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
@@ -335,6 +334,7 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:padding="8dp"
+                            android:clickable="true"
                             android:src="@drawable/whatsapp"
                             android:layout_margin="5dp"/>
 
@@ -356,10 +356,12 @@
                         />
 
                     <ImageView
+                        android:id="@+id/profile_twitter"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:layout_margin="5dp"
                         android:padding="7dp"
+                        android:clickable="true"
                         android:src="@drawable/twitter"
                         android:onClick="gotoTw"/>
                     </LinearLayout>

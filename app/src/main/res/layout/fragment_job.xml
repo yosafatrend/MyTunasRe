@@ -8,16 +8,19 @@
     android:background="#00ffffff"
     tools:context=".fragment.JobFragment">
 
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@drawable/custom_textview"
-        android:layout_height="50dp"
-        android:layout_marginTop="80dp"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         tools:layout_editor_absoluteX="12dp">
 
+        <ProgressBar
+            android:id="@+id/progressBarJob"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:indeterminateDrawable="@drawable/stylepb"
+            android:indeterminateDuration="@android:integer/config_mediumAnimTime"
+            app:layout_constraintTop_toBottomOf="@+id/btnSearchJob" />
 
 
         <ImageView
@@ -25,94 +28,103 @@
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_gravity="right"
-            android:layout_marginEnd="22dp"
-            android:layout_marginBottom="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/edtJobNameLog"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/edtJobNameLog"
             app:srcCompat="@drawable/ic_search_black_24dp" />
 
-        <EditText
-            android:id="@+id/edtJobName"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtJobNameLog"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:textSize="15sp"
-            android:fontFamily="@font/opensansergular"
-            android:hint="Cari Pekerjaan atau Perusahaan"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:errorEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            app:layout_constraintTop_toTopOf="parent"
+            app:passwordToggleEnabled="true">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:background="@drawable/custom_textview"
-        android:layout_height="50dp"
-        android:layout_marginTop="140dp"
-        tools:layout_editor_absoluteX="12dp"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtJobName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/opensansergular"
+                android:hint="Cari Pekerjaan atau Perusahaan"
+                android:inputType="textCapWords"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/edtJobLoc"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/edtJobLocLog"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:textSize="15sp"
-            android:layout_marginRight="16dp"
-            android:fontFamily="@font/opensansergular"
-            android:hint="Kota, Provinsi atau Daerah"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:errorEnabled="true"
+            app:layout_constraintTop_toBottomOf="@+id/edtJobNameLog"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edtJobLoc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:fontFamily="@font/opensansergular"
+                android:hint="Kota, Provinsi, atau Daerah"
+                android:inputType="textCapWords"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
 
         <ImageView
             android:id="@+id/image2"
             android:layout_width="25dp"
             android:layout_height="25dp"
             android:layout_gravity="right"
-            android:layout_marginEnd="22dp"
-            android:layout_marginBottom="12dp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/edtJobLocLog"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtJobNameLog"
             app:srcCompat="@drawable/ic_baseline_location_on_24" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <Button
-        android:id="@+id/btnSearchJob"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:fontFamily="@font/opensansbold"
-        android:background="@drawable/custom_button"
-        android:text="Cari Kerja"
-        android:textColor="#fff" />
-    <ProgressBar
-        android:id="@+id/progressBarJob"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:indeterminateDrawable="@drawable/stylepb"
-        android:indeterminateDuration="@android:integer/config_mediumAnimTime" />
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="260dp">
+        <Button
+            android:id="@+id/btnSearchJob"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button"
+            android:fontFamily="@font/opensansbold"
+            android:text="Cari Kerja"
+            android:textColor="#fff"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/edtJobLocLog" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnSearchJob">
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvJob"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/item_job" />
+                android:layout_height="wrap_content">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvJob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:listitem="@layout/item_job" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
