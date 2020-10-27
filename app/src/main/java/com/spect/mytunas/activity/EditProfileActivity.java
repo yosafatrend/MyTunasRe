@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -21,6 +22,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -33,26 +35,28 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import com.spect.mytunas.R;
+import com.spect.mytunas.models.Siswa;
 import com.spect.mytunas.models.User;
 
 import java.io.IOException;
 import java.util.HashMap;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class EditProfileActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     private static final int CHOOSE_IMAGE = 101;
-    TextView textView;
-
-    ImageView imageVew;
-    TextInputEditText edtNama, edtNis, edtEmail, edtJenkel, edtStatus, edtJurusan, edtTelepon, edtAlamat;
-
+    TextView textView, tvJurusanError, tvJenkelError, tvStatusError;
+    Spinner spJurusan, spJenkel, spStatus, spKelas;
+    CircleImageView imageVew;
+    TextInputEditText edtNama, edtNis, edtEmail, edtWa, edtAlamat, edtFb, edtIg, edtTwt;
     Uri uriProfileImage;
     ProgressBar progressBar;
-
     String profileImageUrl;
+    Boolean isKelas;
     FirebaseAuth mAuth;
-
     FirebaseUser user;
+    ConstraintLayout editProfileActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,19 +65,72 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
         mAuth = FirebaseAuth.getInstance();
 
         textView = findViewById(R.id.textView6);
-        imageVew = findViewById(R.id.imgNewsHome);
+        editProfileActivity = findViewById(R.id.EditProfileActivity);
+        tvJenkelError = findViewById(R.id.tvJenkelError);
+        tvJurusanError = findViewById(R.id.tvJurusanError);
+        tvStatusError = findViewById(R.id.tvStatusError);
+        imageVew = findViewById(R.id.imgChoose);
         edtNama = findViewById(R.id.edtNamaP);
         edtNis = findViewById(R.id.edtNisP);
         edtEmail = findViewById(R.id.edtEmailP);
-        Spinner spinner = findViewById(R.id.edtJenkelP);
-        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this, R.array.gender, android.R.layout.simple_spinner_item);
-        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(arrayAdapter);
-        spinner.setOnItemSelectedListener(this);
+        edtWa = findViewById(R.id.edtTeleponP);
+        edtAlamat = findViewById(R.id.edtAlamatP);
+        edtFb = findViewById(R.id.edtURLFbP);
+        edtIg = findViewById(R.id.edtIgUserP);
+        edtTwt = findViewById(R.id.edtTwUserP);
+        spJenkel = findViewById(R.id.spJenkelP);
+        spJurusan = findViewById(R.id.spJurusanP);
+        spStatus = findViewById(R.id.spStatusP);
+        spKelas = findViewById(R.id.spKelas);
+        isKelas = false;
+        spKelas.setEnabled(false);
+
+        ArrayAdapter<CharSequence> arrayAdapterGender = ArrayAdapter.createFromResource(this, R.array.gender, android.R.layout.simple_spinner_item);
+        arrayAdapterGender.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spJenkel.setAdapter(arrayAdapterGender);
+        spJenkel.setOnItemSelectedListener(this);
+
+        ArrayAdapter<CharSequence> arrayAdapterJurusan = ArrayAdapter.createFromResource(this, R.array.jurusan, android.R.layout.simple_spinner_item);
+        arrayAdapterJurusan.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spJurusan.setAdapter(arrayAdapterJurusan);
+        spJurusan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                DatabaseReference siswa = FirebaseDatabase.getInstance().getReference("siswa");
+                DatabaseReference childSiswa = siswa.child(mAuth.getCurrentUser().getUid());
+                childSiswa.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        try {
+                            if (!snapshot.child("kelas").getValue().toString().equals("")){
+                                setKelasContent(snapshot.child("kelas").getValue().toString());
+                            }
+                        }catch (Exception e){
+                         setKelasContent("x");
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        ArrayAdapter<CharSequence> arrayAdapterStatus = ArrayAdapter.createFromResource(this, R.array.status, android.R.layout.simple_spinner_item);
+        arrayAdapterStatus.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spStatus.setAdapter(arrayAdapterStatus);
+        spStatus.setOnItemSelectedListener(this);
 
         user = mAuth.getCurrentUser();
         if (user.isEmailVerified()) {
-            Toast.makeText(this, "email is verified", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Email is verified", Toast.LENGTH_SHORT).show();
         } else {
             AlertDialog dialog = new AlertDialog.Builder(EditProfileActivity.this)
                     .setTitle("Email Verification")
@@ -100,8 +157,6 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
                     }).create();
             dialog.show();
         }
-
-
         progressBar = findViewById(R.id.progressBar);
         loadUserInformation();
 
@@ -112,12 +167,18 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
 
             }
         });
-
-
         findViewById(R.id.buttonsave).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveUserInformation(new User(
+                String nama = edtNama.getText().toString();
+                String email = edtEmail.getText().toString();
+                String nis = edtNis.getText().toString();
+                String status = spStatus.getSelectedItem().toString();
+                String alamat = edtAlamat.getText().toString();
+                String gender = spJenkel.getSelectedItem().toString();
+                String jurusan = spJurusan.getSelectedItem().toString();
+
+                saveUserInformation(new Siswa(
                    edtEmail.getText().toString(), edtNama.getText().toString(), edtNis.getText().toString(), profileImageUrl
                 ));
             }
@@ -125,6 +186,60 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
 
     }
 
+    private void setKelasContent(String kelas){
+       // Snackbar.make(editProfileActivity, kelas, Snackbar.LENGTH_SHORT).show();
+        String jurusan = spJurusan.getSelectedItem().toString();
+        if (jurusan.equals("Multimedia")){
+            ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.mm, android.R.layout.simple_spinner_item);
+            setAdapterKelas(arrayAdapter, kelas);
+        }else if(jurusan.equals("Teknik Komputer dan Jaringan")){
+            ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.tkj, android.R.layout.simple_spinner_item);
+            setAdapterKelas(arrayAdapter, kelas);
+        }else if(jurusan.equals("Broadcasting")){
+            ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.bc, android.R.layout.simple_spinner_item);
+            setAdapterKelas(arrayAdapter, kelas);
+        }else if(jurusan.equals("Teknik Pemesinan")){
+            ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.tpm, android.R.layout.simple_spinner_item);
+            setAdapterKelas(arrayAdapter, kelas);
+        }else if(jurusan.equals("Teknik Kendaraan Ringan")){
+            ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.tkr, android.R.layout.simple_spinner_item);
+            setAdapterKelas(arrayAdapter, kelas);
+        }else if(jurusan.equals("Teknik Pengelasan")){
+            ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.las, android.R.layout.simple_spinner_item);
+            setAdapterKelas(arrayAdapter, kelas);
+        }else if(jurusan.equals("Teknik Instalasi Tenaga Listrik")){
+            ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.titl, android.R.layout.simple_spinner_item);
+            setAdapterKelas(arrayAdapter, kelas);
+        }else if(jurusan.equals("Analisis Pengujian Laboratorium")){
+            ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.apl, android.R.layout.simple_spinner_item);
+            setAdapterKelas(arrayAdapter, kelas);
+        }else{
+            spKelas.setEnabled(false);
+            isKelas = false;
+        }
+        spKelas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+
+    private void setAdapterKelas(ArrayAdapter<CharSequence> arrayAdapter, String kelas){
+        spKelas.setEnabled(true);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spKelas.setAdapter(arrayAdapter);
+        if (!kelas.equals("")){
+            spKelas.setSelection(arrayAdapter.getPosition(kelas));
+        }else{
+          //  Snackbar.make(editProfileActivity, "BA", Snackbar.LENGTH_SHORT).show();
+        }
+    }
 
     private void loadUserInformation() {
 
@@ -148,6 +263,39 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
                         edtEmail.setText(snapshot.child("email").getValue().toString());
                         edtNama.setText(snapshot.child("nama_lengkap").getValue().toString());
                         edtNis.setText(snapshot.child("nis").getValue().toString());
+                        edtAlamat.setText(snapshot.child("alamat").getValue().toString());
+                        edtWa.setText(snapshot.child("wa").getValue().toString());
+                        edtFb.setText(snapshot.child("urlFb").getValue().toString());
+                        edtIg.setText(snapshot.child("urlIg").getValue().toString());
+                        edtTwt.setText(snapshot.child("urlTwt").getValue().toString());
+                        if (snapshot.child("gender").getValue().toString().equals("Laki-laki")){
+                            spJenkel.setSelection(1);
+                        }else if (snapshot.child("gender").getValue().toString().equals("Perempuan")){
+                            spJenkel.setSelection(2);
+                        }
+                        if (snapshot.child("status").getValue().toString().equals("Siswa")){
+                            spStatus.setSelection(1);
+                        }else if (snapshot.child("status").getValue().toString().equals("Alumni")){
+                            spStatus.setSelection(2);
+                        }
+                        if (snapshot.child("jurusan").getValue().toString().equals("Teknik Komputer dan Jaringan")){
+                            spJurusan.setSelection(1);
+                        } else if (snapshot.child("jurusan").getValue().toString().equals("Multimedia")){
+                            spJurusan.setSelection(2);
+                        } else if (snapshot.child("jurusan").getValue().toString().equals("Broadcasting")){
+                            spJurusan.setSelection(3);
+                        } else if (snapshot.child("jurusan").getValue().toString().equals("Teknik Pemesinan")){
+                            spJurusan.setSelection(4);
+                        } else if (snapshot.child("jurusan").getValue().toString().equals("Teknik Kendaraan Ringan")){
+                            spJurusan.setSelection(5);
+                        }else if (snapshot.child("jurusan").getValue().toString().equals("Teknik Pengelasan")){
+                            spJurusan.setSelection(6);
+                        }else if (snapshot.child("jurusan").getValue().toString().equals("Teknik Instalasi Tenaga Listrik")){
+                            spJurusan.setSelection(7);
+                        }else if (snapshot.child("jurusan").getValue().toString().equals("Analisis Pengujian Laboratorium")){
+                            spJurusan.setSelection(8);
+                        }
+                        setKelasContent(snapshot.child("kelas").getValue().toString());
                         Glide.with(getApplicationContext())
                                 .load(snapshot.child("imgUri").getValue().toString()).into(imageVew);
                     }catch (Exception e){
@@ -164,12 +312,74 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
         }
     }
 
-    private void saveUserInformation(User users) {
-        String displayame = edtNama.getText().toString();
-        if (displayame.isEmpty()) {
-            edtNama.setError("nama tidak boleh kosong");
+    private void saveUserInformation(Siswa siswaa) {
+        String nama = edtNama.getText().toString();
+        String email = edtEmail.getText().toString();
+        String nis = edtNis.getText().toString();
+        String status = spStatus.getSelectedItem().toString();
+        String alamat = edtAlamat.getText().toString();
+        String wa = edtWa.getText().toString();
+        String kelas = null;
+        String gender = spJenkel.getSelectedItem().toString();
+        String jurusan = spJurusan.getSelectedItem().toString();
+        String fb = edtFb.getText().toString();
+        String twt = edtTwt.getText().toString();
+        String ig = edtIg.getText().toString();
+        if (nama.isEmpty()) {
+            edtNama.setError("Nama harus diisi");
             edtNama.requestFocus();
             return;
+        }
+        if (email.isEmpty()) {
+            edtEmail.setError("Email harus diisi");
+            edtEmail.requestFocus();
+            return;
+        }
+        if (nis.isEmpty()) {
+            edtNis.setError("Nis harus diisi");
+            edtNis.requestFocus();
+            return;
+        }if (status.equals("- Pilih Status -")) {
+            tvStatusError.setError("Status harus diisi");
+            tvStatusError.requestFocus();
+            Snackbar.make(editProfileActivity, "Mohon untuk mengisi status", Snackbar.LENGTH_SHORT).show();
+            return;
+        }if (alamat.isEmpty()) {
+            edtAlamat.setError("Alamat harus diisi");
+            edtAlamat.requestFocus();
+            return;
+        }if (gender.equals("- Pilih Gender -")) {
+            tvJenkelError.setError("Gender harus diisi");
+            tvJenkelError.requestFocus();
+            Snackbar.make(editProfileActivity, "Mohon untuk mengisi gender", Snackbar.LENGTH_SHORT).show();
+            return;
+        }
+        if (jurusan.equals("- Pilih Jurusan -")) {
+            tvJurusanError.setError("Jurusan harus diisi");
+            tvJurusanError.requestFocus();
+            Snackbar.make(editProfileActivity, "Mohon untuk mengisi jurusan", Snackbar.LENGTH_SHORT).show();
+            return;
+        }
+        if (isKelas = true){
+            kelas = spKelas.getSelectedItem().toString();
+            if (kelas.equals("- Pilih Kelas -") || kelas.isEmpty()) {
+                tvJurusanError.setError("Kelas harus diisi");
+                tvJurusanError.requestFocus();
+                Snackbar.make(editProfileActivity, "Mohon untuk mengisi kelas", Snackbar.LENGTH_SHORT).show();
+                return;
+            }
+        }
+        if (!fb.contains("facebook") && !fb.isEmpty()){
+            edtFb.setError("Mohon masukkan url dengan benar");
+            edtFb.requestFocus();
+        }
+        if (!ig.contains("instagram") && !fb.isEmpty()){
+            edtIg.setError("Mohon masukkan url dengan benar");
+            edtIg.requestFocus();
+        }
+        if (!twt.contains("twitter") && !fb.isEmpty()){
+            edtTwt.setError("Mohon masukkan url dengan benar");
+            edtTwt.requestFocus();
         }
 
         FirebaseUser user = mAuth.getCurrentUser();
@@ -180,7 +390,15 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
             values.put("email", edtEmail.getText().toString());
             values.put("nama_lengkap", edtNama.getText().toString());
             values.put("nis", edtNis.getText().toString());
-            values.put("imgUri", profileImageUrl);
+            values.put("status", status);
+            values.put("alamat", alamat);
+            values.put("gender", gender);
+            values.put("jurusan", jurusan);
+            values.put("kelas", kelas);
+            values.put("wa", wa);
+            values.put("urlFb", fb);
+            values.put("urlIg", ig);
+            values.put("urlTwt", twt);
             DatabaseReference siswa = FirebaseDatabase.getInstance().getReference("siswa");
             DatabaseReference childSiswa = siswa.child(mAuth.getCurrentUser().getUid());
             childSiswa.updateChildren(values).addOnSuccessListener(new OnSuccessListener<Void>() {

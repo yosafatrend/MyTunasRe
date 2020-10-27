@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/EditProfileActivity"
     android:background="@drawable/bg2"
     tools:context=".activity.EditProfileActivity">
 
@@ -18,7 +19,7 @@
         tools:layout_editor_absoluteX="35dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imgNewsHome"
+            android:id="@+id/imgChoose"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_alignParentStart="true"
@@ -107,6 +108,7 @@
                         android:layout_gravity="center_vertical"
                         android:fontFamily="@font/opensanslight"
                         android:hint="Nama"
+                        android:enabled="false"
                         android:inputType="text"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -149,6 +151,7 @@
                         android:layout_gravity="center_vertical"
                         android:fontFamily="@font/opensanslight"
                         android:hint="NIS"
+                        android:enabled="false"
                         android:inputType="number"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -158,6 +161,7 @@
                     android:id="@+id/edtJenkelLog"
                     android:layout_width="match_parent"
                     android:layout_marginStart="12dp"
+                    android:layout_marginBottom="12dp"
                     android:layout_marginEnd="12dp"
                     android:layout_height="53dp"
                     android:orientation="vertical"
@@ -172,56 +176,146 @@
                         android:textSize="16sp"/>
 
                     <Spinner
-                        android:id="@+id/edtJenkelP"
+                        android:id="@+id/spJenkelP"
                         android:layout_marginStart="12dp"
                         android:layout_marginEnd="12dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical" />
+
+                    <android.widget.TextView
+                        android:id="@+id/tvJenkelError"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_alignRight="@+id/spJenkelP"
+                        android:layout_alignBottom="@+id/spJenkelP"
+                        android:layout_marginTop="0dp"
+                        android:paddingTop="0dp"
+                        android:paddingRight="50dp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        />
                 </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtStatusLog"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <LinearLayout
+                    android:background="@drawable/border"
                     android:layout_width="match_parent"
                     android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
                     android:layout_marginEnd="12dp"
-                    android:layout_height="wrap_content"
-                    app:errorEnabled="true"
+                    android:layout_marginBottom="12dp"
+                    android:layout_height="53dp"
+                    android:orientation="vertical"
                     app:passwordToggleEnabled="true">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtStatusP"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:fontFamily="@font/opensanslight"
+                        android:text="Status"
+                        android:textSize="16sp"/>
+
+                    <Spinner
+                        android:id="@+id/spStatusP"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/opensanslight"
-                        android:hint="Status"
-                        android:inputType="text"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_gravity="center_vertical" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtJurusanLog"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    <android.widget.TextView
+                        android:id="@+id/tvStatusError"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_alignRight="@+id/spJurusanP"
+                        android:layout_alignBottom="@+id/spJurusanP"
+                        android:layout_marginTop="0dp"
+                        android:paddingTop="0dp"
+                        android:paddingRight="50dp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@drawable/border"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    app:errorEnabled="true"
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_height="53dp"
+                    android:orientation="vertical"
                     app:passwordToggleEnabled="true">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtJurusanP"
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:fontFamily="@font/opensanslight"
+                        android:text="Jurusan"
+                        android:textSize="16sp"/>
+
+                    <Spinner
+                        android:id="@+id/spJurusanP"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
+                        android:layout_gravity="center_vertical" />
+
+                    <android.widget.TextView
+                        android:id="@+id/tvJurusanError"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_alignRight="@+id/spJurusanP"
+                        android:layout_alignBottom="@+id/spJurusanP"
+                        android:layout_marginTop="0dp"
+                        android:paddingTop="0dp"
+                        android:paddingRight="50dp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:background="@drawable/border"
+                    android:layout_width="match_parent"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:layout_height="53dp"
+                    android:orientation="vertical"
+                    app:passwordToggleEnabled="true">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
                         android:fontFamily="@font/opensanslight"
-                        android:hint="Jurusan"
-                        android:inputType="text"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:text="Kelas"
+                        android:textSize="16sp"/>
+
+                    <Spinner
+                        android:id="@+id/spKelas"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical" />
+
+                    <android.widget.TextView
+                        android:id="@+id/tvKelasError"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_alignRight="@+id/spJurusanP"
+                        android:layout_alignBottom="@+id/spJurusanP"
+                        android:layout_marginTop="0dp"
+                        android:paddingTop="0dp"
+                        android:paddingRight="50dp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        />
+                </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/edtTeleponLog"

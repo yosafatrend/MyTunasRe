@@ -41,7 +41,6 @@ public class ProfileUserActivity extends AppCompatActivity {
 
         ImageView buttonwhatsapp = findViewById(R.id.buttonwhatsapp);
         buttonwhatsapp.setOnClickListener(new View.OnClickListener()
-
         {
             @Override
             public void onClick (View view){
@@ -118,7 +117,6 @@ public class ProfileUserActivity extends AppCompatActivity {
     }
 
     private void startSupportChat() {
-
         try {
             String trimToNumner = "+6281392833720";
             Intent intent = new Intent(Intent.ACTION_VIEW);

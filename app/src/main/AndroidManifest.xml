@@ -9,6 +9,9 @@
         android:roundIcon="@drawable/mytunas"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.DetailSiswaActivity"></activity>
+        <activity android:name=".activity.DetailAnnouncementActivity"></activity>
+
         <activity android:name=".activity.JobDetailActivity"></activity>
         <service
             android:name=".service.MyFirebaseMessagingService"

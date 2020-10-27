@@ -5,25 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg1"
-    tools:context=".activity.ProfileUserActivity">
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|bottom"
-        android:layout_margin="15dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
-        android:backgroundTint="@color/colorAccent"
-        app:srcCompat="@drawable/ic_baseline_edit_24white"
-        app:borderWidth="0dp"
-        android:foregroundGravity="center"
-        app:maxImageSize="30dp"
-        app:elevation="6dp"
-        app:fabSize="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+    tools:context=".activity.DetailSiswaActivity">
 
     <TextView
         android:id="@+id/profile_name"
@@ -72,7 +54,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="336dp"
+        android:layout_width="326dp"
         android:layout_height="458dp"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
@@ -87,7 +69,8 @@
             android:layout_height="match_parent">
 
 
-            <LinearLayout                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
@@ -100,7 +83,7 @@
                     android:layout_marginBottom="12dp"
                     android:drawablePadding="5dp"
                     android:fontFamily="@font/opensanslight"
-                    android:text="Tentang Saya"
+                    android:text="Tentang Siswa"
                     android:textAlignment="center"
                     android:textColor="#000"
                     android:textSize="18sp"
@@ -252,38 +235,6 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:drawableLeft="@drawable/ic_round_school_24"
-                        android:drawablePadding="5dp"
-                        android:fontFamily="@font/opensansergular"
-                        android:paddingLeft="5dp"
-                        android:text="Kelas"
-                        android:textColor="#000"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:id="@+id/profile_class"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:fontFamily="@font/opensansergular"
-                        android:paddingLeft="36dp"
-                        android:text="XII TKJ 4"
-                        android:textSize="14sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="12dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/ic_baseline_phone_24"
                         android:drawablePadding="5dp"
                         android:fontFamily="@font/opensansergular"
@@ -352,7 +303,7 @@
                         android:drawablePadding="5dp"
                         android:fontFamily="@font/opensansergular"
                         android:paddingLeft="5dp"
-                        android:text="Temukan aku"
+                        android:text="Sosial Media"
                         android:textColor="#000"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -366,36 +317,33 @@
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:padding="8dp"
-                            android:clickable="true"
                             android:src="@drawable/whatsapp"
                             android:layout_margin="5dp"/>
 
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/facebook"
-                        android:onClick="gotoFb"
-                        android:layout_margin="5dp"/>
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/facebook"
+                            android:onClick="gotoFb"
+                            android:layout_margin="5dp"/>
 
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:padding="5dp"
-                        android:layout_height="50dp"
-                        android:src="@drawable/instagram"
-                        android:onClick="gotoIg"
-                        android:layout_margin="5dp"
-                        android:autoLink="web"
-                        />
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:padding="5dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/instagram"
+                            android:onClick="gotoIg"
+                            android:layout_margin="5dp"
+                            android:autoLink="web"
+                            />
 
-                    <ImageView
-                        android:id="@+id/profile_twitter"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_margin="5dp"
-                        android:padding="7dp"
-                        android:clickable="true"
-                        android:src="@drawable/twitter"
-                        android:onClick="gotoTw"/>
+                        <ImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
+                            android:padding="7dp"
+                            android:src="@drawable/twitter"
+                            android:onClick="gotoTw"/>
                     </LinearLayout>
 
                 </LinearLayout>
