@@ -1,3 +1,111 @@
 <resources>
     <string name="app_name">AdminMyT</string>
+    <string-array name="jurusan">
+        <item>- Pilih Jurusan -</item>
+        <item>Teknik Komputer dan Jaringan</item>
+        <item>Multimedia</item>
+        <item>Broadcasting</item>
+        <item>Teknik Pemesinan</item>
+        <item>Teknik Kendaraan Ringan</item>
+        <item>Teknik Pengelasan</item>
+        <item>Teknik Instalasi Tenaga Listrik</item>
+        <item>Analisis Pengujian Laboratorium</item>
+    </string-array>
+
+    <string-array name="bc">
+        <item>- Pilih Kelas -</item>
+        <item>X BC</item>
+        <item>XI BC</item>
+        <item>XII BC</item>
+    </string-array>
+    <string-array name="tkj">
+        <item>- Pilih Kelas -</item>
+        <item>X TKJ 1</item>
+        <item>X TKJ 2</item>
+        <item>X TKJ 3</item>
+        <item>X TKJ 4</item>
+        <item>XI TKJ 1</item>
+        <item>XI TKJ 2</item>
+        <item>XI TKJ 3</item>
+        <item>XI TKJ 4</item>
+        <item>XII TKJ 1</item>
+        <item>XII TKJ 2</item>
+        <item>XII TKJ 3</item>
+        <item>XII TKJ 4</item>
+    </string-array>
+    <string-array name="apl">
+        <item>- Pilih Kelas -</item>
+        <item>X APL 1</item>
+        <item>X APL 2</item>
+        <item>XI APL 1</item>
+        <item>XI APL 2</item>
+        <item>XII APL 1</item>
+        <item>XII APL 2</item>
+    </string-array>
+    <string-array name="mm">
+        <item>- Pilih Kelas -</item>
+        <item>X MM</item>
+        <item>XI MM</item>
+        <item>XII MM</item>
+    </string-array>
+    <string-array name="titl">
+        <item>- Pilih Kelas -</item>
+        <item>X TITL 1</item>
+        <item>X TITL 2</item>
+        <item>X TITL 3</item>
+        <item>XI TITL 1</item>
+        <item>XI TITL 2</item>
+        <item>XI TITL 3</item>
+        <item>XII TITL 1</item>
+        <item>XII TITL 2</item>
+        <item>XII TITL 3</item>
+    </string-array>
+    <string-array name="tpm">
+        <item>- Pilih Kelas -</item>
+        <item>X TPM 1</item>
+        <item>X TPM 2</item>
+        <item>X TPM 3</item>
+        <item>X TPM 4</item>
+        <item>X TPM 5</item>
+        <item>XI TPM 1</item>
+        <item>XI TPM 2</item>
+        <item>XI TPM 3</item>
+        <item>XI TPM 4</item>
+        <item>XI TPM 5</item>
+        <item>XII TPM 1</item>
+        <item>XII TPM 2</item>
+        <item>XII TPM 3</item>
+        <item>XII TPM 4</item>
+        <item>XII TPM 5</item>
+    </string-array>
+    <string-array name="las">
+        <item>- Pilih Kelas -</item>
+        <item>X LAS 1</item>
+        <item>X LAS 2</item>
+        <item>X LAS 3</item>
+        <item>XI LAS 1</item>
+        <item>XI LAS 2</item>
+        <item>XI LAS 3</item>
+        <item>XII LAS 1</item>
+        <item>XII LAS 2</item>
+        <item>XII LAS 3</item>
+    </string-array>
+    <string-array name="tkr">
+        <item>- Pilih Kelas -</item>
+        <item>X TKR 1</item>
+        <item>X TKR 2</item>
+        <item>X TKR 3</item>
+        <item>X TKR 4</item>
+        <item>X TKR 5</item>
+        <item>XI TKR 1</item>
+        <item>XI TKR 2</item>
+        <item>XI TKR 3</item>
+        <item>XI TKR 4</item>
+        <item>XI TKR 5</item>
+        <item>XII TKR 1</item>
+        <item>XII TKR 2</item>
+        <item>XII TKR 3</item>
+        <item>XII TKR 4</item>
+        <item>XII TKR 5</item>
+    </string-array>
 </resources>

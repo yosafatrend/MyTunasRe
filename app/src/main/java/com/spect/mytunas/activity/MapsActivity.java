@@ -21,4 +21,5 @@ public class MapsActivity extends AppCompatActivity {
     public void onBack(View view) {
         super.onBackPressed();
     }
+
 }

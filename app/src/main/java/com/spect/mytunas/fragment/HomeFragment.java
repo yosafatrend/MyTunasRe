@@ -88,7 +88,6 @@ public class HomeFragment extends Fragment {
                         articles.clear();
                     }
                     articles = response.body().getArticle();
-                    Toast.makeText(getContext(), "" + response.body().getTotalResult(), Toast.LENGTH_SHORT).show();
                     adapter = new NewsHomeAdapter(articles, getActivity());
                     recyclerView.setAdapter(adapter);
 

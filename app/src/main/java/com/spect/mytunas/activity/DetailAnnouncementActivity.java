@@ -14,7 +14,7 @@ import com.spect.mytunas.R;
 
 public class DetailAnnouncementActivity extends AppCompatActivity {
 
-    private TextView tvAuthor,tvBerita;
+    private TextView tvAuthor,tvBerita,tvTopik,tvTanggal;
     private ImageView imageView;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
@@ -26,12 +26,19 @@ public class DetailAnnouncementActivity extends AppCompatActivity {
         imageView = findViewById(R.id.imgDetailPengumuman);
         tvAuthor = findViewById(R.id.tvAuthor);
         tvBerita = findViewById(R.id.tvBerita);
+        tvTopik = findViewById(R.id.tvtopik);
+        tvTanggal = findViewById(R.id.tvtanggal);
         tvAuthor.setText(getIntent().getStringExtra("pengirim"));
         tvBerita.setText(getIntent().getStringExtra("informasi"));
+        tvTopik.setText(getIntent().getStringExtra("topik"));
+        tvTanggal.setText(  "- " + getIntent().getStringExtra("tgl"));
         if (getIntent().getStringExtra("imageUri") == null) {
            imageView.setVisibility(View.GONE);
         }else {
             Glide.with(this).load(getIntent().getStringExtra("imageUri")).into(imageView);
         }
+    }
+    public void onBack(View view) {
+        super.onBackPressed();
     }
 }

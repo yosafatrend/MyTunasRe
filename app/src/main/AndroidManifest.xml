@@ -10,7 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".activity.DetailSiswaActivity"></activity>
-        <activity android:name=".activity.DetailAnnouncementActivity"></activity>
 
         <activity android:name=".activity.JobDetailActivity"></activity>
         <service
@@ -29,6 +28,11 @@
         <activity
             android:name=".activity.ProfileSchoolActivity"
             android:theme="@style/AppTheme" />
+        <activity
+            android:name=".activity.DetailAnnouncementActivity"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"
+            />
         <activity android:name=".activity.AnnounceActivity" />
         <activity
             android:name=".activity.AuthActivity"

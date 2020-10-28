@@ -24,7 +24,7 @@ public class RequestAdapterRecyclerView extends RecyclerView.Adapter<RequestAdap
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         public LinearLayout rl_layout;
-        public TextView tvBerita, tvAuthor;
+        public TextView tvBerita, tvAuthor, tvTanggal,tvTopik;
         ImageView imgAnnounce;
 
         public MyViewHolder(View view) {
@@ -33,6 +33,8 @@ public class RequestAdapterRecyclerView extends RecyclerView.Adapter<RequestAdap
             tvBerita = view.findViewById(R.id.tvBerita);
             tvAuthor = view.findViewById(R.id.tvAuthor);
             imgAnnounce = view.findViewById(R.id.img_announce);
+            tvTanggal = view.findViewById(R.id.tvtanggal_item);
+            tvTopik = view.findViewById(R.id.tvtopik_item);
         }
     }
 
@@ -58,6 +60,8 @@ public class RequestAdapterRecyclerView extends RecyclerView.Adapter<RequestAdap
 
         holder.tvBerita.setText(announce.getInformasi());
         holder.tvAuthor.setText(announce.getPengirim());
+        holder.tvTanggal.setText("- " + announce.getTanggal());
+        holder.tvTopik.setText(announce.getTopik());
         //        if (movie.getImgUri() == null){
 //            holder.imgAnnounce.setVisibility(View.GONE);
 //        }else{
@@ -69,10 +73,14 @@ public class RequestAdapterRecyclerView extends RecyclerView.Adapter<RequestAdap
                 String pengirim = announce.getPengirim();
                 String informasi = announce.getInformasi();
                 String imageuri = announce.getImgUri();
+                String topik = announce.getTopik();
+                String date = announce.getTanggal();
                 Intent intent = new Intent(mActivity, DetailAnnouncementActivity.class);
                 intent.putExtra("pengirim", pengirim);
                 intent.putExtra("informasi", informasi);
                 intent.putExtra("imageUri", imageuri);
+                intent.putExtra("topik", topik);
+                intent.putExtra("tgl", date);
                 mActivity.startActivity(intent);
             }
         });

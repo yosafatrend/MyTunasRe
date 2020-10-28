@@ -33,28 +33,16 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
-                android:layout_marginLeft="12dp"
-                android:src="#bababa"
-                app:civ_border_color="#fff"
-                app:civ_border_width="2dp"
-                app:layout_constraintStart_toEndOf="@+id/view4"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
                 android:id="@+id/tvAuthor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/opensansbold"
-                android:padding="12dp"
                 android:text="Author"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toTopOf="@+id/tvBerita"
-                app:layout_constraintStart_toEndOf="@+id/profile_image"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textSize="12dp"
+                android:layout_marginLeft="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/view4" />
 
             <View
                 android:id="@+id/view4"
@@ -69,12 +57,39 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
+                android:id="@+id/tvtopik_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/opensansbold"
+                android:maxLength="30"
+                android:maxLines="1"
+                android:text="Lorem Ipsum dolor sit amet"
+                android:textColor="#000"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/view4"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvtanggal_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 hari yang lalu"
+                android:fontFamily="@font/opensansergular"
+                android:textSize="12dp"
+                android:layout_marginLeft="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvAuthor" />
+            <TextView
                 android:id="@+id/tvBerita"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/opensansergular"
                 android:ellipsize="end"
                 android:maxLength="1000"
-                android:maxLines="7"
+                android:maxLines="6"
                 android:paddingTop="12dp"
                 android:paddingBottom="12dp"
                 android:justificationMode="inter_word"
@@ -83,7 +98,7 @@
                 android:textColor="@color/colorTextSubtitle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/view4"
-                app:layout_constraintTop_toBottomOf="@+id/profile_image" />
+                app:layout_constraintTop_toBottomOf="@+id/tvtopik_item" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

@@ -7,34 +7,27 @@
     android:background="#00ffffff"
     tools:context=".activity.ClassroomActivity">
 
-    <TextView
-        android:id="@+id/profile_name"
-        android:layout_width="wrap_content"
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
-        android:text="Classroom"
-        android:textColor="#000"
-        android:textSize="16dp"
-        android:textStyle="bold"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout4" />
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout4">
 
         <LinearLayout
             android:id="@+id/cV_xiitkj1"
-            android:layout_width="0dp"
-            android:layout_height="140dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/profile_name"
-            app:layout_constraintTop_toBottomOf="@+id/profile_name">
+            android:layout_width="match_parent"
+            android:layout_height="140dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#ffa02b"
-                android:orientation="vertical">
+                android:background="@drawable/bg_classroom"
+                android:orientation="vertical"
+                android:padding="8dp">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -46,36 +39,55 @@
                     android:textColor="#fff"
                     android:textSize="20sp" />
 
-
                 <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
+                    android:layout_width="55dp"
+                    android:layout_height="55dp"
                     android:layout_gravity="end"
-                    android:layout_margin="10dp"
+                    android:layout_marginTop="-22dp"
+                    android:paddingRight="8dp"
                     android:src="@drawable/icon_class" />
 
             </LinearLayout>
 
         </LinearLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+    </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/relativeLayout4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:background="@color/colorPrimary"
-            android:minHeight="?actionBarSize"
-            app:navigationIcon="?attr/homeAsUpIndicator">
+            app:layout_constraintTop_toTopOf="parent">
 
-        </androidx.appcompat.widget.Toolbar>
-    </RelativeLayout>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:background="@color/colorPrimary"
+                android:minHeight="?actionBarSize">
+
+                <TextView
+                    android:id="@+id/tvActionBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:drawableLeft="@drawable/ic_baseline_arrow_back_ios_24"
+                    android:drawablePadding="10dp"
+                    android:fontFamily="@font/opensansergular"
+                    android:onClick="onBack"
+                    android:text="Pengumuman"
+                    android:textColor="#fff"
+                    android:textSize="17sp" />
+
+            </androidx.appcompat.widget.Toolbar>
+        </RelativeLayout>
 
 
-
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/perbaikan"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 </androidx.constraintlayout.widget.ConstraintLayout>

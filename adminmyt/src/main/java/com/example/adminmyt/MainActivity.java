@@ -52,12 +52,13 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
     private DatabaseReference database;
     private EditText edtInformasi,edtPengirim,edtTopik;
     private ProgressDialog progressBar;
     private ImageView profilePics;
+    private Spinner spKelas,spJurusan;
     private String sInfromasi,sPengirim,sPid,sTopik, profileImageUrl,sTanggal;
     private Button btnUpload, btnCancel;
     private  StorageReference storageReference;
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         database = FirebaseDatabase.getInstance().getReference();
-
+        spKelas = findViewById(R.id.edtkelas);
         mRequestQue = Volley.newRequestQueue(this);
         edtTopik = findViewById(R.id.edtTopik);
         edtInformasi = findViewById(R.id.edtInformasi);
@@ -91,6 +92,62 @@ public class MainActivity extends AppCompatActivity {
         Date date = Calendar.getInstance().getTime();
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
         sTanggal = dateFormat.format(date);
+        spKelas.setEnabled(false);
+        spJurusan  = findViewById(R.id.edtjurusan);
+        ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this, R.array.jurusan, android.R.layout.simple_spinner_item);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spJurusan.setAdapter(arrayAdapter);
+        spJurusan.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String jurusan = spJurusan.getSelectedItem().toString();
+                if (jurusan.equals("Multimedia")){
+                    ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.mm, android.R.layout.simple_spinner_item);
+                    setAdapterKelas(arrayAdapter);
+                }else if(jurusan.equals("Teknik Komputer dan Jaringan")){
+                    ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.tkj, android.R.layout.simple_spinner_item);
+                    setAdapterKelas(arrayAdapter);
+                }else if(jurusan.equals("Broadcasting")){
+                    ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.bc, android.R.layout.simple_spinner_item);
+                    setAdapterKelas(arrayAdapter);
+                }else if(jurusan.equals("Teknik Pemesinan")){
+                    ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.tpm, android.R.layout.simple_spinner_item);
+                    setAdapterKelas(arrayAdapter);
+                }else if(jurusan.equals("Teknik Kendaraan Ringan")){
+                    ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.tkr, android.R.layout.simple_spinner_item);
+                    setAdapterKelas(arrayAdapter);
+                }else if(jurusan.equals("Teknik Pengelasan")){
+                    ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.las, android.R.layout.simple_spinner_item);
+                    setAdapterKelas(arrayAdapter);
+                }else if(jurusan.equals("Teknik Instalasi Tenaga Listrik")){
+                    ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.titl, android.R.layout.simple_spinner_item);
+                    setAdapterKelas(arrayAdapter);
+                }else if(jurusan.equals("Analisis Pengujian Laboratorium")){
+                    ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.apl, android.R.layout.simple_spinner_item);
+                    setAdapterKelas(arrayAdapter);
+                }else{
+                    spKelas.setEnabled(false);
+
+                }
+                spKelas.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
 
         childBerita.addValueEventListener(new ValueEventListener() {
             @Override
@@ -165,7 +222,9 @@ public class MainActivity extends AppCompatActivity {
                                 Spengirim.toLowerCase(),
                                 profileImageUrl,
                                 Stopik.toLowerCase(),
-                                sTanggal));
+                                sTanggal,
+                                spKelas.getSelectedItem().toString(),
+                                spJurusan.getSelectedItem().toString()));
 
                     }
                 } else {
@@ -183,7 +242,8 @@ public class MainActivity extends AppCompatActivity {
                                 true,
                                 false);
 
-                        editUser(new Requests( Sinformasi.toLowerCase(),Spengirim.toLowerCase(), profileImageUrl, Stopik.toLowerCase(),sTanggal),sPid);
+                        editUser(new Requests( Sinformasi.toLowerCase(),Spengirim.toLowerCase(), profileImageUrl, Stopik.toLowerCase(),
+                                sTanggal,spKelas.getSelectedItem().toString(),spJurusan.getSelectedItem().toString()),sPid);
 
                     }
                 }
@@ -375,5 +435,21 @@ public class MainActivity extends AppCompatActivity {
         {
             e.printStackTrace();
         }
+    }
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String text = parent.getItemAtPosition(position).toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    private void setAdapterKelas(ArrayAdapter<CharSequence> arrayAdapter){
+        spKelas.setEnabled(true);
+        arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spKelas.setAdapter(arrayAdapter);
+
     }
 }

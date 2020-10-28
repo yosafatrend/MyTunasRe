@@ -30,7 +30,6 @@ import java.util.ArrayList;
 
 public class AnnounceActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
-
     private DatabaseReference database;
 
     private ArrayList<Requests> daftarReq;

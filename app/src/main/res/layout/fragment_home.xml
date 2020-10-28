@@ -114,100 +114,22 @@
             <LinearLayout
                 android:id="@+id/linearLayout2"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7">
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/cardView"
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAnnHome"
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    app:cardCornerRadius="8dp"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/item_info_home"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/opensansbold"
-                        android:padding="12dp"
-                        android:text="Lorem Ipsum dolor sit amet"
-                        android:textColor="#000"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:fontFamily="@font/opensanslight"
-                        android:padding="12dp"
-                        android:text="Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet"
-                        android:textColor="@color/colorTextSubtitle" />
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    app:cardCornerRadius="8dp"
-                    android:layout_marginTop="5dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/opensansbold"
-                        android:padding="12dp"
-                        android:text="Lorem Ipsum dolor sit amet"
-                        android:textColor="#000"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:fontFamily="@font/opensanslight"
-                        android:padding="12dp"
-                        android:text="Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet"
-                        android:textColor="@color/colorTextSubtitle" />
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    app:cardCornerRadius="8dp"
-                    android:layout_marginTop="5dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/cardView">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/opensansbold"
-                        android:padding="12dp"
-                        android:text="Lorem Ipsum dolor sit amet"
-                        android:textColor="#000"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:fontFamily="@font/opensanslight"
-                        android:padding="12dp"
-                        android:text="Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet"
-                        android:textColor="@color/colorTextSubtitle" />
-                </androidx.cardview.widget.CardView>
+                    app:layout_constraintTop_toBottomOf="@+id/slider">
+                </androidx.recyclerview.widget.RecyclerView>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -267,358 +189,77 @@
                     android:layout_marginTop="30dp"
                     android:orientation="horizontal"
                     android:padding="12dp">
-
                     <androidx.cardview.widget.CardView
-                        android:layout_width="130dp"
+                        android:layout_width="250dp"
                         android:layout_height="200dp"
-                        android:layout_marginRight="10dp"
                         android:padding="12dp"
-                        app:cardCornerRadius="8dp">
+                        app:cardCornerRadius="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="100dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="8dp"
-                            android:padding="12dp"
-                            app:cardCornerRadius="8dp">
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bg_oren"
+                            android:paddingRight="16dp"
+                            android:paddingLeft="16dp"
+                            android:paddingTop="12dp"
+                            android:paddingBottom="12dp" >
 
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginRight="5dp"
+                            <LinearLayout
+                                android:id="@+id/linearLayout1"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/notfound" />
-                        </androidx.cardview.widget.CardView>
+                                android:background="@drawable/custom_home"
+                                android:orientation="horizontal"
+                                android:padding="14dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="83dp"
-                            android:padding="8dp"
-                            android:text="Android Developer"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
+                                <TextView
+                                    android:id="@+id/jobCompanyHome"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="16sp"
+                                    android:textColor="#303030"
+                                    android:textStyle="bold"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="PT Sejahtera Abadi" />
+                            </LinearLayout>
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="120dp"
-                            android:padding="8dp"
-                            android:text="Google Inc."
-                            android:textColor="#000"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="140dp"
-                            android:padding="8dp"
-                            android:text="Pati, Indonesia"
-                            android:textSize="12sp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:layout_marginStart="6dp"
-                            android:layout_marginTop="170dp"
-                            android:layout_marginEnd="6dp"
-                            android:alpha=".5"
-                            android:background="#C5C5C5"
-                            android:padding="8dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="175dp"
-                            android:gravity="center_horizontal"
-                            android:textColor="@color/colorTextSubtitle"
-                            android:text="Selengkapnya"
-                            android:textSize="12sp" />
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="130dp"
-                        android:layout_height="200dp"
-                        android:layout_marginRight="10dp"
-                        android:padding="12dp"
-                        app:cardCornerRadius="8dp">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="100dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="8dp"
-                            android:padding="12dp"
-                            app:cardCornerRadius="8dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
+                            <TextView
+                                android:id="@+id/jobNameHome"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/notfound" />
-                        </androidx.cardview.widget.CardView>
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/poppinsbold"
+                                android:textStyle="bold"
+                                android:textColor="#303030"
+                                android:textSize="14sp"
+                                android:text="Android Developer"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="83dp"
-                            android:padding="8dp"
-                            android:text="Android Developer"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="120dp"
-                            android:padding="8dp"
-                            android:text="Google Inc."
-                            android:textColor="#000"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="140dp"
-                            android:padding="8dp"
-                            android:text="Pati, Indonesia"
-                            android:textSize="12sp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:layout_marginStart="6dp"
-                            android:layout_marginTop="170dp"
-                            android:layout_marginEnd="6dp"
-                            android:alpha=".5"
-                            android:background="#C5C5C5"
-                            android:padding="8dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="175dp"
-                            android:gravity="center_horizontal"
-                            android:text="Selengkapnya"
-                            android:textColor="@color/colorTextSubtitle"
-                            android:textSize="12sp" />
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="130dp"
-                        android:layout_height="200dp"
-                        android:layout_marginRight="10dp"
-                        android:padding="12dp"
-                        app:cardCornerRadius="8dp">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="100dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="8dp"
-                            android:padding="12dp"
-                            app:cardCornerRadius="8dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
+                            <LinearLayout
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:src="@drawable/notfound" />
-                        </androidx.cardview.widget.CardView>
+                                android:background="@drawable/custom_home2"
+                                android:orientation="horizontal"
+                                android:padding="14dp"
+                                android:layout_marginTop="14dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/jobNameHome">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="83dp"
-                            android:padding="8dp"
-                            android:text="Android Developer"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="120dp"
-                            android:padding="8dp"
-                            android:text="Google Inc."
-                            android:textColor="#000"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="140dp"
-                            android:padding="8dp"
-
-                            android:text="Pati, Indonesia"
-                            android:textSize="12sp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:layout_marginStart="6dp"
-                            android:layout_marginTop="170dp"
-                            android:layout_marginEnd="6dp"
-                            android:alpha=".5"
-                            android:background="#C5C5C5"
-                            android:padding="8dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="175dp"
-                            android:gravity="center_horizontal"
-                            android:textColor="@color/colorTextSubtitle"
-                            android:text="Selengkapnya"
-                            android:textSize="12sp" />
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="130dp"
-                        android:layout_height="200dp"
-                        android:layout_marginRight="10dp"
-                        android:padding="12dp"
-                        app:cardCornerRadius="8dp">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="100dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="8dp"
-                            android:padding="12dp"
-                            app:cardCornerRadius="8dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/notfound" />
-                        </androidx.cardview.widget.CardView>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="83dp"
-                            android:padding="8dp"
-                            android:text="Android Developer"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="120dp"
-                            android:padding="8dp"
-                            android:text="Google Inc."
-                            android:textColor="#000"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="140dp"
-                            android:padding="8dp"
-                            android:text="Pati, Indonesia"
-                            android:textSize="12sp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:layout_marginStart="6dp"
-                            android:layout_marginTop="170dp"
-                            android:layout_marginEnd="6dp"
-                            android:alpha=".5"
-                            android:background="#C5C5C5"
-                            android:padding="8dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="175dp"
-                            android:gravity="center_horizontal"
-                            android:textColor="@color/colorTextSubtitle"
-                            android:text="Selengkapnya"
-                            android:textSize="12sp" />
-
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="130dp"
-                        android:layout_height="200dp"
-                        android:layout_marginRight="10dp"
-                        android:padding="12dp"
-                        app:cardCornerRadius="8dp">
-
-                        <androidx.cardview.widget.CardView
-                            android:layout_width="100dp"
-                            android:layout_height="80dp"
-                            android:layout_gravity="center_horizontal"
-                            android:layout_marginTop="8dp"
-                            android:padding="12dp"
-                            app:cardCornerRadius="8dp">
-
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/notfound" />
-                        </androidx.cardview.widget.CardView>
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="83dp"
-                            android:padding="8dp"
-                            android:text="Android Developer"
-                            android:textColor="@color/colorPrimary"
-                            android:textSize="15sp"
-                            android:textStyle="bold" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="120dp"
-                            android:padding="8dp"
-                            android:text="Google Inc."
-                            android:textColor="#000"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="140dp"
-                            android:padding="8dp"
-                            android:text="Pati, Indonesia"
-                            android:textSize="12sp" />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="2dp"
-                            android:layout_marginStart="6dp"
-                            android:layout_marginTop="170dp"
-                            android:layout_marginEnd="6dp"
-                            android:alpha=".5"
-                            android:background="#C5C5C5"
-                            android:padding="8dp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="175dp"
-                            android:gravity="center_horizontal"
-                            android:textColor="@color/colorTextSubtitle"
-                            android:text="Selengkapnya"
-                            android:textSize="12sp" />
-
-
+                                <TextView
+                                    android:id="@+id/jobLocationHome"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/montserratmedium"
+                                    android:text="Jakarta"
+                                    android:textColor="#303030"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>
             </HorizontalScrollView>

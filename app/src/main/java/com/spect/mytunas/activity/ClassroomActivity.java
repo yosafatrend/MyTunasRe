@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 
 
 import com.spect.mytunas.R;
@@ -40,5 +41,8 @@ public class ClassroomActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void onBack(View view) {
+        super.onBackPressed();
     }
 }

@@ -9,13 +9,33 @@ public class Requests implements Serializable {
     private String imgUri;
     private String topik;
     private String tanggal;
+    private String jurusan;
+    private String kelas;
 
-    public Requests(String informasi, String pengirim, String imgUri,String topik,String tanggal) {
+    public String getJurusan() {
+        return jurusan;
+    }
+
+    public void setJurusan(String jurusan) {
+        this.jurusan = jurusan;
+    }
+
+    public String getKelas() {
+        return kelas;
+    }
+
+    public void setKelas(String kelas) {
+        this.kelas = kelas;
+    }
+
+    public Requests(String informasi, String pengirim, String imgUri, String topik, String tanggal, String kelas, String jurusan) {
         this.informasi = informasi;
         this.pengirim = pengirim;
         this.imgUri = imgUri;
         this.topik = topik;
         this.tanggal = tanggal;
+        this.kelas = kelas;
+        this.jurusan = jurusan;
     }
 
     public void setTopik(String topik) {
