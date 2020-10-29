@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg1"
-    tools:context=".activity.DetailSiswaActivity">
+    tools:context=".activity.ProfileUserActivity">
+
 
     <TextView
         android:id="@+id/profile_name"
@@ -40,7 +41,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_image"
+            android:id="@+id/profile_imaged"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_marginTop="30dp"
@@ -54,7 +55,7 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="326dp"
+        android:layout_width="336dp"
         android:layout_height="458dp"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="12dp"
@@ -69,8 +70,7 @@
             android:layout_height="match_parent">
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <LinearLayout                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
@@ -235,6 +235,38 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/ic_round_school_24"
+                        android:drawablePadding="5dp"
+                        android:fontFamily="@font/opensansergular"
+                        android:paddingLeft="5dp"
+                        android:text="Kelas"
+                        android:textColor="#000"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/profile_class"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/opensansergular"
+                        android:paddingLeft="36dp"
+                        android:text="XII TKJ 4"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/ic_baseline_phone_24"
                         android:drawablePadding="5dp"
                         android:fontFamily="@font/opensansergular"
@@ -303,7 +335,7 @@
                         android:drawablePadding="5dp"
                         android:fontFamily="@font/opensansergular"
                         android:paddingLeft="5dp"
-                        android:text="Sosial Media"
+                        android:text="Temukan aku"
                         android:textColor="#000"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -313,37 +345,39 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:id="@+id/buttonwhatsapp"
+                            android:id="@+id/buttonwhatsappd"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:padding="8dp"
+                            android:clickable="true"
                             android:src="@drawable/whatsapp"
                             android:layout_margin="5dp"/>
 
                         <ImageView
+                            android:id="@+id/profile_fbd"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:src="@drawable/facebook"
-                            android:onClick="gotoFb"
                             android:layout_margin="5dp"/>
 
                         <ImageView
+                            android:id="@+id/profile_igd"
                             android:layout_width="50dp"
                             android:padding="5dp"
                             android:layout_height="50dp"
                             android:src="@drawable/instagram"
-                            android:onClick="gotoIg"
                             android:layout_margin="5dp"
                             android:autoLink="web"
                             />
 
                         <ImageView
+                            android:id="@+id/profile_twitterd"
                             android:layout_width="50dp"
                             android:layout_height="50dp"
                             android:layout_margin="5dp"
                             android:padding="7dp"
-                            android:src="@drawable/twitter"
-                            android:onClick="gotoTw"/>
+                            android:clickable="true"
+                            android:src="@drawable/twitter" />
                     </LinearLayout>
 
                 </LinearLayout>

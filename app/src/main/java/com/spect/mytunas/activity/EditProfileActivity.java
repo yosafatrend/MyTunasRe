@@ -373,11 +373,11 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
             edtFb.setError("Mohon masukkan url dengan benar");
             edtFb.requestFocus();
         }
-        if (!ig.contains("instagram") && !fb.isEmpty()){
+        if (!ig.contains("instagram") && !ig.isEmpty()){
             edtIg.setError("Mohon masukkan url dengan benar");
             edtIg.requestFocus();
         }
-        if (!twt.contains("twitter") && !fb.isEmpty()){
+        if (!twt.contains("twitter") && !twt.isEmpty()){
             edtTwt.setError("Mohon masukkan url dengan benar");
             edtTwt.requestFocus();
         }

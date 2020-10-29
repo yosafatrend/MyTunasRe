@@ -3,14 +3,14 @@ package com.spect.mytunas.models;
 import java.io.Serializable;
 
 
-public class Requests implements Serializable {
+public class Announce implements Serializable {
     private String informasi;
     private String pengirim;
     private String imgUri;
     private String topik;
     private String tanggal;
 
-    public Requests(String informasi, String pengirim, String imgUri,String topik,String tanggal) {
+    public Announce(String informasi, String pengirim, String imgUri, String topik, String tanggal) {
         this.informasi = informasi;
         this.pengirim = pengirim;
         this.imgUri = imgUri;
@@ -64,6 +64,6 @@ public class Requests implements Serializable {
     public void setPengirim(String pengirim) {
         this.pengirim = pengirim;
     }
-    public Requests () {
+    public Announce() {
     }
 }

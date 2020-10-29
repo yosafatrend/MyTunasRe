@@ -53,7 +53,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
         if (getSupportActionBar() != null) {
             getSupportActionBar().setTitle(Html.fromHtml("<font color=\"#FFFFFF\">MyTunas</font>"));
 
-            FirebaseMessaging.getInstance().subscribeToTopic("news");
+            FirebaseMessaging.getInstance().subscribeToTopic("all");
 
             drawerLayout = findViewById(R.id.drawerLayout);
             NavigationView navigationView = (NavigationView) findViewById(R.id.drawer);
@@ -76,6 +76,7 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
                         CircleImageView imgUser = headerView.findViewById(R.id.imgUser);
                         navUsername.setText(snapshot.child("nama_lengkap").getValue().toString());
                         navNis.setText(snapshot.child("nis").getValue().toString());
+                        FirebaseMessaging.getInstance().subscribeToTopic(snapshot.child("kelas").getValue().toString().replaceAll("\\s+",""));
                         Glide.with(getApplicationContext())
                                 .load(snapshot.child("imgUri").getValue().toString()).into(imgUser);
                     }catch (Exception e){

@@ -6,7 +6,6 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,7 +17,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,11 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.spect.mytunas.R;
-import com.spect.mytunas.adapter.RequestAdapterRecyclerView;
 import com.spect.mytunas.adapter.UserSearchAdapter;
-import com.spect.mytunas.models.Requests;
 import com.spect.mytunas.models.Siswa;
-import com.spect.mytunas.models.User;
 
 import java.util.ArrayList;
 

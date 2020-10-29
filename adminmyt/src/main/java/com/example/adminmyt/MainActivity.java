@@ -52,16 +52,16 @@ import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     private DatabaseReference database;
-    private EditText edtInformasi,edtPengirim,edtTopik;
+    private EditText edtInformasi, edtPengirim, edtTopik;
     private ProgressDialog progressBar;
     private ImageView profilePics;
-    private Spinner spKelas,spJurusan;
-    private String sInfromasi,sPengirim,sPid,sTopik, profileImageUrl,sTanggal;
+    private Spinner spKelas, spJurusan;
+    private String sInfromasi, sPengirim, sPid, sTopik, profileImageUrl, sTanggal;
     private Button btnUpload, btnCancel;
-    private  StorageReference storageReference;
+    private StorageReference storageReference;
     private FirebaseStorage firebaseStorage;
     public Uri imageUri;
     private RequestQueue mRequestQue;
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMM yyyy", Locale.getDefault());
         sTanggal = dateFormat.format(date);
         spKelas.setEnabled(false);
-        spJurusan  = findViewById(R.id.edtjurusan);
+        spJurusan = findViewById(R.id.edtjurusan);
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(this, R.array.jurusan, android.R.layout.simple_spinner_item);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spJurusan.setAdapter(arrayAdapter);
@@ -101,31 +101,31 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String jurusan = spJurusan.getSelectedItem().toString();
-                if (jurusan.equals("Multimedia")){
+                if (jurusan.equals("Multimedia")) {
                     ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.mm, android.R.layout.simple_spinner_item);
                     setAdapterKelas(arrayAdapter);
-                }else if(jurusan.equals("Teknik Komputer dan Jaringan")){
+                } else if (jurusan.equals("Teknik Komputer dan Jaringan")) {
                     ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.tkj, android.R.layout.simple_spinner_item);
                     setAdapterKelas(arrayAdapter);
-                }else if(jurusan.equals("Broadcasting")){
+                } else if (jurusan.equals("Broadcasting")) {
                     ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.bc, android.R.layout.simple_spinner_item);
                     setAdapterKelas(arrayAdapter);
-                }else if(jurusan.equals("Teknik Pemesinan")){
+                } else if (jurusan.equals("Teknik Pemesinan")) {
                     ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.tpm, android.R.layout.simple_spinner_item);
                     setAdapterKelas(arrayAdapter);
-                }else if(jurusan.equals("Teknik Kendaraan Ringan")){
+                } else if (jurusan.equals("Teknik Kendaraan Ringan")) {
                     ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.tkr, android.R.layout.simple_spinner_item);
                     setAdapterKelas(arrayAdapter);
-                }else if(jurusan.equals("Teknik Pengelasan")){
+                } else if (jurusan.equals("Teknik Pengelasan")) {
                     ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.las, android.R.layout.simple_spinner_item);
                     setAdapterKelas(arrayAdapter);
-                }else if(jurusan.equals("Teknik Instalasi Tenaga Listrik")){
+                } else if (jurusan.equals("Teknik Instalasi Tenaga Listrik")) {
                     ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.titl, android.R.layout.simple_spinner_item);
                     setAdapterKelas(arrayAdapter);
-                }else if(jurusan.equals("Analisis Pengujian Laboratorium")){
+                } else if (jurusan.equals("Analisis Pengujian Laboratorium")) {
                     ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource(getApplicationContext(), R.array.apl, android.R.layout.simple_spinner_item);
                     setAdapterKelas(arrayAdapter);
-                }else{
+                } else {
                     spKelas.setEnabled(false);
 
                 }
@@ -156,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     Toast.makeText(MainActivity.this, snapshot.child("imgUri").getValue().toString(), Toast.LENGTH_SHORT).show();
                     Glide.with(getApplicationContext())
                             .load(snapshot.child("imgUri").getValue().toString()).into(profilePics);
-                }catch (Exception e){
+                } catch (Exception e) {
                     Toast.makeText(MainActivity.this, "Error : " + e, Toast.LENGTH_SHORT).show();
                 }
             }
@@ -169,14 +169,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
-        FirebaseMessaging.getInstance().subscribeToTopic("news");
+        // FirebaseMessaging.getInstance().subscribeToTopic("news");
         edtInformasi.setText(sInfromasi);
         edtPengirim.setText(sPengirim);
 
         edtPengirim.setText(sPengirim);
         edtInformasi.setText(sInfromasi);
 
-        if (sPid.equals("")){
+        if (sPid.equals("")) {
             btnUpload.setText("Save");
             btnCancel.setText("Cancel");
         } else {
@@ -201,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 String Stopik = edtTopik.getText().toString();
 
 
-                if (btnUpload.getText().equals("Save")){
+                if (btnUpload.getText().equals("Save")) {
                     // perintah save
 
                     if (Sinformasi.equals("")) {
@@ -216,15 +216,26 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                 "Please wait...",
                                 true,
                                 false);
+                        try {
+                            submitUser(new Requests(
+                                    Sinformasi,
+                                    Spengirim,
+                                    profileImageUrl,
+                                    Stopik,
+                                    sTanggal,
+                                    spKelas.getSelectedItem().toString(),
+                                    spJurusan.getSelectedItem().toString()));
+                        } catch (Exception e) {
+                            submitUser(new Requests(
+                                    Sinformasi,
+                                    Spengirim,
+                                    profileImageUrl,
+                                    Stopik,
+                                    sTanggal,
+                                    "all",
+                                    spJurusan.getSelectedItem().toString()));
+                        }
 
-                        submitUser(new Requests(
-                                Sinformasi.toLowerCase(),
-                                Spengirim.toLowerCase(),
-                                profileImageUrl,
-                                Stopik.toLowerCase(),
-                                sTanggal,
-                                spKelas.getSelectedItem().toString(),
-                                spJurusan.getSelectedItem().toString()));
 
                     }
                 } else {
@@ -242,8 +253,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                 true,
                                 false);
 
-                        editUser(new Requests( Sinformasi.toLowerCase(),Spengirim.toLowerCase(), profileImageUrl, Stopik.toLowerCase(),
-                                sTanggal,spKelas.getSelectedItem().toString(),spJurusan.getSelectedItem().toString()),sPid);
+                        editUser(new Requests(Sinformasi.toLowerCase(), Spengirim.toLowerCase(), profileImageUrl, Stopik.toLowerCase(),
+                                sTanggal, spKelas.getSelectedItem().toString(), spJurusan.getSelectedItem().toString()), sPid);
 
                     }
                 }
@@ -267,7 +278,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                                 @Override
                                 public void onSuccess(Void aVoid) {
                                     Toast.makeText(MainActivity.this, "data berhasil di hapus", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+                                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                                     startActivity(intent);
                                 }
                             });
@@ -292,11 +303,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         if (requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData() != null) {
             imageUri = data.getData();
-                profilePics.setImageURI(imageUri);
-                uploadImageToFirebaseStorage();
+            profilePics.setImageURI(imageUri);
+            uploadImageToFirebaseStorage();
 
-            }
         }
+    }
 
 
     private void uploadImageToFirebaseStorage() {
@@ -323,7 +334,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
                             }
                         });
-                       // Toast.makeText(MainActivity.this, "uplad sukses" + img, Toast.LENGTH_SHORT).show();
+                        // Toast.makeText(MainActivity.this, "uplad sukses" + img, Toast.LENGTH_SHORT).show();
                     }
                 }).addOnFailureListener(new OnFailureListener() {
             @Override
@@ -334,8 +345,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }).addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
             @Override
             public void onProgress(@NonNull UploadTask.TaskSnapshot taskSnapshot) {
-                double progressPercent = ( 100.00 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
-                progressDialog.setMessage("Progress : " + (int) progressPercent+ "%");
+                double progressPercent = (100.00 * taskSnapshot.getBytesTransferred() / taskSnapshot.getTotalByteCount());
+                progressDialog.setMessage("Progress : " + (int) progressPercent + "%");
             }
         });
     }
@@ -343,7 +354,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private void submitUser(Requests requests) {
         String info = edtInformasi.getText().toString();
-        sendNotification(info);
+        try {
+            sendNotification(info, spKelas.getSelectedItem().toString());
+        }catch (Exception e){
+            sendNotification(info, "all");
+
+        }
         database.child("Berita")
                 .push()
                 .setValue(requests)
@@ -358,7 +374,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         Toast.makeText(MainActivity.this,
                                 "Data Berhasil ditambahkan",
                                 Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(MainActivity.this,HomeActivity.class));
+                        startActivity(new Intent(MainActivity.this, HomeActivity.class));
 
                     }
 
@@ -381,28 +397,31 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                         Toast.makeText(MainActivity.this,
                                 "Data Berhasil diedit",
                                 Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(MainActivity.this,HomeActivity.class));
+                        startActivity(new Intent(MainActivity.this, HomeActivity.class));
 
                     }
 
                 });
     }
-    private void sendNotification(String info) {
+
+    private void sendNotification(String info, String tujuan) {
 
         JSONObject json = new JSONObject();
         try {
-            json.put("to","/topics/"+"news");
+            Toast.makeText(getApplicationContext(), tujuan, Toast.LENGTH_SHORT).show();
+            Log.d("TESS", tujuan);
+            json.put("to", "/topics/" + tujuan.replaceAll("\\s+", ""));
             JSONObject notificationObj = new JSONObject();
-            notificationObj.put("title","Pengumuman baru");
-            notificationObj.put("body",info);
+            notificationObj.put("title", "Pengumuman baru");
+            notificationObj.put("body", info);
 
             JSONObject extraData = new JSONObject();
-            extraData.put("brandId","puma");
-            extraData.put("category","Shoes");
+            extraData.put("brandId", "puma");
+            extraData.put("category", "Shoes");
 
 
-            json.put("notification",notificationObj);
-            json.put("data",extraData);
+            json.put("notification", notificationObj);
+            json.put("data", extraData);
 
 
             JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, URL,
@@ -416,26 +435,24 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    Log.d("MUR", "onError: "+error.networkResponse);
+                    Log.d("MUR", "onError: " + error.networkResponse);
                 }
             }
-            ){
+            ) {
                 @Override
                 public Map<String, String> getHeaders() throws AuthFailureError {
-                    Map<String,String> header = new HashMap<>();
-                    header.put("content-type","application/json");
-                    header.put("authorization","key=AAAA4LA8Of0:APA91bGx6AvObuyiS1Nzx3UsrfteKiYb2x7Te6ZXtKbbdH3e7prUp6wCVvfWFbIDltQE7-_9j3jqnUzZURJHxE-A3OrPk418MAiHgwUYOUMvvu-jpyPboH-bfxgbdg4CdgZrtO__EAZ8");
+                    Map<String, String> header = new HashMap<>();
+                    header.put("content-type", "application/json");
+                    header.put("authorization", "key=AAAA4LA8Of0:APA91bGx6AvObuyiS1Nzx3UsrfteKiYb2x7Te6ZXtKbbdH3e7prUp6wCVvfWFbIDltQE7-_9j3jqnUzZURJHxE-A3OrPk418MAiHgwUYOUMvvu-jpyPboH-bfxgbdg4CdgZrtO__EAZ8");
                     return header;
                 }
             };
             mRequestQue.add(request);
-        }
-        catch (JSONException e)
-
-        {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String text = parent.getItemAtPosition(position).toString();
@@ -446,7 +463,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-    private void setAdapterKelas(ArrayAdapter<CharSequence> arrayAdapter){
+    private void setAdapterKelas(ArrayAdapter<CharSequence> arrayAdapter) {
         spKelas.setEnabled(true);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spKelas.setAdapter(arrayAdapter);

@@ -1,11 +1,13 @@
 package com.spect.mytunas.adapter;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -13,9 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.spect.mytunas.R;
-import com.spect.mytunas.models.Requests;
+import com.spect.mytunas.activity.DetailSiswaActivity;
 import com.spect.mytunas.models.Siswa;
-import com.spect.mytunas.models.User;
 
 import java.util.List;
 
@@ -39,10 +40,32 @@ public class UserSearchAdapter extends RecyclerView.Adapter<UserSearchAdapter.My
     public void onBindViewHolder(@NonNull UserSearchAdapter.MyViewHolder holder, int position) {
         final Siswa siswa = userList.get(position);
 
+        Toast.makeText(mActivity, siswa.getUrlFb(), Toast.LENGTH_SHORT).show();
         holder.tvName.setText(siswa.getNama_lengkap());
         holder.tvNis.setText(siswa.getNis());
         Glide.with(mActivity)
                 .load(siswa.getImgUri()).into(holder.imgAvatar);
+        holder.listItem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(mActivity, DetailSiswaActivity.class);
+                i.putExtra("nama", siswa.getNama_lengkap());
+                i.putExtra("nis", siswa.getNis());
+                i.putExtra("email", siswa.getEmail());
+                i.putExtra("gender", siswa.getGender());
+                i.putExtra("jurusan", siswa.getJurusan());
+                i.putExtra("kelas", siswa.getKelas());
+                i.putExtra("alamat", siswa.getAlamat());
+                i.putExtra("status", siswa.getStatus());
+                i.putExtra("wa", siswa.getWa());
+                i.putExtra("fb", siswa.getUrlFb());
+                i.putExtra("ig", siswa.getUrlIg());
+                i.putExtra("twt", siswa.getUrlTwt());
+                i.putExtra("img", siswa.getImgUri());
+
+                mActivity.startActivity(i);
+            }
+        });
     }
 
     @Override

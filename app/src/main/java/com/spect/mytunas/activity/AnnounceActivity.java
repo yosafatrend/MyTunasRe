@@ -1,30 +1,24 @@
 package com.spect.mytunas.activity;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 
-import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.spect.mytunas.R;
-import com.spect.mytunas.adapter.RequestAdapterRecyclerView;
-import com.spect.mytunas.models.Requests;
+import com.spect.mytunas.adapter.AnnounceAdapter;
+import com.spect.mytunas.models.Announce;
 
 import java.util.ArrayList;
 
@@ -32,10 +26,10 @@ public class AnnounceActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     private DatabaseReference database;
 
-    private ArrayList<Requests> daftarReq;
-    private RequestAdapterRecyclerView requestAdapterRecyclerView;
+    private ArrayList<Announce> daftarReq;
+    private AnnounceAdapter requestAdapterRecyclerView;
 
-    private RecyclerView rc_list_request;
+    private RecyclerView rc_list_request, rc_announce_class;
     private ProgressDialog loading;
     private Toolbar toolbar;
 
@@ -53,19 +47,22 @@ public class AnnounceActivity extends AppCompatActivity {
         database = FirebaseDatabase.getInstance().getReference();
 
         rc_list_request = findViewById(R.id.recyclerView3);
+        rc_announce_class = findViewById(R.id.rvAnnClass);
 
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
+        RecyclerView.LayoutManager mLayoutManager2 = new LinearLayoutManager(getApplicationContext());
         rc_list_request.setLayoutManager(mLayoutManager);
         rc_list_request.setItemAnimator(new DefaultItemAnimator());
+        rc_announce_class.setLayoutManager(mLayoutManager2);
+        rc_announce_class.setItemAnimator(new DefaultItemAnimator());
 
         loading = ProgressDialog.show(AnnounceActivity.this,
                 null,
                 "Please wait...",
                 true,
                 false);
-
-        database.child("Berita").addValueEventListener(new ValueEventListener() {
+        database.child("Berita").orderByChild("kelas").equalTo( "all").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
@@ -79,7 +76,7 @@ public class AnnounceActivity extends AppCompatActivity {
                      * Dan juga menyimpan primary key pada object Wisata
                      * untuk keperluan Edit dan Delete data
                      */
-                    Requests requests = noteDataSnapshot.getValue(Requests.class);
+                    Announce requests = noteDataSnapshot.getValue(Announce.class);
                     requests.setKey(noteDataSnapshot.getKey());
 
 
@@ -94,7 +91,7 @@ public class AnnounceActivity extends AppCompatActivity {
                  * Inisialisasi adapter dan data hotel dalam bentuk ArrayList
                  * dan mengeset Adapter ke dalam RecyclerView
                  */
-                requestAdapterRecyclerView = new RequestAdapterRecyclerView(daftarReq, AnnounceActivity.this);
+                requestAdapterRecyclerView = new AnnounceAdapter(daftarReq, AnnounceActivity.this);
                 rc_list_request.setAdapter(requestAdapterRecyclerView);
                 loading.dismiss();
             }
@@ -110,6 +107,54 @@ public class AnnounceActivity extends AppCompatActivity {
                 loading.dismiss();
             }
         });
+
+        database.child("Berita").orderByChild("kelas").equalTo( "XII TKJ 4").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                /**
+                 * Saat ada data baru, masukkan datanya ke ArrayList
+                 */
+                daftarReq = new ArrayList<>();
+                for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()) {
+                    /**
+                     * Mapping data pada DataSnapshot ke dalam object Wisata
+                     * Dan juga menyimpan primary key pada object Wisata
+                     * untuk keperluan Edit dan Delete data
+                     */
+                    Announce requests = noteDataSnapshot.getValue(Announce.class);
+                    requests.setKey(noteDataSnapshot.getKey());
+
+
+                    /**
+                     * Menambahkan object Wisata yang sudah dimapping
+                     * ke dalam ArrayList
+                     */
+                    daftarReq.add(requests);
+                }
+
+                /**
+                 * Inisialisasi adapter dan data hotel dalam bentuk ArrayList
+                 * dan mengeset Adapter ke dalam RecyclerView
+                 */
+                requestAdapterRecyclerView = new AnnounceAdapter(daftarReq, AnnounceActivity.this);
+                rc_announce_class.setAdapter(requestAdapterRecyclerView);
+                loading.dismiss();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                /**
+                 * Kode ini akan dipanggil ketika ada error dan
+                 * pengambilan data gagal dan memprint error nya
+                 * ke LogCat
+                 */
+                System.out.println(databaseError.getDetails()+" "+databaseError.getMessage());
+                loading.dismiss();
+            }
+        });
+
+
     }
 
     public void onBack(View view) {

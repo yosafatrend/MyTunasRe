@@ -34,7 +34,7 @@ public class SplashScreen extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         runn(true);
                         String nis = snapshot.child("dummy").getValue().toString();
-                        Toast.makeText(SplashScreen.this, "Berhasil " + nis, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SplashScreen.this, "" + nis, Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

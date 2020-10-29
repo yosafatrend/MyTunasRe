@@ -121,6 +121,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView7">
+
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvAnnHome"
                     android:layout_width="match_parent"
@@ -163,6 +164,14 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
+            <ProgressBar
+                android:id="@+id/progressBarHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:indeterminateDrawable="@drawable/stylepb"
+                android:indeterminateDuration="@android:integer/config_mediumAnimTime"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
             <TextView
                 android:id="@+id/textView5"
                 android:layout_width="wrap_content"
@@ -176,93 +185,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
-            <HorizontalScrollView
-                android:id="@+id/horizontalScrollView2"
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvJobHome"
                 android:layout_width="match_parent"
-                android:layout_height="260dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                tools:listitem="@layout/item_job_home"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="230dp"
-                    android:layout_marginTop="30dp"
-                    android:orientation="horizontal"
-                    android:padding="12dp">
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="250dp"
-                        android:layout_height="200dp"
-                        android:padding="12dp"
-                        app:cardCornerRadius="8dp"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent">
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:background="@drawable/bg_oren"
-                            android:paddingRight="16dp"
-                            android:paddingLeft="16dp"
-                            android:paddingTop="12dp"
-                            android:paddingBottom="12dp" >
-
-                            <LinearLayout
-                                android:id="@+id/linearLayout1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/custom_home"
-                                android:orientation="horizontal"
-                                android:padding="14dp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent">
-
-                                <TextView
-                                    android:id="@+id/jobCompanyHome"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textSize="16sp"
-                                    android:textColor="#303030"
-                                    android:textStyle="bold"
-                                    android:fontFamily="@font/poppins"
-                                    android:text="PT Sejahtera Abadi" />
-                            </LinearLayout>
-
-                            <TextView
-                                android:id="@+id/jobNameHome"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="16dp"
-                                android:fontFamily="@font/poppinsbold"
-                                android:textStyle="bold"
-                                android:textColor="#303030"
-                                android:textSize="14sp"
-                                android:text="Android Developer"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/linearLayout1" />
-
-                            <LinearLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:background="@drawable/custom_home2"
-                                android:orientation="horizontal"
-                                android:padding="14dp"
-                                android:layout_marginTop="14dp"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/jobNameHome">
-
-                                <TextView
-                                    android:id="@+id/jobLocationHome"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/montserratmedium"
-                                    android:text="Jakarta"
-                                    android:textColor="#303030"
-                                    android:textSize="12sp" />
-                            </LinearLayout>
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
-            </HorizontalScrollView>
+                app:layout_constraintTop_toBottomOf="@+id/textView5">
+            </androidx.recyclerview.widget.RecyclerView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -371,18 +371,18 @@
                             android:layout_margin="5dp"/>
 
                     <ImageView
+                        android:id="@+id/profile_fb"
                         android:layout_width="50dp"
                         android:layout_height="50dp"
                         android:src="@drawable/facebook"
-                        android:onClick="gotoFb"
                         android:layout_margin="5dp"/>
 
                     <ImageView
+                        android:id="@+id/profile_ig"
                         android:layout_width="50dp"
                         android:padding="5dp"
                         android:layout_height="50dp"
                         android:src="@drawable/instagram"
-                        android:onClick="gotoIg"
                         android:layout_margin="5dp"
                         android:autoLink="web"
                         />
@@ -394,8 +394,7 @@
                         android:layout_margin="5dp"
                         android:padding="7dp"
                         android:clickable="true"
-                        android:src="@drawable/twitter"
-                        android:onClick="gotoTw"/>
+                        android:src="@drawable/twitter" />
                     </LinearLayout>
 
                 </LinearLayout>
