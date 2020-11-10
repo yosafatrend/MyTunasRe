@@ -8,6 +8,9 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
 import android.util.Patterns;
 import android.view.LayoutInflater;
@@ -33,7 +36,7 @@ import com.spect.mytunas.activity.DashboardActivity;
 public class LoginFragment extends Fragment {
     private TextInputEditText edtEmail, edtPass;
     private Button btnLogin;
-    private TextView tvForgotPass;
+    private TextView tvForgotPass, tvRegister;
     ProgressBar progressBar;
     FirebaseAuth mAuth;
 
@@ -55,7 +58,7 @@ public class LoginFragment extends Fragment {
         progressBar = v.findViewById(R.id.progressBar);
         progressBar.setVisibility(View.GONE);
         tvForgotPass = v.findViewById(R.id.textView);
-
+        tvRegister = v.findViewById(R.id.textViewRegister);
         tvForgotPass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +73,16 @@ public class LoginFragment extends Fragment {
             }
         });
 
+        final ViewPager pager = (ViewPager)getActivity().findViewById(R.id.viewPager);
+        tvRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pager.setCurrentItem(1);
+            }
+        });
         return v;
+
+
     }
 
     private void dialogForgotPassword() {

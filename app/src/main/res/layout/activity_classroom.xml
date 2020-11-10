@@ -74,7 +74,7 @@
                     android:drawablePadding="10dp"
                     android:fontFamily="@font/opensansergular"
                     android:onClick="onBack"
-                    android:text="Pengumuman"
+                    android:text="Kelas"
                     android:textColor="#fff"
                     android:textSize="17sp" />
 

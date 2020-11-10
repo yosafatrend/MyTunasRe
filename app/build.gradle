@@ -56,4 +56,5 @@ dependencies {
     implementation 'org.ocpsoft.prettytime:prettytime:4.0.1.Final'
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
     implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.sdsmdg.harjot:longshadows:1.0.1'
 }

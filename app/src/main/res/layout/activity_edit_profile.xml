@@ -2,9 +2,9 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/EditProfileActivity"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/EditProfileActivity"
     android:background="@drawable/bg2"
     tools:context=".activity.EditProfileActivity">
 
@@ -47,10 +47,10 @@
     </RelativeLayout>
 
     <androidx.cardview.widget.CardView
-        android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="12dp"
         app:cardCornerRadius="10dp"
@@ -95,8 +95,8 @@
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
                     android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
                     android:layout_marginEnd="12dp"
                     app:errorEnabled="true"
                     app:passwordToggleEnabled="true">
@@ -106,9 +106,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:enabled="false"
                         android:fontFamily="@font/opensanslight"
                         android:hint="Nama"
-                        android:enabled="false"
                         android:inputType="text"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -149,21 +149,21 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
+                        android:enabled="false"
                         android:fontFamily="@font/opensanslight"
                         android:hint="NIS"
-                        android:enabled="false"
                         android:inputType="number"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <LinearLayout
-                    android:background="@drawable/border"
                     android:id="@+id/edtJenkelLog"
                     android:layout_width="match_parent"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginBottom="12dp"
-                    android:layout_marginEnd="12dp"
                     android:layout_height="53dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/border"
                     android:orientation="vertical"
                     app:passwordToggleEnabled="true">
 
@@ -173,15 +173,15 @@
                         android:layout_marginStart="12dp"
                         android:fontFamily="@font/opensanslight"
                         android:text="Jenis Kelamin:"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp" />
 
                     <Spinner
                         android:id="@+id/spJenkelP"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical" />
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp" />
 
                     <android.widget.TextView
                         android:id="@+id/tvJenkelError"
@@ -190,20 +190,19 @@
                         android:layout_alignRight="@+id/spJenkelP"
                         android:layout_alignBottom="@+id/spJenkelP"
                         android:layout_marginTop="0dp"
-                        android:paddingTop="0dp"
-                        android:paddingRight="50dp"
                         android:focusable="true"
                         android:focusableInTouchMode="true"
-                        />
+                        android:paddingTop="0dp"
+                        android:paddingRight="50dp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:background="@drawable/border"
                     android:layout_width="match_parent"
+                    android:layout_height="53dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="12dp"
                     android:layout_marginBottom="12dp"
-                    android:layout_height="53dp"
+                    android:background="@drawable/border"
                     android:orientation="vertical"
                     app:passwordToggleEnabled="true">
 
@@ -213,15 +212,15 @@
                         android:layout_marginStart="12dp"
                         android:fontFamily="@font/opensanslight"
                         android:text="Status"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp" />
 
                     <Spinner
                         android:id="@+id/spStatusP"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical" />
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp" />
 
                     <android.widget.TextView
                         android:id="@+id/tvStatusError"
@@ -230,20 +229,19 @@
                         android:layout_alignRight="@+id/spJurusanP"
                         android:layout_alignBottom="@+id/spJurusanP"
                         android:layout_marginTop="0dp"
-                        android:paddingTop="0dp"
-                        android:paddingRight="50dp"
                         android:focusable="true"
                         android:focusableInTouchMode="true"
-                        />
+                        android:paddingTop="0dp"
+                        android:paddingRight="50dp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:background="@drawable/border"
                     android:layout_width="match_parent"
+                    android:layout_height="53dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="12dp"
                     android:layout_marginBottom="12dp"
-                    android:layout_height="53dp"
+                    android:background="@drawable/border"
                     android:orientation="vertical"
                     app:passwordToggleEnabled="true">
 
@@ -253,15 +251,15 @@
                         android:layout_marginStart="12dp"
                         android:fontFamily="@font/opensanslight"
                         android:text="Jurusan"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp" />
 
                     <Spinner
                         android:id="@+id/spJurusanP"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical" />
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp" />
 
                     <android.widget.TextView
                         android:id="@+id/tvJurusanError"
@@ -270,20 +268,19 @@
                         android:layout_alignRight="@+id/spJurusanP"
                         android:layout_alignBottom="@+id/spJurusanP"
                         android:layout_marginTop="0dp"
-                        android:paddingTop="0dp"
-                        android:paddingRight="50dp"
                         android:focusable="true"
                         android:focusableInTouchMode="true"
-                        />
+                        android:paddingTop="0dp"
+                        android:paddingRight="50dp" />
                 </LinearLayout>
 
                 <LinearLayout
-                    android:background="@drawable/border"
                     android:layout_width="match_parent"
+                    android:layout_height="53dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="12dp"
                     android:layout_marginBottom="12dp"
-                    android:layout_height="53dp"
+                    android:background="@drawable/border"
                     android:orientation="vertical"
                     app:passwordToggleEnabled="true">
 
@@ -293,15 +290,15 @@
                         android:layout_marginStart="12dp"
                         android:fontFamily="@font/opensanslight"
                         android:text="Kelas"
-                        android:textSize="16sp"/>
+                        android:textSize="16sp" />
 
                     <Spinner
                         android:id="@+id/spKelas"
-                        android:layout_marginStart="12dp"
-                        android:layout_marginEnd="12dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical" />
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp" />
 
                     <android.widget.TextView
                         android:id="@+id/tvKelasError"
@@ -310,41 +307,75 @@
                         android:layout_alignRight="@+id/spJurusanP"
                         android:layout_alignBottom="@+id/spJurusanP"
                         android:layout_marginTop="0dp"
-                        android:paddingTop="0dp"
-                        android:paddingRight="50dp"
                         android:focusable="true"
                         android:focusableInTouchMode="true"
-                        />
+                        android:paddingTop="0dp"
+                        android:paddingRight="50dp" />
                 </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtTeleponLog"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
-                    android:layout_marginEnd="12dp"
-                    app:errorEnabled="true"
-                    app:passwordToggleEnabled="true">
+                    android:fontFamily="@font/opensansbold"
+                    android:text="Telepon / Whatsapp"
+                    android:textSize="14sp" />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtTeleponP"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/edtkodenegara"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="55dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        app:errorEnabled="true"
+                        app:passwordToggleEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtkodeneg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/opensanslight"
+                            android:hint="+62"
+                            android:enabled="false"
+                            android:inputType="textPhonetic"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/edtTeleponLog"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/opensanslight"
-                        android:hint="Telepon / Whatsapp"
-                        android:inputType="number"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
+                        android:layout_marginStart="0dp"
+                        android:layout_marginEnd="12dp"
+                        app:errorEnabled="true"
+                        app:passwordToggleEnabled="true">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edtTeleponP"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:fontFamily="@font/opensanslight"
+                            android:inputType="number"
+                            android:textSize="16sp" />
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/edtAlamatLog"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="12dp"
-                    android:layout_height="wrap_content"
                     app:errorEnabled="true"
                     app:passwordToggleEnabled="true">
 
@@ -364,16 +395,16 @@
                     android:layout_marginStart="12dp"
                     android:fontFamily="@font/opensansbold"
                     android:text="Sosial Media (Opsional)"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/edtURLFbLog"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="12dp"
-                    android:layout_height="wrap_content"
                     app:errorEnabled="true"
                     app:passwordToggleEnabled="true">
 
@@ -392,9 +423,9 @@
                     android:id="@+id/edIgUserLog"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="12dp"
-                    android:layout_height="wrap_content"
                     app:errorEnabled="true"
                     app:passwordToggleEnabled="true">
 
@@ -405,7 +436,7 @@
                         android:layout_gravity="center_vertical"
                         android:fontFamily="@font/opensanslight"
                         android:hint="URL Profil Instagram "
-                        android:inputType="textUri"
+                        android:inputType="text"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -413,9 +444,9 @@
                     android:id="@+id/edtTwUserLog"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
                     android:layout_marginEnd="12dp"
-                    android:layout_height="wrap_content"
                     app:errorEnabled="true"
                     app:passwordToggleEnabled="true">
 
@@ -435,9 +466,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:background="@drawable/custombutton"
                     android:text="save"
                     android:textColor="#fff"
-                    android:background="@drawable/custombutton"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/edtNisP" />

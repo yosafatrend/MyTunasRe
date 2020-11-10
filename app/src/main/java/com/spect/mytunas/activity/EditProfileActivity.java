@@ -373,10 +373,7 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
             edtFb.setError("Mohon masukkan url dengan benar");
             edtFb.requestFocus();
         }
-        if (!ig.contains("instagram") && !ig.isEmpty()){
-            edtIg.setError("Mohon masukkan url dengan benar");
-            edtIg.requestFocus();
-        }
+
         if (!twt.contains("twitter") && !twt.isEmpty()){
             edtTwt.setError("Mohon masukkan url dengan benar");
             edtTwt.requestFocus();
@@ -405,6 +402,7 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
                 @Override
                 public void onSuccess(Void aVoid) {
                     progressBar.setVisibility(View.GONE);
+                    startActivity(new Intent(EditProfileActivity.this,ProfileUserActivity.class ));
                 }
             });
         }

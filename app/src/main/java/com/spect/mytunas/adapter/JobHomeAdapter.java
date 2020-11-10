@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -74,7 +75,7 @@ public class JobHomeAdapter extends RecyclerView.Adapter<JobHomeAdapter.MyViewHo
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView jobName, jobCompany, jobLocation;
-        ConstraintLayout cvJob;
+        LinearLayout cvJob;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);

@@ -8,9 +8,10 @@
     tools:context=".HomeActivity">
 
     <RelativeLayout
-        android:id="@+id/relativeLayout"
+        android:id="@+id/relativeLayout4"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -19,6 +20,17 @@
             android:layout_alignParentTop="true"
             android:background="@color/colorPrimary"
             android:minHeight="?actionBarSize">
+
+            <TextView
+                android:id="@+id/tvActionBar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/opensansbold"
+                android:text="AdminMyT"
+                android:textColor="#fff"
+                android:textSize="17sp" />
 
         </androidx.appcompat.widget.Toolbar>
     </RelativeLayout>

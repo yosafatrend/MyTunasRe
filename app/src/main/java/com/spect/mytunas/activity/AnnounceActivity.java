@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,6 +29,7 @@ public class AnnounceActivity extends AppCompatActivity {
 
     private ArrayList<Announce> daftarReq;
     private AnnounceAdapter requestAdapterRecyclerView;
+    private LinearLayout noAnnounceClass, noAnnounceAll;
 
     private RecyclerView rc_list_request, rc_announce_class;
     private ProgressDialog loading;
@@ -48,6 +50,8 @@ public class AnnounceActivity extends AppCompatActivity {
 
         rc_list_request = findViewById(R.id.recyclerView3);
         rc_announce_class = findViewById(R.id.rvAnnClass);
+        noAnnounceClass = findViewById(R.id.noAnnounceClass);
+        noAnnounceAll = findViewById(R.id.noAnnounceAll);
 
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -78,6 +82,13 @@ public class AnnounceActivity extends AppCompatActivity {
                      */
                     Announce requests = noteDataSnapshot.getValue(Announce.class);
                     requests.setKey(noteDataSnapshot.getKey());
+                    if (requests == null){
+                        rc_list_request.setVisibility(View.GONE);
+                        noAnnounceAll.setVisibility(View.VISIBLE);
+                    }else{
+                        rc_list_request.setVisibility(View.VISIBLE);
+                        noAnnounceAll.setVisibility(View.GONE);
+                    }
 
 
                     /**
@@ -123,6 +134,13 @@ public class AnnounceActivity extends AppCompatActivity {
                      * untuk keperluan Edit dan Delete data
                      */
                     Announce requests = noteDataSnapshot.getValue(Announce.class);
+                    if (requests == null){
+                        rc_announce_class.setVisibility(View.GONE);
+                        noAnnounceClass.setVisibility(View.VISIBLE);
+                    }else{
+                        rc_announce_class.setVisibility(View.VISIBLE);
+                        noAnnounceClass.setVisibility(View.GONE);
+                    }
                     requests.setKey(noteDataSnapshot.getKey());
 
 

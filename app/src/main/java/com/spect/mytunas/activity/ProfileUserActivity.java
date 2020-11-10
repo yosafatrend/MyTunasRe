@@ -156,7 +156,7 @@ public class ProfileUserActivity extends AppCompatActivity {
         } catch (ActivityNotFoundException e) {
 
             startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse(igLink)));
+                    Uri.parse("https://www.instagram.com/" +igLink + "/")));
         }
     }
 
@@ -168,7 +168,7 @@ public class ProfileUserActivity extends AppCompatActivity {
         try {
             getPackageManager().getPackageInfo("com.facebook.katana", 0);
             getPackageManager().getPackageInfo("com.facebook.lite", 0);
-            return new Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/100009462566593"));
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/"));
         } catch (Exception e) {
             return new Intent(Intent.ACTION_VIEW, Uri.parse(fbLink));
         }
@@ -176,7 +176,7 @@ public class ProfileUserActivity extends AppCompatActivity {
 
     public void gotoTw(String twtLink) {
         try {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=EArdinno")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=")));
         } catch (Exception e) {
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(twtLink)));
         }
@@ -184,9 +184,8 @@ public class ProfileUserActivity extends AppCompatActivity {
 
     private void startSupportChat(String number) {
         try {
-            String trimToNumner = "+6281392833720";
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("https://wa.me/" + number + "/?text=" + "Hello...."));
+            intent.setData(Uri.parse("https://wa.me/+62" + number + "/?text=" + "Hello...."));
             startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();

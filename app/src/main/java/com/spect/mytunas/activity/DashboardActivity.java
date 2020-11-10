@@ -151,7 +151,8 @@ public class DashboardActivity extends AppCompatActivity implements NavigationVi
             case R.id.nav_profile:
                 startActivity(new Intent(DashboardActivity.this, ProfileUserActivity.class));
                 break;
-            case R.id.nav_setting:
+            case R.id.nav_about:
+                startActivity(new Intent(DashboardActivity.this,AboutActivity.class));
                 break;
             case R.id.nav_Logout:
                 FirebaseAuth.getInstance().signOut();

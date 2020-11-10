@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
         android:fontFamily="@font/opensansbold"
-        android:text="Adminmyt"
+        android:text="AdminMyT"
         android:textColor="#fff"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"

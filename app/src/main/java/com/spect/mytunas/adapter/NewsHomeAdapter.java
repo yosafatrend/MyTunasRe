@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -59,7 +60,6 @@ public class NewsHomeAdapter extends RecyclerView.Adapter<NewsHomeAdapter.MyView
 
         Glide.with(context)
                 .load(model.getUrlToImage())
-                .centerCrop()
                 .into(holder.imageView);
         holder.title.setText(model.getTitle());
         holder.desc.setText(model.getDescription());
@@ -90,7 +90,7 @@ public class NewsHomeAdapter extends RecyclerView.Adapter<NewsHomeAdapter.MyView
 
         TextView title, desc;
         ImageView imageView;
-        ConstraintLayout itemNewsHome;
+        LinearLayout itemNewsHome;
         ProgressBar progressbar;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);

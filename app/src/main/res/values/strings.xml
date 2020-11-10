@@ -67,6 +67,19 @@ Dengan gelar itulah SMK Tunas Harapan Pati merasa tertantang untuk meningkatkan 
         \n-Bersedia ditempatkan di Jogja
     </string>
     <string name="tv_berita">Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet Lorem Ipsum dolor sit amet</string>
+    <string name="backend_leader"><![CDATA[Backend & Leader]]></string>
+    <string name="syarat"><![CDATA[Syarat & Ketentuan]]></string>
+    <string name="ketentuan">
+        1. Setiap user hanya diperbolehkan membuat 1 akun.
+        \n2. User di larang menggunakan NIS lain.
+        \n3. User harus menggunakan akun E-mail yang aktif.
+        \n4. Gunakanlah password yang kuat.</string>
+    <string name="kebijakan">1. Pemberitahuan kepada pengguna MyTunas.
+\n2. Perolehan dan pengumpulan data pribadi.
+\n3. pengggunaan data pribadi.
+\n4. Tindakan keamanaan  dan penyimpanan.
+\n5. Menjaga keamanan data anda.
+\n6. Penyimpanan dan  penghapusan data anda.</string>
     <string-array name="tempat_loker">
         <item>Pati, Jawa Tengah</item>
         <item>Kudus, Jawa Tengah</item>

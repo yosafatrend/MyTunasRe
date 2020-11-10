@@ -1,21 +1,28 @@
 package com.spect.mytunas.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.models.SlideModel;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.spect.mytunas.R;
 import com.spect.mytunas.Utils;
 import com.spect.mytunas.activity.AnnounceActivity;
+import com.spect.mytunas.activity.DashboardActivity;
 import com.spect.mytunas.adapter.AnnounceAdapter;
 import com.spect.mytunas.adapter.AnnounceHomeAdapter;
 import com.spect.mytunas.adapter.JobAdapter;
@@ -39,6 +47,7 @@ import com.spect.mytunas.models.Job;
 import com.spect.mytunas.models.News;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -60,7 +69,8 @@ public class HomeFragment extends Fragment {
     private AnnounceHomeAdapter announceHomeAdapter;
     private JobHomeAdapter jobHomeAdapter;
     private ProgressBar progressBar;
-
+    private LinearLayout noAnnounceHome;
+    private TextView tvBerita,tvPekerjaan,tvPengumuman;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -76,16 +86,48 @@ public class HomeFragment extends Fragment {
 
         recyclerView = v.findViewById(R.id.rvNewsHome);
         rvAnnounceHome = v.findViewById(R.id.rvAnnHome);
+        noAnnounceHome = v.findViewById(R.id.noAnnounceHome);
         rvJobHome = v.findViewById(R.id.rvJobHome);
         progressBar = v.findViewById(R.id.progressBarHome);
-
+        tvBerita = v.findViewById(R.id.homeberita);
+        tvPekerjaan = v.findViewById(R.id.homepekerjaan);
+        tvPengumuman = v.findViewById(R.id.homepengumuman);
         RecyclerView.LayoutManager mLayoutManagerJob = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         rvJobHome.setLayoutManager(mLayoutManagerJob);
         rvJobHome.setItemAnimator(new DefaultItemAnimator());
 
+        tvPengumuman.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               startActivity(new Intent(getActivity(),AnnounceActivity.class));
+
+            }
+        });
+        tvPekerjaan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                JobFragment llf = new JobFragment();
+                ft.replace(R.id.fragment_container, llf);
+                ft.commit();
+            }
+        });
+        tvBerita.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction ft = fm.beginTransaction();
+                NewsFragment llf = new NewsFragment();
+                ft.replace(R.id.fragment_container, llf);
+                ft.commit();
+            }
+        });
+
         getListJobLocation("kerja", "pati");
 
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getActivity());
+        mLayoutManager.setStackFromEnd(true);
         rvAnnounceHome.setLayoutManager(mLayoutManager);
         rvAnnounceHome.setItemAnimator(new DefaultItemAnimator());
 
@@ -96,11 +138,22 @@ public class HomeFragment extends Fragment {
                 for (DataSnapshot noteDataSnapshot : dataSnapshot.getChildren()) {
                     Announce requests = noteDataSnapshot.getValue(Announce.class);
                     requests.setKey(noteDataSnapshot.getKey());
+                    if (requests == null){
+                        rvAnnounceHome.setVisibility(View.GONE);
+                        tvPengumuman.setVisibility(View.GONE);
+                        noAnnounceHome.setVisibility(View.VISIBLE);
+                    }else{
+                        rvAnnounceHome.setVisibility(View.VISIBLE);
+                        tvPengumuman.setVisibility(View.VISIBLE);
+                        noAnnounceHome.setVisibility(View.GONE);
+                    }
                     daftarReq.add(requests);
+                    Collections.reverse(daftarReq);
                 }
                 announceHomeAdapter = new AnnounceHomeAdapter(daftarReq, getActivity());
                 rvAnnounceHome.setAdapter(announceHomeAdapter);
             }
+
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
@@ -201,5 +254,8 @@ public class HomeFragment extends Fragment {
                 Log.d("tagjob", "Code " + t.getMessage());
             }
         });
+
+
     }
+
 }

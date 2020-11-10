@@ -36,14 +36,15 @@
 
     <ScrollView
         android:id="@+id/scrollView2"
-        android:background="@drawable/layout3"
-        android:layout_marginTop="55dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="55dp"
+        android:background="@drawable/layout3">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:paddingBottom="12dp">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cradView"
@@ -86,7 +87,8 @@
                                 android:id="@+id/circleImage"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/mytunas" />
+                                android:padding="8dp"
+                                android:src="@drawable/sejarah" />
 
                         </androidx.cardview.widget.CardView>
 
@@ -96,9 +98,10 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
+                            android:layout_marginTop="6dp"
                             android:fontFamily="@font/opensansbold"
                             android:text="Sejarah sekolah"
-                            app:layout_constraintBottom_toTopOf="@id/desc"
+                            android:textSize="16sp"
                             app:layout_constraintStart_toEndOf="@id/view"
                             app:layout_constraintTop_toTopOf="@id/view" />
 
@@ -108,9 +111,12 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
-                            android:text="SMK Tunas Harapan"
+                            android:layout_marginTop="28dp"
+                            android:fontFamily="@font/ralewaymedium"
+                            android:text="SMK Tunas Harapan Pati"
+                            android:textSize="12sp"
                             app:layout_constraintStart_toEndOf="@id/view"
-                            app:layout_constraintTop_toBottomOf="@id/name" />
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <Button
                             android:id="@+id/arrowBtn"
@@ -146,9 +152,10 @@
                                 style="@style/TextAppearance.AppCompat.Medium"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
                                 android:justificationMode="inter_word"
                                 android:text="@string/sejarah"
-                                android:textSize="15sp"
+                                android:textSize="13sp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
@@ -200,7 +207,8 @@
                                 android:id="@+id/circleImage2"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/mytunas" />
+                                android:padding="8dp"
+                                android:src="@drawable/jur" />
 
                         </androidx.cardview.widget.CardView>
 
@@ -210,9 +218,10 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
+                            android:layout_marginTop="6dp"
                             android:fontFamily="@font/opensansbold"
                             android:text="Jurusan"
-                            app:layout_constraintBottom_toTopOf="@id/desc2"
+                            android:textSize="16sp"
                             app:layout_constraintStart_toEndOf="@id/view2"
                             app:layout_constraintTop_toTopOf="@id/view2" />
 
@@ -222,9 +231,12 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
-                            android:text="SMK Tunas Harapan"
+                            android:layout_marginTop="28dp"
+                            android:fontFamily="@font/ralewaymedium"
+                            android:text="SMK Tunas Harapan Pati"
+                            android:textSize="12sp"
                             app:layout_constraintStart_toEndOf="@id/view2"
-                            app:layout_constraintTop_toBottomOf="@id/name2" />
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <Button
                             android:id="@+id/arrowBtn2"
@@ -649,7 +661,8 @@
                                 android:id="@+id/circleImage3"
                                 android:layout_width="50dp"
                                 android:layout_height="50dp"
-                                android:src="@drawable/mytunas" />
+                                android:padding="8dp"
+                                android:src="@drawable/visi" />
 
                         </androidx.cardview.widget.CardView>
 
@@ -659,9 +672,10 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
+                            android:layout_marginTop="6dp"
                             android:fontFamily="@font/opensansbold"
                             android:text="Visi dan Misi"
-                            app:layout_constraintBottom_toTopOf="@id/desc3"
+                            android:textSize="16sp"
                             app:layout_constraintStart_toEndOf="@id/view3"
                             app:layout_constraintTop_toTopOf="@id/view3" />
 
@@ -671,9 +685,12 @@
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="12dp"
-                            android:text="SMK Tunas Harapan"
+                            android:layout_marginTop="28dp"
+                            android:fontFamily="@font/ralewaymedium"
+                            android:text="SMK Tunas Harapan Pati"
+                            android:textSize="12sp"
                             app:layout_constraintStart_toEndOf="@id/view3"
-                            app:layout_constraintTop_toBottomOf="@id/name3" />
+                            app:layout_constraintTop_toTopOf="parent" />
 
                         <Button
                             android:id="@+id/arrowBtn3"
@@ -708,7 +725,7 @@
                                 android:id="@+id/visi"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:fontFamily="@font/opensansergular"
+                                android:fontFamily="@font/poppins"
                                 android:text="VISI"
                                 android:textAlignment="center"
                                 android:textColor="#000"
@@ -722,6 +739,7 @@
                                 android:id="@+id/school"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/opensansergular"
                                 android:text="SMK Tunas Harapan Pati"
                                 android:textAlignment="center"
                                 android:textColor="#000"
@@ -738,9 +756,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
+                                android:fontFamily="@font/poppins"
                                 android:text="@string/visi"
                                 android:textAlignment="center"
-                                android:textSize="16sp"
+                                android:textSize="13sp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/school" />
@@ -750,7 +769,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="22dp"
-                                android:fontFamily="@font/opensansergular"
+                                android:fontFamily="@font/poppins"
                                 android:text="MISI"
                                 android:textAlignment="center"
                                 android:textColor="#000"
@@ -764,6 +783,7 @@
                                 android:id="@+id/school2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/opensansergular"
                                 android:text="SMK Tunas Harapan Pati"
                                 android:textAlignment="center"
                                 android:textColor="#000"
@@ -780,8 +800,9 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="15dp"
+                                android:fontFamily="@font/poppins"
                                 android:text="@string/misi"
-                                android:textSize="16sp"
+                                android:textSize="13sp"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/school2" />

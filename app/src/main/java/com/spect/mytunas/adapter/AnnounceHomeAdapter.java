@@ -24,7 +24,7 @@ public class AnnounceHomeAdapter extends RecyclerView.Adapter<AnnounceHomeAdapte
     private Activity mActivity;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public ConstraintLayout rl_layout;
+        public LinearLayout rl_layout;
         public TextView tvTitle, tvDesc;
 
         public MyViewHolder(View view) {

@@ -10,10 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.viewpager.widget.ViewPager;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -22,8 +26,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.spect.mytunas.R;
 import com.spect.mytunas.activity.DashboardActivity;
 import com.spect.mytunas.models.Siswa;
@@ -38,6 +45,7 @@ public class RegisterFragment extends Fragment {
     ProgressBar progressBar;
     private DatabaseReference Siswa;
     private FirebaseAuth mAuth;
+    private TextView tvLogin;
 
     public RegisterFragment() {
         // Required empty public constructor
@@ -58,11 +66,18 @@ public class RegisterFragment extends Fragment {
         progressBar = v.findViewById(R.id.progressBar);
         mAuth = FirebaseAuth.getInstance();
         progressBar.setVisibility(View.GONE);
-
+        tvLogin = v.findViewById(R.id.textViewLogin);
         btnRegist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registerUser();
+            }
+        });
+        final ViewPager pager = (ViewPager)getActivity().findViewById(R.id.viewPager);
+        tvLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               pager.setCurrentItem(0);
             }
         });
         return v;
@@ -105,6 +120,24 @@ public class RegisterFragment extends Fragment {
             edtPass.requestFocus();
             return;
         }
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("siswa");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot NisSnapshot : snapshot.getChildren()){
+                    if (nis.equals(NisSnapshot.child("nis").getValue().toString()) ){
+                        edtNis.setError("NIS sudah terdaftar");
+                        edtNis.requestFocus();
+                        return;
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         if (nis.isEmpty()){
             edtNis.setError("NIS perlu diisi");
             edtNis.requestFocus();
