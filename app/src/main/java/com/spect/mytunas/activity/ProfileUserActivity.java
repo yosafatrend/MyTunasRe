@@ -176,16 +176,16 @@ public class ProfileUserActivity extends AppCompatActivity {
 
     public void gotoTw(String twtLink) {
         try {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=")));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name="+twtLink)));
         } catch (Exception e) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(twtLink)));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/"+twtLink)));
         }
     }
 
     private void startSupportChat(String number) {
         try {
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("https://wa.me/+62" + number + "/?text=" + "Hello...."));
+            intent.setData(Uri.parse("https://wa.me/+62" + number + "/?text=" + "Hello.... "));
             startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();

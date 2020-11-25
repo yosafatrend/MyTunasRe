@@ -69,7 +69,7 @@ public class HomeFragment extends Fragment {
     private AnnounceHomeAdapter announceHomeAdapter;
     private JobHomeAdapter jobHomeAdapter;
     private ProgressBar progressBar;
-    private LinearLayout noAnnounceHome;
+    private LinearLayout noAnnounceHome,noJobHome;
     private TextView tvBerita,tvPekerjaan,tvPengumuman;
     public HomeFragment() {
         // Required empty public constructor
@@ -84,6 +84,7 @@ public class HomeFragment extends Fragment {
 
         database = FirebaseDatabase.getInstance().getReference();
 
+        noJobHome = v.findViewById(R.id.noJobHome);
         recyclerView = v.findViewById(R.id.rvNewsHome);
         rvAnnounceHome = v.findViewById(R.id.rvAnnHome);
         noAnnounceHome = v.findViewById(R.id.noAnnounceHome);
@@ -168,11 +169,11 @@ public class HomeFragment extends Fragment {
         LoadJson("");
 
         List<SlideModel> slideModels=new ArrayList<>();
-        slideModels.add(new SlideModel(R.drawable.foto_depan));
-        slideModels.add(new SlideModel("https://smkthpati.sch.id/images/berita/gb183.jpg"));
-        slideModels.add(new SlideModel("https://smkthpati.sch.id/images/galeri/gb184.jpg"));
-        slideModels.add(new SlideModel("https://smkthpati.sch.id/images/berita/gb178.jpg"));
-        slideModels.add(new SlideModel("https://smkthpati.sch.id/images/galeri/gb185.jpg"));
+        slideModels.add(new SlideModel("https://firebasestorage.googleapis.com/v0/b/mytunas-a90f2.appspot.com/o/Slider%2Fslider%201.jpg?alt=media&token=87cbc0d6-8e4e-46eb-8a37-8318ee2e1f62"));
+        slideModels.add(new SlideModel("https://firebasestorage.googleapis.com/v0/b/mytunas-a90f2.appspot.com/o/Slider%2Fslider%202.jpg?alt=media&token=81d92cdf-84c2-4566-80d1-a31075e2c6b1"));
+        slideModels.add(new SlideModel("https://firebasestorage.googleapis.com/v0/b/mytunas-a90f2.appspot.com/o/Slider%2Fslider%203.jpg?alt=media&token=ead6d61d-77cd-4a6d-a371-e4cc8bd18aa1"));
+        slideModels.add(new SlideModel("https://firebasestorage.googleapis.com/v0/b/mytunas-a90f2.appspot.com/o/Slider%2Fslider%204.jpg?alt=media&token=a035d78a-a7c4-49da-9914-ea7f8af768eb"));
+        slideModels.add(new SlideModel("https://firebasestorage.googleapis.com/v0/b/mytunas-a90f2.appspot.com/o/Slider%2Fslider%205.jpg?alt=media&token=0bcf7fdc-5625-44ec-b918-49e7f50765f1"));
         imageSlider.setImageList(slideModels,true);
         return v;
     }
@@ -239,7 +240,8 @@ public class HomeFragment extends Fragment {
                 progressBar.setVisibility(View.GONE);
                 if (!response.isSuccessful()) {
                     Log.d("tagjob", "Code " + response.code());
-                    Toast.makeText(getActivity(), "Jaringan anda jelek, mohon dicoba kembali " + response.code(), Toast.LENGTH_SHORT).show();
+                        noJobHome.setVisibility(View.VISIBLE);
+//                    Toast.makeText(getActivity(), "Jaringan anda jelek, mohon dicoba kembali " + response.code(), Toast.LENGTH_SHORT).show();
                     return;
                 }
                 jobs = response.body();
@@ -250,8 +252,8 @@ public class HomeFragment extends Fragment {
             @Override
             public void onFailure(Call<List<Job>> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(getContext(), "Error " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.d("tagjob", "Code " + t.getMessage());
+//                Toast.makeText(getContext(), "Error " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                Log.d("tagjob", "Code " + t.getMessage());
             }
         });
 

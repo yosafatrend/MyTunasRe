@@ -64,7 +64,6 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
         setContentView(R.layout.activity_edit_profile);
         mAuth = FirebaseAuth.getInstance();
 
-        textView = findViewById(R.id.textView6);
         editProfileActivity = findViewById(R.id.EditProfileActivity);
         tvJenkelError = findViewById(R.id.tvJenkelError);
         tvJurusanError = findViewById(R.id.tvJurusanError);
@@ -246,7 +245,7 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
         FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
             if (user.getPhotoUrl() != null) {
-                Toast.makeText(this, user.getPhotoUrl().toString(), Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(this, user.getPhotoUrl().toString(), Toast.LENGTH_SHORT).show();
                 Log.d("tag", "PhotoLink" +  user.getPhotoUrl().toString());
 //                Glide.with(this)
 //                        .load(user.getPhotoUrl().toString()).into(imageVew);
@@ -299,7 +298,7 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
                         Glide.with(getApplicationContext())
                                 .load(snapshot.child("imgUri").getValue().toString()).into(imageVew);
                     }catch (Exception e){
-                        Toast.makeText(getApplicationContext(),  ""+ e, Toast.LENGTH_SHORT);
+                     //   Toast.makeText(getApplicationContext(),  ""+ e, Toast.LENGTH_SHORT);
                     }
 
                 }
@@ -374,10 +373,6 @@ public class EditProfileActivity extends AppCompatActivity implements AdapterVie
             edtFb.requestFocus();
         }
 
-        if (!twt.contains("twitter") && !twt.isEmpty()){
-            edtTwt.setError("Mohon masukkan url dengan benar");
-            edtTwt.requestFocus();
-        }
 
         FirebaseUser user = mAuth.getCurrentUser();
 

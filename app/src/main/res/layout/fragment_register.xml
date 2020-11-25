@@ -111,7 +111,7 @@
                         android:layout_gravity="center_vertical"
                         android:fontFamily="@font/opensanslight"
                         android:hint="Nama Lengkap"
-                        android:inputType="text"
+                        android:inputType="textCapWords"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 

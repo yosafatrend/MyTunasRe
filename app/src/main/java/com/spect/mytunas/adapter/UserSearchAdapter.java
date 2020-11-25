@@ -40,7 +40,7 @@ public class UserSearchAdapter extends RecyclerView.Adapter<UserSearchAdapter.My
     public void onBindViewHolder(@NonNull UserSearchAdapter.MyViewHolder holder, int position) {
         final Siswa siswa = userList.get(position);
 
-        Toast.makeText(mActivity, siswa.getUrlFb(), Toast.LENGTH_SHORT).show();
+    //    Toast.makeText(mActivity, siswa.getUrlFb(), Toast.LENGTH_SHORT).show();
         holder.tvName.setText(siswa.getNama_lengkap());
         holder.tvNis.setText(siswa.getNis());
         Glide.with(mActivity)

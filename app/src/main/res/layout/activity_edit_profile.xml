@@ -27,7 +27,7 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="100dp"
-            android:src="#bababa"
+            android:src="@drawable/logo_tanpa_profil"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -53,6 +53,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="12dp"
         android:layout_marginBottom="12dp"
+        android:paddingBottom="12dp"
         app:cardCornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -435,7 +436,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:fontFamily="@font/opensanslight"
-                        android:hint="URL Profil Instagram "
+                        android:hint="Username Instagram "
                         android:inputType="text"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
@@ -456,8 +457,8 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:fontFamily="@font/opensanslight"
-                        android:hint="URL Profil Twitter "
-                        android:inputType="textUri"
+                        android:hint="Username Twitter "
+                        android:inputType="text"
                         android:textSize="16sp" />
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -466,23 +467,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_marginBottom="12dp"
                     android:background="@drawable/custombutton"
                     android:text="save"
                     android:textColor="#fff"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/edtNisP" />
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="verifikasi email"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/buttonsave"
-                    app:layout_constraintVertical_bias="0.117"
-                    tools:layout_editor_absoluteX="16dp" />
 
             </LinearLayout>
         </ScrollView>

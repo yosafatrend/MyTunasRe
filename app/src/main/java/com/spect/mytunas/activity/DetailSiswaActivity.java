@@ -14,12 +14,14 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.messaging.FirebaseMessaging;
 import com.spect.mytunas.R;
 
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -144,7 +146,7 @@ public class DetailSiswaActivity extends AppCompatActivity {
         } catch (ActivityNotFoundException e) {
 
             startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse(igLink)));
+                    Uri.parse("https://www.instagram.com/" +igLink + "/")));
         }
     }
 
@@ -156,7 +158,7 @@ public class DetailSiswaActivity extends AppCompatActivity {
         try {
             getPackageManager().getPackageInfo("com.facebook.katana", 0);
             getPackageManager().getPackageInfo("com.facebook.lite", 0);
-            return new Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/100009462566593"));
+            return new Intent(Intent.ACTION_VIEW, Uri.parse(fbLink));
         } catch (Exception e) {
             return new Intent(Intent.ACTION_VIEW, Uri.parse(fbLink));
         }
@@ -164,17 +166,18 @@ public class DetailSiswaActivity extends AppCompatActivity {
 
     public void gotoTw(String twtLink) {
         try {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name=EArdinno")));
+
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("twitter://user?screen_name="+twtLink)));
         } catch (Exception e) {
-            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(twtLink)));
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/" + twtLink)));
         }
     }
 
     private void startSupportChat(String number) {
         try {
-            String trimToNumner = "+6281392833720";
             Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse("https://wa.me/" + number + "/?text=" + "Hello...."));
+
+            intent.setData(Uri.parse("https://wa.me/+62" + number + "/?text=" + "Hai " + getIntent().getStringExtra("nama")));
             startActivity(intent);
         } catch (Exception e) {
             e.printStackTrace();

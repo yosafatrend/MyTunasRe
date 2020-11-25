@@ -4,6 +4,7 @@ import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -127,6 +128,7 @@ public class NewsFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         searchView.setSearchableInfo(searchManager.getSearchableInfo(getActivity().getComponentName()));
         searchView.setQueryHint("Search news..");
+        searchView.setInputType(InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {

@@ -46,10 +46,6 @@ Dengan gelar itulah SMK Tunas Harapan Pati merasa tertantang untuk meningkatkan 
     \n5. Membangun Mitra Kerja dalam Upaya Pemberdayaan  Masyarakat;
     \n6. Membudayakan Hidup Sehat  dan Peduli Lingkungan.
 </string>
-    <string name="deskripsi">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus facilisis risus viverra urna posuere,
-        nec blandit quam finibus. Vivamus a nunc id lectus mattis ornare eget nec dolor. In aliquam neque et imperdiet vulputate.
-        Ut condimentum quam ipsum, id tristique risus sagittis vitae.</string>
-
     <string name="isi1">Menambah fitur di Nutapos Apps \nMaintenance Nutapos Apps \nBug Fixing \nMampu membawa nutacloud ke arah yang lebih baik \nMembuat standar code yang baik dan rapi \nMembuat dokumentasi code dengan rapi</string>
     <string name="isi2">\n\nBenefit :
         \n
@@ -222,6 +218,89 @@ Dengan gelar itulah SMK Tunas Harapan Pati merasa tertantang untuk meningkatkan 
         <item>XII TKR 4</item>
         <item>XII TKR 5</item>
     </string-array>
-
+    <string name="deskripsi_jur"> Deskripsi Jurusan</string>
+    <string name="kompetensi"> Kompetensi Keahlian</string>
+    <string name="deskripsi_tkj"> Mendidik siswa dibidang teknologi informasi untuk menjadi tenaga yang handal di bidang Teknik Komputer Jaringan
+</string>
+    <string name="kompetensi_tkj">1. Merakit Komputer dan Laptop
+\n2. Service Komputer dan Laptop
+\n3. Jaringan LAN/ Kabel/ Fiber Optik
+\n4. Jaringan Wireless, Mikrotik dan Cisco
+\n5. Design Grafis
+\n6. Pemrograman
+\n7. Pembuatan Server
+\n8. Instalasi Sistem Operasi dan Aplikasi
+\n9. Design Warnet
+\n10. Service Peripheral Printer
+\n11. Operasional GPS
+</string>
+    <string name="deskripsi_mm">Mendidik siswa dibidang gambar. animasi. Audio video dan multimedia interaktif  untuk menjadi tenaga  yang handal di bidang Multimedia
+</string>
+    <string name="kompetensi_mm">1. Perakitan Komputer
+\n2. Desain Grafis dan Website
+\n3. Teknik Animasi 2 dan 3 Dimensi
+\n4. Fotografi
+\n5. Editing Audio Video
+\n6. Multimedia Interaktif CD Pembelajaran
+\n7. Game Android
+\n8. Augmented Reality (AR)
+\n9. Virtual Reality (VR)
+\n10. 3D Printing
+</string>
+    <string name="deskripsi_bc">Mendidik siswa dibidang perfilman yang diarahkan secara khusus menjadi sosok di balik layar produksi film.
+</string>
+    <string name="kompetensi_bc">1. Photography
+\n2. Produksi Film
+\n3. Sinematografi Dasar
+\n4. Tata Kamera, Suara, Artistik dan Cahaya
+\n5. Animasi
+\n6. Visual Effect
+\n7. Skenario Film
+\n8. Penyutradaraan
+\n9. Editing Video dan Audio
+</string>
+    <string name="deskripsi_toi">Menyiapkan tenaga kerja professional dibidang listrik dan otomasi sesuai dengan dunia usaha/ industry.
+</string>
+    <string name="kompetensi_toi">1. Dasar Listrik dan Elektronika
+\n2. Pengendali/ Kontrol Konvensional
+\n3. Instalasi Tenaga dan Penerangan
+\n4. Pengendali/ Kontrol Terprogram
+\n5. Pengendali/ Kontrol Konvensional
+\n6. Pengendali/ Kontrol Elektro Pneumatik
+\n7. Sensor dan Pengendali/ Kontrol Elektronika
+\n8. Robotika
+</string>
+    <string name="deskripsi_apl">Menyiapkan tenaga kerja professional tingkat madya dalam lingkup pengujian laboratorium kimia untuk dunia usaha/ industry.
+</string>
+    <string name="deskripsi_las">Menciptakan welder yang berkarakter dan siap dalam kompetisi global.
+</string>
+    <string name="kompetensi_las">1. Pemotongan dengan Las Asetilen
+\n2. Pengelasan dengan Las Asetilen
+\n3. Pengelasan dengan Las Busur Listrik/ SWAM
+\n4. Pengelasan dengan Las TIG/ ARGON
+\n5. Pengelasan dengan Las MIG/ MAG/ Co2/ GMAW
+\n6. Pemotongan dengan busur Plasma.
+</string>
+    <string name="deskripsi_tkr">Mencetak calon-calon mekanik yang handal dan profesional
+</string>
+    <string name="kompetensi_tkr">1. Perbaikan Sepeda Motor
+\n2. Perbaikan Motor Otomotif
+\n3. Perbaikan Chasis dan Pemindah Tenaga
+\n4. Perbaikan Sistem Kelistrikan Otomotif
+\n5. Over Haule Mesin
+\n6. Tune Up/ Konvensional
+\n7. Tune Up EFI
+</string>
+    <string name="deskripsi_mesin">Mencetak calon-calon mekanik yang handal dan profesional
+</string>
+    <string name="kompetensi_mesin">1. Membubut CNC dan Master Cam
+    \n2. Membubut Konvensional
+    \n3. Frais CNC dan Frais Konvensional
+    \n4. Gerinda Cilinder Atau Bulat/ Konvensional
+    \n5. Sloting (Membuat Spy pada lubang dalam)
+    \n6. Gambar pada Software CAD
+    \n7. Gambar Teknik
+    \n8. Proses Pengikiran
+    </string>
 
 </resources>

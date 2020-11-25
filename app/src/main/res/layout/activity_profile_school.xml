@@ -278,29 +278,78 @@
                                 android:layout_marginTop="8dp"
                                 android:text="1. Teknik Komputer dan Jaringan"
                                 android:textColor="#000"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/ralewaymedium"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <ImageView
-                                android:id="@+id/image"
-                                android:layout_width="wrap_content"
-                                android:layout_height="150dp"
+                            <com.denzcoskun.imageslider.ImageSlider
+                                android:id="@+id/slider_tkj"
+                                android:layout_width="0dp"
+                                android:layout_height="180dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                app:auto_cycle="true"
+                                app:corner_radius="40"
+                                app:delay="20"
                                 android:layout_marginTop="12dp"
-                                android:src="@drawable/tkj"
+                                app:error_image="@drawable/mytunas"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/phoneNumber2"
-                                tools:layout_editor_absoluteX="12dp" />
+                                app:period="3000"
+                                app:placeholder="@drawable/mytunas" />
 
                             <TextView
+                                android:id="@+id/desc_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="14dp"
+                                android:fontFamily="@font/opensansbold"
+                                android:justificationMode="inter_word"
+                                android:text="@string/deskripsi_jur"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:textSize="15sp"
+                                app:layout_constraintTop_toBottomOf="@+id/slider_tkj" />
+                            <TextView
+                                android:id="@+id/desc_tkj"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins"
+                                android:justificationMode="inter_word"
+                                android:text="@string/deskripsi_tkj"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:textSize="13sp"
+                                app:layout_constraintTop_toBottomOf="@+id/desc_1"/>
+                            <TextView
+                                android:id="@+id/komp_1"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="12dp"
+                                android:fontFamily="@font/opensansbold"
                                 android:justificationMode="inter_word"
-                                android:text="@string/deskripsi"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:text="@string/kompetensi"
                                 android:textSize="15sp"
-                                app:layout_constraintTop_toBottomOf="@+id/image" />
+                                app:layout_constraintTop_toBottomOf="@+id/desc_tkj"/>
+                            <TextView
+                                android:id="@+id/komp_tkj"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:justificationMode="inter_word"
+                                android:text="@string/kompetensi_tkj"
+                                android:textSize="13sp"
+                                app:layout_constraintTop_toBottomOf="@+id/komp_1"/>
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -322,29 +371,78 @@
                                 android:layout_marginTop="8dp"
                                 android:text="2. Multimedia"
                                 android:textColor="#000"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/ralewaymedium"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <ImageView
-                                android:id="@+id/image_mm"
-                                android:layout_width="wrap_content"
-                                android:layout_height="150dp"
+                            <com.denzcoskun.imageslider.ImageSlider
+                                android:id="@+id/slider_mm"
+                                android:layout_width="0dp"
+                                android:layout_height="180dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                app:auto_cycle="true"
+                                app:corner_radius="40"
+                                app:delay="20"
                                 android:layout_marginTop="12dp"
-                                android:src="@drawable/multimedia"
+                                app:error_image="@drawable/mytunas"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/multimedia"
-                                tools:layout_editor_absoluteX="12dp" />
+                                app:period="3000"
+                                app:placeholder="@drawable/mytunas" />
 
                             <TextView
+                                android:id="@+id/desc_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="14dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:fontFamily="@font/opensansbold"
+                                android:justificationMode="inter_word"
+                                android:text="@string/deskripsi_jur"
+                                android:textSize="15sp"
+                                app:layout_constraintTop_toBottomOf="@+id/slider_mm" />
+                            <TextView
+                                android:id="@+id/desc_mm"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:justificationMode="inter_word"
+                                android:text="@string/deskripsi_mm"
+                                android:textSize="13sp"
+                                app:layout_constraintTop_toBottomOf="@+id/desc_2"/>
+                            <TextView
+                                android:id="@+id/komp_2"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="12dp"
+                                android:fontFamily="@font/opensansbold"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
                                 android:justificationMode="inter_word"
-                                android:text="@string/deskripsi"
+                                android:text="@string/kompetensi"
                                 android:textSize="15sp"
-                                app:layout_constraintTop_toBottomOf="@+id/image_mm" />
+                                app:layout_constraintTop_toBottomOf="@+id/desc_mm"/>
+                            <TextView
+                                android:id="@+id/komp_mm"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:justificationMode="inter_word"
+                                android:text="@string/kompetensi_mm"
+                                android:textSize="13sp"
+                                app:layout_constraintTop_toBottomOf="@+id/komp_2"/>
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -366,29 +464,78 @@
                                 android:layout_marginTop="8dp"
                                 android:text="3. Broadcast"
                                 android:textColor="#000"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/ralewaymedium"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <ImageView
-                                android:id="@+id/image_bc"
-                                android:layout_width="wrap_content"
-                                android:layout_height="150dp"
+                            <com.denzcoskun.imageslider.ImageSlider
+                                android:id="@+id/slider_bc"
+                                android:layout_width="0dp"
+                                android:layout_height="180dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                app:auto_cycle="true"
+                                app:corner_radius="40"
+                                app:delay="20"
                                 android:layout_marginTop="12dp"
-                                android:src="@drawable/bc"
+                                app:error_image="@drawable/mytunas"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/broadcast"
-                                tools:layout_editor_absoluteX="12dp" />
+                                app:period="3000"
+                                app:placeholder="@drawable/mytunas" />
 
                             <TextView
+                                android:id="@+id/desc_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="14dp"
+                                android:fontFamily="@font/opensansbold"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:justificationMode="inter_word"
+                                android:text="@string/deskripsi_jur"
+                                android:textSize="15sp"
+                                app:layout_constraintTop_toBottomOf="@+id/slider_bc" />
+                            <TextView
+                                android:id="@+id/desc_bc"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins"
+                                android:justificationMode="inter_word"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:text="@string/deskripsi_bc"
+                                android:textSize="13sp"
+                                app:layout_constraintTop_toBottomOf="@+id/desc_3"/>
+                            <TextView
+                                android:id="@+id/komp_3"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="12dp"
+                                android:fontFamily="@font/opensansbold"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
                                 android:justificationMode="inter_word"
-                                android:text="@string/deskripsi"
+                                android:text="@string/kompetensi"
                                 android:textSize="15sp"
-                                app:layout_constraintTop_toBottomOf="@+id/image_bc" />
+                                app:layout_constraintTop_toBottomOf="@+id/desc_bc"/>
+                            <TextView
+                                android:id="@+id/komp_bc"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:justificationMode="inter_word"
+                                android:text="@string/kompetensi_bc"
+                                android:textSize="13sp"
+                                app:layout_constraintTop_toBottomOf="@+id/komp_3"/>
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -408,75 +555,80 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="4. Teknik Otomasi Industri"
+                                android:text="4. Teknik Instalasi Tenaga Listrik"
                                 android:textColor="#000"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/ralewaymedium"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <ImageView
-                                android:id="@+id/image_listrik"
-                                android:layout_width="wrap_content"
-                                android:layout_height="150dp"
+                            <com.denzcoskun.imageslider.ImageSlider
+                                android:id="@+id/slider_listrik"
+                                android:layout_width="0dp"
+                                android:layout_height="180dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                app:auto_cycle="true"
+                                app:corner_radius="40"
+                                app:delay="20"
                                 android:layout_marginTop="12dp"
-                                android:src="@drawable/listrik"
+                                app:error_image="@drawable/mytunas"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/listrik"
-                                tools:layout_editor_absoluteX="12dp" />
+                                app:period="3000"
+                                app:placeholder="@drawable/mytunas" />
 
                             <TextView
+                                android:id="@+id/desc_4"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="12dp"
+                                android:layout_marginTop="14dp"
+                                android:fontFamily="@font/opensansbold"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
                                 android:justificationMode="inter_word"
-                                android:text="@string/deskripsi"
+                                android:text="@string/deskripsi_jur"
                                 android:textSize="15sp"
-                                app:layout_constraintTop_toBottomOf="@+id/image_listrik" />
-
-                        </androidx.constraintlayout.widget.ConstraintLayout>
-
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/APL"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="12dp"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/TOI"
-                            tools:layout_editor_absoluteX="12dp">
-
+                                app:layout_constraintTop_toBottomOf="@+id/slider_listrik" />
                             <TextView
-                                android:id="@+id/kimia"
-                                style="@style/TextAppearance.AppCompat.Medium"
+                                android:id="@+id/desc_toi"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="8dp"
-                                android:text="5. Analisis Pengujian Laboratorium"
-                                android:textColor="#000"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
-
-                            <ImageView
-                                android:id="@+id/image_apl"
-                                android:layout_width="wrap_content"
-                                android:layout_height="150dp"
-                                android:layout_marginTop="12dp"
-                                android:src="@drawable/apl"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toBottomOf="@+id/kimia"
-                                tools:layout_editor_absoluteX="12dp" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="12dp"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins"
                                 android:justificationMode="inter_word"
-                                android:text="@string/deskripsi"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:text="@string/deskripsi_toi"
+                                android:textSize="13sp"
+                                app:layout_constraintTop_toBottomOf="@+id/desc_4"/>
+                            <TextView
+                                android:id="@+id/komp_4"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:fontFamily="@font/opensansbold"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:justificationMode="inter_word"
+                                android:text="@string/kompetensi"
                                 android:textSize="15sp"
-                                app:layout_constraintTop_toBottomOf="@+id/image_apl" />
+                                app:layout_constraintTop_toBottomOf="@+id/desc_toi"/>
+                            <TextView
+                                android:id="@+id/komp_toi"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:justificationMode="inter_word"
+                                android:text="@string/kompetensi_toi"
+                                android:textSize="13sp"
+                                app:layout_constraintTop_toBottomOf="@+id/komp_4"/>
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -487,7 +639,7 @@
                             android:layout_marginTop="12dp"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/APL"
+                            app:layout_constraintTop_toBottomOf="@+id/TOI"
                             tools:layout_editor_absoluteX="12dp">
 
                             <TextView
@@ -496,31 +648,80 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="6. Teknik Pengelasan"
+                                android:text="5. Teknik Pengelasan"
                                 android:textColor="#000"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/ralewaymedium"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <ImageView
-                                android:id="@+id/image_las"
-                                android:layout_width="wrap_content"
-                                android:layout_height="150dp"
+                            <com.denzcoskun.imageslider.ImageSlider
+                                android:id="@+id/slider_las"
+                                android:layout_width="0dp"
+                                android:layout_height="180dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                app:auto_cycle="true"
+                                app:corner_radius="40"
+                                app:delay="20"
                                 android:layout_marginTop="12dp"
-                                android:src="@drawable/las"
+                                app:error_image="@drawable/mytunas"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/pengelasan"
-                                tools:layout_editor_absoluteX="12dp" />
+                                app:period="3000"
+                                app:placeholder="@drawable/mytunas" />
 
                             <TextView
+                                android:id="@+id/desc_6"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="14dp"
+                                android:fontFamily="@font/opensansbold"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:justificationMode="inter_word"
+                                android:text="@string/deskripsi_jur"
+                                android:textSize="15sp"
+                                app:layout_constraintTop_toBottomOf="@+id/slider_las" />
+                            <TextView
+                                android:id="@+id/desc_las"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins"
+                                android:justificationMode="inter_word"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:text="@string/deskripsi_las"
+                                android:textSize="13sp"
+                                app:layout_constraintTop_toBottomOf="@+id/desc_6"/>
+                            <TextView
+                                android:id="@+id/komp_6"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="12dp"
+                                android:fontFamily="@font/opensansbold"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
                                 android:justificationMode="inter_word"
-                                android:text="@string/deskripsi"
+                                android:text="@string/kompetensi"
                                 android:textSize="15sp"
-                                app:layout_constraintTop_toBottomOf="@+id/image_las" />
+                                app:layout_constraintTop_toBottomOf="@+id/desc_las"/>
+                            <TextView
+                                android:id="@+id/komp_las"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins"
+                                android:justificationMode="inter_word"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:text="@string/kompetensi_las"
+                                android:textSize="13sp"
+                                app:layout_constraintTop_toBottomOf="@+id/komp_6"/>
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -540,31 +741,80 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="7. Teknik Kendaraan Ringan"
+                                android:text="6. Teknik Kendaraan Ringan"
                                 android:textColor="#000"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/ralewaymedium"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <ImageView
-                                android:id="@+id/image_tkr"
-                                android:layout_width="wrap_content"
-                                android:layout_height="150dp"
+                            <com.denzcoskun.imageslider.ImageSlider
+                                android:id="@+id/slider_tkr"
+                                android:layout_width="0dp"
+                                android:layout_height="180dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                app:auto_cycle="true"
+                                app:corner_radius="40"
+                                app:delay="20"
                                 android:layout_marginTop="12dp"
-                                android:src="@drawable/tkr"
+                                app:error_image="@drawable/mytunas"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/kendaraan"
-                                tools:layout_editor_absoluteX="12dp" />
+                                app:period="3000"
+                                app:placeholder="@drawable/mytunas" />
 
                             <TextView
+                                android:id="@+id/desc_7"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="14dp"
+                                android:fontFamily="@font/opensansbold"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:justificationMode="inter_word"
+                                android:text="@string/deskripsi_jur"
+                                android:textSize="15sp"
+                                app:layout_constraintTop_toBottomOf="@+id/slider_tkr" />
+                            <TextView
+                                android:id="@+id/desc_tkr"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins"
+                                android:justificationMode="inter_word"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:text="@string/deskripsi_tkr"
+                                android:textSize="13sp"
+                                app:layout_constraintTop_toBottomOf="@+id/desc_7"/>
+                            <TextView
+                                android:id="@+id/komp_7"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="12dp"
+                                android:fontFamily="@font/opensansbold"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
                                 android:justificationMode="inter_word"
-                                android:text="@string/deskripsi"
+                                android:text="@string/kompetensi"
                                 android:textSize="15sp"
-                                app:layout_constraintTop_toBottomOf="@+id/image_tkr" />
+                                app:layout_constraintTop_toBottomOf="@+id/desc_tkr"/>
+                            <TextView
+                                android:id="@+id/komp_tkr"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins"
+                                android:justificationMode="inter_word"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:text="@string/kompetensi_tkr"
+                                android:textSize="13sp"
+                                app:layout_constraintTop_toBottomOf="@+id/komp_7"/>
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -584,33 +834,151 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="8dp"
-                                android:text="8. Teknik Pemesinan"
+                                android:text="7. Teknik Pemesinan"
                                 android:textColor="#000"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/ralewaymedium"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toTopOf="parent" />
 
-                            <ImageView
-                                android:id="@+id/image_mesin"
-                                android:layout_width="wrap_content"
-                                android:layout_height="150dp"
+                            <com.denzcoskun.imageslider.ImageSlider
+                                android:id="@+id/slider_mesin"
+                                android:layout_width="0dp"
+                                android:layout_height="180dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                app:auto_cycle="true"
+                                app:corner_radius="40"
+                                app:delay="20"
                                 android:layout_marginTop="12dp"
-                                android:src="@drawable/mesin"
+                                app:error_image="@drawable/mytunas"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
                                 app:layout_constraintTop_toBottomOf="@+id/pemesinan"
-                                tools:layout_editor_absoluteX="12dp" />
+                                app:period="3000"
+                                app:placeholder="@drawable/mytunas" />
 
                             <TextView
+                                android:id="@+id/desc_8"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="14dp"
+                                android:fontFamily="@font/opensansbold"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:justificationMode="inter_word"
+                                android:text="@string/deskripsi_jur"
+                                android:textSize="15sp"
+                                app:layout_constraintTop_toBottomOf="@+id/slider_mesin" />
+                            <TextView
+                                android:id="@+id/desc_mesin"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins"
+                                android:justificationMode="inter_word"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:text="@string/deskripsi_mesin"
+                                android:textSize="13sp"
+                                app:layout_constraintTop_toBottomOf="@+id/desc_8"/>
+                            <TextView
+                                android:id="@+id/komp_8"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="12dp"
+                                android:fontFamily="@font/opensansbold"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
                                 android:justificationMode="inter_word"
-                                android:text="@string/deskripsi"
+                                android:text="@string/kompetensi"
                                 android:textSize="15sp"
-                                app:layout_constraintTop_toBottomOf="@+id/image_mesin" />
+                                app:layout_constraintTop_toBottomOf="@+id/desc_mesin"/>
+                            <TextView
+                                android:id="@+id/komp_mesin"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins"
+                                android:justificationMode="inter_word"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:text="@string/kompetensi_mesin"
+                                android:textSize="13sp"
+                                app:layout_constraintTop_toBottomOf="@+id/komp_8"/>
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/APL"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/MESIN"
+                            tools:layout_editor_absoluteX="12dp">
+
+                            <TextView
+                                android:id="@+id/kimia"
+                                style="@style/TextAppearance.AppCompat.Medium"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:text="8. Analisis Pengujian Laboratorium"
+                                android:textColor="#000"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:fontFamily="@font/ralewaymedium"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.denzcoskun.imageslider.ImageSlider
+                                android:id="@+id/slider_apl"
+                                android:layout_width="0dp"
+                                android:layout_height="180dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                app:auto_cycle="true"
+                                app:corner_radius="40"
+                                app:delay="20"
+                                android:layout_marginTop="12dp"
+                                app:error_image="@drawable/mytunas"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/kimia"
+                                app:period="3000"
+                                app:placeholder="@drawable/mytunas" />
+
+                            <TextView
+                                android:id="@+id/desc_5"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="14dp"
+                                android:fontFamily="@font/opensansbold"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:justificationMode="inter_word"
+                                android:text="@string/deskripsi_jur"
+                                android:textSize="15sp"
+                                app:layout_constraintTop_toBottomOf="@+id/slider_apl" />
+                            <TextView
+                                android:id="@+id/desc_apl"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginRight="16dp"
+                                android:layout_marginTop="6dp"
+                                android:fontFamily="@font/poppins"
+                                android:justificationMode="inter_word"
+                                android:text="@string/deskripsi_apl"
+                                android:textSize="13sp"
+                                app:layout_constraintTop_toBottomOf="@+id/desc_5"/>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>

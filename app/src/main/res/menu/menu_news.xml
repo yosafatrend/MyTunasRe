@@ -10,7 +10,7 @@
         />
     <item
         android:id="@+id/view_web"
-        android:title="Buka pake browser"
+        android:title="Buka dengan browser"
         app:showAsAction="never"/>
 
 </menu>

@@ -11,6 +11,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -43,6 +44,7 @@ public class JobFragment extends Fragment {
     private JobAdapter adapter;
     private ProgressBar progressBar;
     private Button btnJobSearch;
+    private LinearLayout noJob;
     private TextInputEditText edtJobName, edtJobLoc;
 
     public JobFragment() {
@@ -80,6 +82,7 @@ public class JobFragment extends Fragment {
         edtJobLoc = v.findViewById(R.id.edtJobLoc);
         btnJobSearch = v.findViewById(R.id.btnSearchJob);
         progressBar.setVisibility(View.VISIBLE);
+        noJob = v.findViewById(R.id.noJob);
         edtJobName.setText("");
         edtJobLoc.setText("");
         btnJobSearch.setOnClickListener(new View.OnClickListener() {
@@ -159,8 +162,10 @@ public class JobFragment extends Fragment {
                 progressBar.setVisibility(View.GONE);
                 if (!response.isSuccessful()) {
                     Log.d("tagjob", "Code " + response.code());
-                    Toast.makeText(getActivity(), "Jaringan anda jelek, mohon dicoba kembali " + response.code(), Toast.LENGTH_SHORT).show();
+                    noJob.setVisibility(View.VISIBLE);
+                  //  Toast.makeText(getActivity(), "Jaringan anda jelek, mohon dicoba kembali " + response.code(), Toast.LENGTH_SHORT).show();
                     return;
+
                 }
                 jobs = response.body();
                 adapter = new JobAdapter(jobs, getActivity(), getActivity());
@@ -170,8 +175,9 @@ public class JobFragment extends Fragment {
             @Override
             public void onFailure(Call<List<Job>> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(getContext(), "Error " + t.getMessage(), Toast.LENGTH_SHORT).show();
-                Log.d("tagjob", "Code " + t.getMessage());
+//                Toast.makeText(getContext(), "Error " + t.getMessage(), Toast.LENGTH_SHORT).show();
+//                Log.d("tagjob", "Code " + t.getMessage());
+
             }
         });
     }
