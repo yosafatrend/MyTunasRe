@@ -89,6 +89,7 @@ public class JobFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 progressBar.setVisibility(View.VISIBLE);
+                noJob.setVisibility(View.INVISIBLE);
                 if(edtJobName.getText().toString() != null && edtJobLoc.getText().toString() != null){
                     getListJobLocation(edtJobName.getText().toString(), edtJobLoc.getText().toString());
                 }
@@ -175,6 +176,7 @@ public class JobFragment extends Fragment {
             @Override
             public void onFailure(Call<List<Job>> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
+                noJob.setVisibility(View.VISIBLE);
 //                Toast.makeText(getContext(), "Error " + t.getMessage(), Toast.LENGTH_SHORT).show();
 //                Log.d("tagjob", "Code " + t.getMessage());
 

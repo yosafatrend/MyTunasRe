@@ -252,6 +252,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onFailure(Call<List<Job>> call, Throwable t) {
                 progressBar.setVisibility(View.GONE);
+                noJobHome.setVisibility(View.VISIBLE);
 //                Toast.makeText(getContext(), "Error " + t.getMessage(), Toast.LENGTH_SHORT).show();
 //                Log.d("tagjob", "Code " + t.getMessage());
             }
