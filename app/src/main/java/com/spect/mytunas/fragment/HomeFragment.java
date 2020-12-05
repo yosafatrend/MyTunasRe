@@ -227,7 +227,7 @@ public class HomeFragment extends Fragment {
     public void getListJobLocation(String jobName, String location) {
 
         final Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("https://job-api35.herokuapp.com/api/")
+                .baseUrl("https://api-loker.herokuapp.com/api/")
                 .addConverterFactory((GsonConverterFactory.create()))
                 .build();
 
