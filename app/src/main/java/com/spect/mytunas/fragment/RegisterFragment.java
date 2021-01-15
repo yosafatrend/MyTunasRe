@@ -41,7 +41,7 @@ import com.spect.mytunas.models.Siswa;
  */
 public class RegisterFragment extends Fragment {
     TextInputEditText edtNis, edtPass, edtNama, edtEmail;
-    Button btnRegist;
+    Button btnLogin;
     ProgressBar progressBar;
     private DatabaseReference Siswa;
     private FirebaseAuth mAuth;
@@ -58,16 +58,15 @@ public class RegisterFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_register, container, false);
 
-        btnRegist = v.findViewById(R.id.btnRegist);
-        edtNama = v.findViewById(R.id.edtNama);
+        btnLogin = v.findViewById(R.id.btnLogGuru);
         edtNis = v.findViewById(R.id.edtNis);
-        edtPass = v.findViewById(R.id.edtPass);
-        edtEmail = v.findViewById(R.id.edtEmail);
+        edtPass = v.findViewById(R.id.edtPassNip);
+        edtEmail = v.findViewById(R.id.edtNip);
         progressBar = v.findViewById(R.id.progressBar);
         mAuth = FirebaseAuth.getInstance();
         progressBar.setVisibility(View.GONE);
         tvLogin = v.findViewById(R.id.textViewLogin);
-        btnRegist.setOnClickListener(new View.OnClickListener() {
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 registerUser();

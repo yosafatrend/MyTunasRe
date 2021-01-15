@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/mytunas"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.AboutActivity"></activity>
+        <activity android:name=".activity.addAnnounce"></activity>
+        <activity android:name=".activity.AboutActivity" />
         <activity android:name=".activity.DetailSiswaActivity" />
         <activity android:name=".activity.JobDetailActivity" />
 

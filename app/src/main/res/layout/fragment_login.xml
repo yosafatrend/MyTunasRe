@@ -36,7 +36,7 @@
             app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edtPass"
+                android:id="@+id/edtPassNis"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -57,13 +57,13 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edtEmail"
+                    android:id="@+id/edtNis"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:fontFamily="@font/opensanslight"
                     android:textSize="16sp"
-                    android:hint="Email"
+                    android:hint="Nis"
                     android:inputType="textEmailAddress" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -90,33 +90,43 @@
                 app:layout_constraintStart_toStartOf="@+id/edtEmailLog"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/opensansergular"
-                android:text="Don't have an account?"
-                android:textSize="15dp"
-                app:layout_constraintEnd_toEndOf="@+id/btnLogin"
-                app:layout_constraintHorizontal_bias="0.281"
-                app:layout_constraintStart_toStartOf="@+id/btnLogin"
-                app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogin"
+                tools:layout_editor_absoluteX="14dp">
 
-            <TextView
-                android:id="@+id/textViewRegister"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/opensansergular"
-                android:text="Register"
-                android:textColor="@color/colorPrimary"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/btnLogin"
-                app:layout_constraintHorizontal_bias="0.103"
-                app:layout_constraintStart_toEndOf="@+id/textView2"
-                app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensansergular"
+                    android:text="Masuk akun guru?"
+                    android:textSize="15dp"
+                    app:layout_constraintEnd_toEndOf="@+id/btnLogin"
+                    app:layout_constraintHorizontal_bias="0.281"
+                    app:layout_constraintStart_toStartOf="@+id/btnLogin"
+                    app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+
+                <TextView
+                    android:id="@+id/textViewRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensansergular"
+                    android:text="Guru"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:layout_marginStart="4dp"
+                    app:layout_constraintEnd_toEndOf="@+id/btnLogin"
+                    app:layout_constraintHorizontal_bias="0.103"
+                    app:layout_constraintStart_toEndOf="@+id/textView2"
+                    app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

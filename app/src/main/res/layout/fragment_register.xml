@@ -23,142 +23,107 @@
             android:layout_height="match_parent"
             android:padding="14dp">
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/opensansergular"
-                android:text="Already registered?"
-                android:textSize="15dp"
-                app:layout_constraintEnd_toEndOf="@+id/btnRegist"
-                app:layout_constraintHorizontal_bias="0.359"
-                app:layout_constraintStart_toStartOf="@+id/btnRegist"
-                app:layout_constraintTop_toBottomOf="@+id/btnRegist" />
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogGuru"
+                tools:layout_editor_absoluteX="14dp">
 
-            <TextView
-                android:id="@+id/textViewLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="7dp"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/opensansergular"
-                android:text="Login"
-                android:textColor="@color/colorPrimary"
-                android:textSize="15dp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/textView3"
-                app:layout_constraintTop_toBottomOf="@+id/btnRegist" />
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensansergular"
+                    android:text="Masuk akun siswa?"
+                    android:textSize="15dp"
+                    app:layout_constraintEnd_toEndOf="@+id/btnRegist"
+                    app:layout_constraintHorizontal_bias="0.359"
+                    app:layout_constraintStart_toStartOf="@+id/btnRegist"
+                    app:layout_constraintTop_toBottomOf="@+id/btnRegist" />
+
+                <TextView
+                    android:id="@+id/textViewLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/opensansergular"
+                    android:text="Siswa"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/textView3"
+                    app:layout_constraintTop_toBottomOf="@+id/btnRegist" />
+            </LinearLayout>
 
             <Button
-                android:id="@+id/btnRegist"
+                android:id="@+id/btnLogGuru"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
                 android:background="@drawable/custombutton"
                 android:fontFamily="@font/opensansbold"
-                android:text="REGISTER"
+                android:text="Login"
                 android:textColor="#fff"
-                app:layout_constraintEnd_toEndOf="@+id/linearLayout"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/linearLayout"
-                app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edtPassLog"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                app:errorEnabled="true"
+                app:layout_constraintEnd_toEndOf="@+id/edtEmailLog"
+                app:layout_constraintStart_toStartOf="@+id/edtEmailLog"
+                app:layout_constraintTop_toBottomOf="@+id/edtEmailLog"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtPassNip"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/opensanslight"
+                    android:textSize="16sp"
+                    android:hint="Password"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/edtEmailLog"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:errorEnabled="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtNisLog"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edtNip"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    app:errorEnabled="true"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/opensanslight"
+                    android:textSize="16sp"
+                    android:hint="Nip"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtNis"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/opensanslight"
-                        android:hint="NIS"
-                        android:inputType="number"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtNamaLog"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    app:errorEnabled="true"
-                    app:layout_constraintEnd_toEndOf="@+id/edtNisLog"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edtNisLog">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtNama"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/opensanslight"
-                        android:hint="Nama Lengkap"
-                        android:inputType="textCapWords"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtEmailLog"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    app:errorEnabled="true"
-                    app:layout_constraintEnd_toEndOf="@+id/edtNisLog"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edtNamaLog">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtEmail"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/opensanslight"
-                        android:hint="Email"
-                        android:inputType="textEmailAddress"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/edtPassLog"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    app:errorEnabled="true"
-                    app:layout_constraintEnd_toEndOf="@+id/edtNisLog"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/edtEmailLog"
-                    app:passwordToggleEnabled="true">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/edtPass"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:fontFamily="@font/opensanslight"
-                        android:hint="Buat Password"
-                        android:inputType="textPassword"
-                        android:textSize="16sp" />
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="120dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/opensansergular"
+                android:text="Forgot Password?"
+                app:layout_constraintEnd_toEndOf="@+id/edtEmailLog"
+                app:layout_constraintTop_toBottomOf="@+id/edtPassLog" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </FrameLayout>

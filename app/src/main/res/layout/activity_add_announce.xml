@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.addAnnounce">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@color/colorPrimary"
+            android:minHeight="?actionBarSize">
+
+            <TextView
+                android:id="@+id/tvActionBar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:drawableLeft="@drawable/ic_baseline_arrow_back_ios_24"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/opensansergular"
+                android:onClick="onBack"
+                android:text="Admin MyTunas"
+                android:textColor="#fff"
+                android:textSize="17sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </RelativeLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/relativeLayout4"
+        tools:layout_editor_absoluteX="12dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/topik"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:padding="4dp"
+                android:text="Topik"
+                android:textColor="#3C3C3C"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/edtTopik"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/addannounce"
+                android:fontFamily="@font/poppins"
+                android:hint="Tambahkan judul pengumuman"
+                android:padding="8dp"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/topik" />
+
+            <TextView
+                android:id="@+id/deskripsi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins"
+                android:padding="4dp"
+                android:text="Deskripsi"
+                android:textColor="#3C3C3C"
+                android:textSize="17sp"
+                app:layout_constraintTop_toBottomOf="@+id/edtTopik"
+                tools:layout_editor_absoluteX="12dp" />
+
+            <EditText
+                android:id="@+id/edtDesc"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/addannounce"
+                android:fontFamily="@font/poppins"
+                android:gravity="top"
+                android:hint="Tulis detail pengumuman"
+                android:padding="8dp"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/deskripsi" />
+
+            <TextView
+                android:id="@+id/ditujukan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins"
+                android:padding="4dp"
+                android:text="Ditujukan"
+                android:textColor="#3C3C3C"
+                android:textSize="17sp"
+                app:layout_constraintTop_toBottomOf="@+id/edtDesc"
+                tools:layout_editor_absoluteX="12dp" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@+id/ditujukan"
+                tools:layout_editor_absoluteX="24dp">
+
+                <Spinner
+                    android:id="@+id/edtjurusan"
+                    android:layout_width="200dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="12dp"
+                    android:autofillHints="pilih jurusan"
+                    android:background="@drawable/addannounce" />
+
+                <Spinner
+                    android:id="@+id/edtkelas"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="12dp"
+                    android:background="@drawable/addannounce" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/lamp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppins"
+                android:padding="4dp"
+                android:text="Lampiran"
+                android:textColor="#3C3C3C"
+                android:textSize="17sp"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                tools:layout_editor_absoluteX="12dp" />
+
+            <TextView
+                android:id="@+id/edtlamp"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/addannounce"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:hint="Klik untuk menambahkan gambar "
+                android:padding="8dp"
+                android:textColor="#652828"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/lamp" />
+
+            <LinearLayout
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:orientation="horizontal"
+                android:padding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edtlamp">
+
+                <TextView
+                    android:layout_width="90dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:textAllCaps="false"
+                    android:gravity="center_horizontal"
+                    android:text="Cancel" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textAllCaps="false"
+                    android:background="@drawable/bg_oren"
+                    android:fontFamily="@font/poppins"
+                    android:text="Create" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -51,8 +51,8 @@ public class LoginFragment extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_login, container, false);
 
-        edtEmail = v.findViewById(R.id.edtEmail);
-        edtPass = v.findViewById(R.id.edtPass);
+        edtEmail = v.findViewById(R.id.edtNis);
+        edtPass = v.findViewById(R.id.edtPassNis);
         btnLogin = v.findViewById(R.id.btnLogin);
         mAuth = FirebaseAuth.getInstance();
         progressBar = v.findViewById(R.id.progressBar);

@@ -8,10 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +34,7 @@ public class AnnounceActivity extends AppCompatActivity {
     private LinearLayout noAnnounceClass, noAnnounceAll;
 
     private RecyclerView rc_list_request, rc_announce_class;
+    private FloatingActionButton fab_add;
     private ProgressDialog loading;
     private Toolbar toolbar;
 
@@ -52,6 +55,7 @@ public class AnnounceActivity extends AppCompatActivity {
         rc_announce_class = findViewById(R.id.rvAnnClass);
         noAnnounceClass = findViewById(R.id.noAnnounceClass);
         noAnnounceAll = findViewById(R.id.noAnnounceAll);
+        fab_add = findViewById(R.id.fab_add);
 
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
@@ -171,11 +175,16 @@ public class AnnounceActivity extends AppCompatActivity {
                 loading.dismiss();
             }
         });
-
-
+        fab_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // sendNotification();
+                startActivity(new Intent(AnnounceActivity.this, addAnnounce.class));
+            }
+        });
     }
 
     public void onBack(View view) {
         super.onBackPressed();
     }
-}
+        }
